@@ -1,0 +1,33 @@
+:root {
+  --Active-colour: #3C5408;
+  --buttom-color: #FAC136;
+  --ash-inactive-color: #F3F3F3; 
+
+}
+
+body {
+  font-family: Inter, 'sans-serif' !important;
+}
+
+.notification {
+  background-color: var(--Active-colour);
+  color: white;
+}
+
+.signup-top {
+  color: var(--buttom-color);
+}
+
+.social {
+  background-color: var(--buttom-color);
+  margin: 0 .5rem;
+  padding: .5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.nav-link {
+  font-weight: 600;
+}
