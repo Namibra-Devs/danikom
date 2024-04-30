@@ -28,6 +28,20 @@ body {
   text-align: center;
 }
 
-.nav-link {
-  font-weight: 600;
+.nav-link, .logo {
+  font-weight: 500 !important;
+  margin: 0 .5rem;
+}
+
+.navbar-toggler {
+  border: none !important;
+}
+.navbar-toggler:focus, .navbar-toggler:active, .navbar-toggler:hover {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.navbar-toggler-icon:focus, .navbar-toggler-icon:active, .navbar-toggler-icon:hover {
+  outline: none !important;
+  border: none !important;
 }
