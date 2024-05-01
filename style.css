@@ -45,3 +45,11 @@ body {
   outline: none !important;
   border: none !important;
 }
+
+.hero-header {
+  /* background-color: var(--ash-inactive-color); */
+}
+
+.details {
+  background-color: var(--Active-colour) !important;
+}
