@@ -59,10 +59,12 @@ main {
 
 }
 
-.rated p {
-  font-size: .9rem;
+.rated p, .ship p {
+  font-size: .8rem;
   margin-top: -.5rem;
 }
+
+
 
 .ratings {
   max-width: 100%;
