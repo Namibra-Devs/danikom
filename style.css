@@ -46,10 +46,33 @@ body {
   border: none !important;
 }
 
-.hero-header {
-  /* background-color: var(--ash-inactive-color); */
+main {
+  background-color: var(--ash-inactive-color);
 }
 
 .details {
   background-color: var(--Active-colour) !important;
+}
+
+.video-embeded {
+  border-radius: .55rem !important;
+
+}
+
+.rated p {
+  font-size: .9rem;
+  margin-top: -.5rem;
+}
+
+.ratings {
+  max-width: 100%;
+  max-height: 100%;
+  width: 3rem;
+  height: 3rem !important;
+  z-index: 10;
+}
+
+.rating {
+  margin-left: -.5rem !important;
+  z-index: 100;
 }
