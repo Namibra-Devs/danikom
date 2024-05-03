@@ -48,6 +48,7 @@ body {
 
 main {
   background-color: var(--ash-inactive-color);
+  padding-top: 9rem;
 }
 
 .details {
@@ -64,8 +65,6 @@ main {
   margin-top: -.5rem;
 }
 
-
-
 .ratings {
   max-width: 100%;
   max-height: 100%;
@@ -77,4 +76,23 @@ main {
 .rating {
   margin-left: -.5rem !important;
   z-index: 100;
+}
+
+.line {
+  margin-top: -.5rem;
+}
+
+a.details-products {
+  font-size: .8rem;
+}
+
+.card-text {
+  font-size: .85rem;
+}
+
+
+@media (max-width: 768px) {
+  main {
+    padding-top: 7rem;
+  }
 }
