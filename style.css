@@ -214,6 +214,10 @@ footer p, footer a {
   .accordion-item {
     margin: 1rem 0 !important;
   }
+
+  .copyright p {
+    font-size: .9rem !important;
+  }
   /* .sponsors-imgs {
     width: 15rem;
     height: 15rem;
