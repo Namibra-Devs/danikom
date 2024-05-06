@@ -79,8 +79,11 @@ main {
 }
 
 .rated-country p{
-  font-size: .8rem;
+  margin-bottom: -.3rem;
+}
 
+.rated-country span{
+  font-size: .8rem;
 }
 .rated-country p + p{
   font-size: .7rem;
@@ -110,6 +113,40 @@ a.details-products {
   height: 8rem;
   padding: 1rem;
 }
+
+.carousel-indicators {
+  position: relative !important;
+  display: flex;
+  justify-content: center;
+  margin-top: 20rem !important;
+}
+
+.carousel-indicators button {
+  margin: 0 5px !important;
+  border-radius: .5rem !important;
+  width: 3rem !important;
+  height: .4rem !important;
+  border: 0 !important;
+  background: hsla(0, 0%, 0%, 0.5) !important;
+
+  /* background: var(--ash-inactive-color) !important; */
+}
+
+.carousel-indicators button.active {
+  background-color: var(--Active-colour) !important;
+}
+
+.rounded-right-pill {
+  background-color: var(--Active-colour) !important;
+  border-top-right-radius: 10rem !important;
+  border-bottom-right-radius: 10rem !important;
+
+}
+
+.rated-number {
+  font-weight:500 !important;
+}
+
 
 @media (max-width: 768px) {
   main {
