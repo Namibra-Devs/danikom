@@ -46,9 +46,14 @@ body {
   border: none !important;
 }
 
+/* Home Page Main Style */
 main {
   background-color: var(--ash-inactive-color);
   padding-top: 9rem;
+}
+
+.main {
+  padding-top: 8rem !important;
 }
 
 .details {
@@ -206,9 +211,38 @@ footer p, footer a {
 }
 
 
+/* About Page Styling */
+.about-header {
+  margin-top: 0;
+  background-image: url('./public/src/img/header-imgs/aboutheader.png');
+  /* background-origin: content-box; */
+  background-repeat: no-repeat;
+  background-size: auto;
+  padding: 5rem 0;
+}
+
+.about-header p {
+  margin-top: -.5rem !important;
+}
+
+.team-name {
+  color: var(--Active-colour);
+  font-weight: 500 !important;
+}
+
+@media (min-width: 769px) and (max-width: 998px) {
+  .main {
+    padding-top: 6rem !important;
+  }
+}
+
 @media (max-width: 768px) {
   main {
     padding-top: 7rem;
+  }
+
+  .main {
+    padding-top: 6rem !important;
   }
 
   .accordion-item {
