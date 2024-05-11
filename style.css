@@ -52,6 +52,14 @@ main {
   padding-top: 9rem;
 }
 
+form {
+  box-shadow: none !important;
+}
+
+button {
+  box-shadow: none !important;
+}
+
 .main {
   padding-top: 8rem !important;
 }
@@ -273,7 +281,7 @@ footer p, footer a {
   color: var(--Active-colour) !important;
   border-radius: .5rem !important;
 }
-.buy-btn {
+.buy-btn, .btn-send {
   color: var(--buttom-color) !important;
   background-color: var(--Active-colour) !important;
   border-radius: .5rem !important;
@@ -303,6 +311,7 @@ footer p, footer a {
   background-color: transparent !important;
   color: black !important;
   border-radius: 0 !important;
+  box-shadow: none !important;
 }
 
 .products-links ul li button.active {
@@ -395,6 +404,17 @@ td p {
   height: 5rem !important;
 }
 
+
+/* Contact */
+.address-section {
+  background-color: var(--Active-colour);
+  border-radius: .8rem;
+}
+
+.modal {
+  justify-content: center !important;
+  align-items: center !important;
+}
 
 @media (min-width: 769px) and (max-width: 998px) {
   .main {
