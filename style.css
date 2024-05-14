@@ -416,6 +416,71 @@ td p {
   align-items: center !important;
 }
 
+.btn-login {
+  border-radius: 1rem !important;
+  background-color: var(--Active-colour) !important;
+  width: 20rem;
+}
+
+.singup-form input[type="text"], .singup-form input[type="email"] {
+  border-radius: 1rem !important;
+  box-shadow: none !important;
+  border-width: .1rem;
+}
+
+.input-group {
+  border: .1rem solid #dedddd;
+  border-radius: 1rem;
+  box-shadow: none !important;
+}
+
+.input-group input {
+  border-radius: 1rem !important;
+  border-width: .1rem !important;
+  border: 0 !important;
+  box-shadow: none !important;
+
+}
+
+
+.input-group span {
+  background-color: transparent !important;
+  border: 0 !important;
+}
+
+.singup-form input:active, .singup-form input:focus, div.input-group:focus-within, div.input-group:active {
+  border: .1rem solid var(--Active-colour);
+}
+.terms-conditions, .privicy-terms {
+  color: var(--Active-colour) !important;
+}
+
+.remember span, .remember a {
+  font-size: .85rem;
+}
+
+.or-signup {
+  font-size: .85rem;
+}
+
+.google-signup {
+  border: .1rem solid var(--Active-colour) !important;
+  border-radius: 1rem !important;
+  width: 20rem;
+}
+.btn-transparent {
+  /* background-color: transparent; */
+  color: var(--Active-colour);
+}
+
+.signin-link {
+  color: var(--Active-colour);
+}
+.signin-link:hover, .signin-link:active {
+  color: var(--Active-colour);
+}
+
+
 @media (min-width: 769px) and (max-width: 998px) {
   .main {
     padding-top: 6rem !important;
@@ -438,6 +503,10 @@ td p {
 
   .copyright p {
     font-size: .9rem !important;
+  }
+
+  .btn-login, .google-signup {
+    width: 100%;
   }
   /* .sponsors-imgs {
     width: 15rem;
