@@ -1,6 +1,6 @@
 :root {
   --Active-colour: #3C5408;
-  --buttom-color: #FAC136;
+  --button-color: #FAC136;
   --ash-inactive-color: #F3F3F3; 
 
 }
@@ -15,11 +15,11 @@ body {
 }
 
 .signup-top {
-  color: var(--buttom-color);
+  color: var(--button-color);
 }
 
 .social {
-  background-color: var(--buttom-color);
+  background-color: var(--button-color);
   margin: 0 .5rem;
   padding: .5rem;
   width: 2.5rem;
@@ -56,8 +56,12 @@ form {
   box-shadow: none !important;
 }
 
-button {
+button, a {
   box-shadow: none !important;
+}
+
+a:hover {
+  color: inherit !important;
 }
 
 .main {
@@ -186,11 +190,11 @@ a.details-products {
 }
 .accordion-button:not(.collapsed):after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='yellow' class='bi bi-dash' viewBox='0 0 16 16'%3E%3Cpath d='M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8'/%3E%3C/svg%3E") !important;
-  color: var(--buttom-color) !important;
+  color: var(--button-color) !important;
 }
 
 .trackorder{
-  background-color: var(--buttom-color) !important;
+  background-color: var(--button-color) !important;
   color: var(--Active-colour) !important;
   border-radius: .5rem !important;
 }
@@ -210,7 +214,7 @@ footer p, footer a {
 }
 
 .copyright {
-  background-color: var(--buttom-color) !important;
+  background-color: var(--button-color) !important;
   width: 100% !important;
 }
 
@@ -277,12 +281,12 @@ footer p, footer a {
 
 
 .cart-btn {
-  background-color: var(--buttom-color) !important;
+  background-color: var(--button-color) !important;
   color: var(--Active-colour) !important;
   border-radius: .5rem !important;
 }
 .buy-btn, .btn-send {
-  color: var(--buttom-color) !important;
+  color: var(--button-color) !important;
   background-color: var(--Active-colour) !important;
   border-radius: .5rem !important;
 }
@@ -347,7 +351,7 @@ table, thead {
 }
 
 table th {
-  background-color: var(--buttom-color) !important;
+  background-color: var(--button-color) !important;
   color: var(--Active-colour) !important;
 }
 
@@ -368,6 +372,27 @@ td p {
 
 .top-ratings span {
   font-size: .8rem;
+}
+
+.shipment-type {
+  font-size: .8rem;
+}
+
+.order-summary {
+  border: 1.5px solid var(--Active-colour);
+  border-radius: .5rem;
+  padding: .5rem;
+}
+
+a.billing {
+  background-color: var(--Active-colour);
+  color: var(--ash-inactive-color);
+  border-radius: .5rem;
+  padding: .5rem 4rem;
+}
+
+a.billing:hover {
+  color: var(--button-color) !important;
 }
 
 .rate-count.count {
@@ -422,7 +447,7 @@ td p {
   width: 20rem;
 }
 
-.singup-form input[type="text"], .singup-form input[type="email"] {
+.singup-form input[type="text"], .singup-form input[type="email"], input[type="tel"] {
   border-radius: 1rem !important;
   box-shadow: none !important;
   border-width: .1rem;
@@ -480,6 +505,20 @@ td p {
   color: var(--Active-colour);
 }
 
+.order-note {
+  color: var(--Active-colour);
+}
+
+
+/* Order status */
+.status, .date, .time {
+  font-size: .6rem;
+  margin-top: -.5rem;
+}
+
+.productcart-img {
+  width: 5rem;
+}
 
 @media (min-width: 769px) and (max-width: 998px) {
   .main {

@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/style.css" />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
+  <!-- Inter Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
+
+  <!-- JS -->
+  <script src="/main.js" defer></script>
+  <script src="https://kit.fontawesome.com/7b3b6f7f8f.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+  <title>Danikom Trading</title>
+</head>
+
+<body>
+
+  <div class="fixed-top">
+
+    <!-- Notification/Highlighted top navbar -->
+    <div class="notification">
+      <div class="container d-lg-flex d-none justify-content-between align-items-center w-100 py-3">
+        <div class="contact">
+          Contact US: <span id="contact">+233(0) 24 662 6516</span>
+        </div>
+        <div class="signup">
+          Sign up and be part of the family.
+          <a href="./signup.html" class="signup-top">Sign up now</a>
+        </div>
+        <div class="socials d-flex justify-content-center">
+          <div class="social">
+            <a href="#">
+              <svg width="18" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M16.9397 0.291885H1.81293C1.11981 0.291885 0.556641 0.862928 0.556641 1.56393V16.6631C0.556641 17.3641 1.11981 17.9351 1.81293 17.9351H16.9397C17.6328 17.9351 18.1999 17.3641 18.1999 16.6631V1.56393C18.1999 0.862928 17.6328 0.291885 16.9397 0.291885ZM5.889 15.4147H3.27402V6.99474H5.89293V15.4147H5.889ZM4.58151 5.84478C3.74266 5.84478 3.06529 5.16347 3.06529 4.32857C3.06529 3.49366 3.74266 2.81235 4.58151 2.81235C5.41641 2.81235 6.09772 3.49366 6.09772 4.32857C6.09772 5.16741 5.42035 5.84478 4.58151 5.84478ZM15.6912 15.4147H13.0763V11.3189C13.0763 10.3422 13.0566 9.08594 11.7176 9.08594C10.3549 9.08594 10.1462 10.1493 10.1462 11.248V15.4147H7.53124V6.99474H10.0399V8.1447H10.0753C10.4258 7.48308 11.2804 6.78602 12.5525 6.78602C15.199 6.78602 15.6912 8.53065 15.6912 10.7991V15.4147Z"
+                  fill="black" />
+              </svg>
+            </a>
+          </div>
+          <div class="social">
+            <a href="#">
+              <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M16.9837 9.11351C16.9837 5.05557 13.6903 1.76216 9.63236 1.76216C5.57441 1.76216 2.28101 5.05557 2.28101 9.11351C2.28101 12.6716 4.80987 15.6342 8.16209 16.3178V11.3189H6.69182V9.11351H8.16209V7.27567C8.16209 5.85686 9.31625 4.7027 10.7351 4.7027H12.5729V6.90811H11.1026C10.6983 6.90811 10.3675 7.23892 10.3675 7.64324V9.11351H12.5729V11.3189H10.3675V16.4281C14.0799 16.0605 16.9837 12.9289 16.9837 9.11351Z"
+                  fill="black" />
+              </svg>
+            </a>
+          </div>
+          <div class="social">
+            <a href="#">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M8.8865 6.72432C8.25285 6.72432 7.64515 6.97604 7.19709 7.4241C6.74903 7.87216 6.49731 8.47986 6.49731 9.11351C6.49731 9.74716 6.74903 10.3549 7.19709 10.8029C7.64515 11.251 8.25285 11.5027 8.8865 11.5027C9.52016 11.5027 10.1279 11.251 10.5759 10.8029C11.024 10.3549 11.2757 9.74716 11.2757 9.11351C11.2757 8.47986 11.024 7.87216 10.5759 7.4241C10.1279 6.97604 9.52016 6.72432 8.8865 6.72432Z"
+                  fill="black" />
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M5.04166 2.55757C7.59701 2.27433 10.1758 2.27433 12.7312 2.55757C14.1272 2.71342 15.2527 3.81245 15.4166 5.21362C15.7197 7.80472 15.7197 10.4223 15.4166 13.0134C15.2527 14.4146 14.1272 15.5136 12.7319 15.6702C10.1763 15.9535 7.59725 15.9535 5.04166 15.6702C3.64564 15.5136 2.52015 14.4146 2.35621 13.0141C2.05314 10.4228 2.05314 7.80496 2.35621 5.21362C2.52015 3.81245 3.64564 2.71342 5.04166 2.55757ZM12.5621 4.7027C12.3671 4.7027 12.1801 4.78015 12.0423 4.91801C11.9044 5.05588 11.827 5.24286 11.827 5.43783C11.827 5.6328 11.9044 5.81979 12.0423 5.95765C12.1801 6.09552 12.3671 6.17297 12.5621 6.17297C12.7571 6.17297 12.944 6.09552 13.0819 5.95765C13.2198 5.81979 13.2972 5.6328 13.2972 5.43783C13.2972 5.24286 13.2198 5.05588 13.0819 4.91801C12.944 4.78015 12.7571 4.7027 12.5621 4.7027ZM5.39453 9.11351C5.39453 8.1874 5.76242 7.29923 6.41728 6.64437C7.07213 5.98951 7.96031 5.62162 8.88642 5.62162C9.81253 5.62162 10.7007 5.98951 11.3556 6.64437C12.0104 7.29923 12.3783 8.1874 12.3783 9.11351C12.3783 10.0396 12.0104 10.9278 11.3556 11.5826C10.7007 12.2375 9.81253 12.6054 8.88642 12.6054C7.96031 12.6054 7.07213 12.2375 6.41728 11.5826C5.76242 10.9278 5.39453 10.0396 5.39453 9.11351Z"
+                  fill="black" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bigger Screen Navbar Menu -->
+    <nav class="navbar d-none d-lg-flex navbar-expand-lg bg-white shadow">
+      <div class="container-fluid mx-lg-5 px-lg-4 mx-2 px-2">
+        <div class="me-lg-5 pe-lg-5">
+          <a href="./index.html" class="text-decoration-none text-dark logo">
+            <img src="/public/src/img/danikomlogo.svg" alt="Danikom Logo" class="me-1" />Danikom Trading
+          </a>
+        </div>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <g id="Menu / Menu_Alt_02">
+                  <path id="Vector" d="M11 17H19M5 12H19M11 7H19" stroke="#000000" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"></path>
+                </g>
+              </g>
+            </svg>
+          </span>
+        </button>
+
+        <div class="collapse navbar-collapse ms-lg-5 ps-lg-5 mt-4 mt-lg-0" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 ms-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="./index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="./about.html">About Us</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Our Products
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item my-1 nav-link text-dark" href="./naturalcocoa.html">Natural Cocoa Butter</a>
+                </li>
+                <li>
+                  <a class="dropdown-item my-1 nav-link text-dark" href="#">Unrefined Shea Butter (Ivory)</a>
+                </li>
+                <li>
+                  <a class="dropdown-item my-1 nav-link text-dark" href="#">Unrefined Shea Butter (Yellow)</a>
+                </li>
+                <li>
+                  <a class="dropdown-item my-1 nav-link text-dark" href="#">Handcrafted Basket</a>
+                </li>
+                <li>
+                  <a class="dropdown-item my-1 nav-link text-dark" href="#">Cashew Nuts in Shells</a>
+                </li>
+                <li>
+                  <a class="dropdown-item my-1 nav-link text-dark" href="#">Bodicare African Black Soap</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="./contact.html">Contact us</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="./search.html" class="btn px-4 rounded-5">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M15.5 14H14.71L14.43 13.73C15.4439 12.554 16.0011 11.0527 16 9.5C16 8.21442 15.6188 6.95772 14.9046 5.8888C14.1903 4.81988 13.1752 3.98676 11.9874 3.49479C10.7997 3.00282 9.49279 2.87409 8.23192 3.1249C6.97104 3.3757 5.81285 3.99477 4.90381 4.90381C3.99477 5.81285 3.3757 6.97104 3.1249 8.23192C2.87409 9.49279 3.00282 10.7997 3.49479 11.9874C3.98676 13.1752 4.81988 14.1903 5.8888 14.9046C6.95772 15.6188 8.21442 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.49L20.49 19L15.5 14ZM9.5 14C7.01 14 5 11.99 5 9.5C5 7.01 7.01 5 9.5 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.5 14Z"
+                    fill="black" />
+                </svg>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="./contact.html" class="btn px-4 rounded-5">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M16 18C16.5304 18 17.0391 18.2107 17.4142 18.5858C17.7893 18.9609 18 19.4696 18 20C18 20.5304 17.7893 21.0391 17.4142 21.4142C17.0391 21.7893 16.5304 22 16 22C15.4696 22 14.9609 21.7893 14.5858 21.4142C14.2107 21.0391 14 20.5304 14 20C14 19.4696 14.2107 18.9609 14.5858 18.5858C14.9609 18.2107 15.4696 18 16 18ZM16 19C15.7348 19 15.4804 19.1054 15.2929 19.2929C15.1054 19.4804 15 19.7348 15 20C15 20.2652 15.1054 20.5196 15.2929 20.7071C15.4804 20.8946 15.7348 21 16 21C16.2652 21 16.5196 20.8946 16.7071 20.7071C16.8946 20.5196 17 20.2652 17 20C17 19.7348 16.8946 19.4804 16.7071 19.2929C16.5196 19.1054 16.2652 19 16 19ZM7 18C7.53043 18 8.03914 18.2107 8.41421 18.5858C8.78929 18.9609 9 19.4696 9 20C9 20.5304 8.78929 21.0391 8.41421 21.4142C8.03914 21.7893 7.53043 22 7 22C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20C5 19.4696 5.21071 18.9609 5.58579 18.5858C5.96086 18.2107 6.46957 18 7 18ZM7 19C6.73478 19 6.48043 19.1054 6.29289 19.2929C6.10536 19.4804 6 19.7348 6 20C6 20.2652 6.10536 20.5196 6.29289 20.7071C6.48043 20.8946 6.73478 21 7 21C7.26522 21 7.51957 20.8946 7.70711 20.7071C7.89464 20.5196 8 20.2652 8 20C8 19.7348 7.89464 19.4804 7.70711 19.2929C7.51957 19.1054 7.26522 19 7 19ZM18 6H4.27L6.82 12H15C15.33 12 15.62 11.84 15.8 11.6L18.8 7.6C18.93 7.43 19 7.22 19 7C19 6.73478 18.8946 6.48043 18.7071 6.29289C18.5196 6.10536 18.2652 6 18 6ZM15 13H6.87L6.1 14.56L6 15C6 15.2652 6.10536 15.5196 6.29289 15.7071C6.48043 15.8946 6.73478 16 7 16H18V17H7C6.46957 17 5.96086 16.7893 5.58579 16.4142C5.21071 16.0391 5 15.5304 5 15C4.9997 14.6607 5.08573 14.3269 5.25 14.03L5.97 12.56L2.34 4H1V3H3L3.85 5H18C18.5304 5 19.0391 5.21071 19.4142 5.58579C19.7893 5.96086 20 6.46957 20 7C20 7.5 19.83 7.92 19.55 8.26L16.64 12.15C16.28 12.66 15.68 13 15 13Z"
+                    fill="black" />
+                </svg>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="./contact.html" class="btn px-4 rounded-5">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M4 18C4 16.9391 4.42143 15.9217 5.17157 15.1716C5.92172 14.4214 6.93913 14 8 14H16C17.0609 14 18.0783 14.4214 18.8284 15.1716C19.5786 15.9217 20 16.9391 20 18C20 18.5304 19.7893 19.0391 19.4142 19.4142C19.0391 19.7893 18.5304 20 18 20H6C5.46957 20 4.96086 19.7893 4.58579 19.4142C4.21071 19.0391 4 18.5304 4 18Z"
+                    stroke="black" stroke-width="1.5" stroke-linejoin="round" />
+                  <path
+                    d="M12 10C13.6569 10 15 8.65685 15 7C15 5.34315 13.6569 4 12 4C10.3431 4 9 5.34315 9 7C9 8.65685 10.3431 10 12 10Z"
+                    stroke="black" stroke-width="1.5" />
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Smaller Screen Navbar Menu -->
+    <nav class="navbar d-flex d-lg-none navbar-expand-lg bg-white shadow">
+      <div class="container-fluid mx-lg-5 px-lg-4 mx-2 px-2">
+        <div class="d-flex flex-column justify-content-center w-100">
+          <div class="d-block text-center">
+            <a href="./index.html" class="text-decoration-none text-dark logo">
+              <img src="/public/src/img/danikomlogo.svg" alt="Danikom Logo" class="me-1" />Danikom Trading
+            </a>
+          </div>
+          <button class="navbar-toggler border-0 d-block" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon border-0">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <g id="Menu / Menu_Alt_02">
+                    <path id="Vector" d="M11 17H19M5 12H19M11 7H19" stroke="#000000" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round"></path>
+                  </g>
+                </g>
+              </svg>
+            </span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse border-top-2 w-100" id="navbarSupportedContent">
+          <ul class="navbar-nav d-flex justify-content-center">
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="./index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="/danikom/about.html">About Us</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Our Products
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item my-1 nav-link text-dark" href="/products/naturalcocoa.html">Natural Cocoa Butter</a>
+                </li>
+                <li>
+                  <a class="dropdown-item my-1 nav-link text-dark" href="#">Unrefined Shea Butter (Ivory)</a>
+                </li>
+                <li>
+                  <a class="dropdown-item my-1 nav-link text-dark" href="#">Unrefined Shea Butter (Yellow)</a>
+                </li>
+                <li>
+                  <a class="dropdown-item my-1 nav-link text-dark" href="#">Handcrafted Basket</a>
+                </li>
+                <li>
+                  <a class="dropdown-item my-1 nav-link text-dark" href="#">Cashew Nuts in Shells</a>
+                </li>
+                <li>
+                  <a class="dropdown-item my-1 nav-link text-dark" href="#">Bodicare African Black Soap</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="./contact.html">Contact us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="./track.html">Track Order</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="./account.html">My Account</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <!-- Main Content starts here -->
+  <main class="bg-light">
+    <!-- Hero Header starts here -->
+    <div class="return d-flex flex-column justify-content-center align-items-center">
+
+        <h3 class="fw-bold">Order Status</h3>
+    <p>Your Orders Status</p>
+
+    </div>
+    <!-- Hero Header ends here -->
+
+    
+
+    <!-- Our products Section starts here -->
+    <div class="container py-5 w-100">
+        <div class="d-flex flex-column justify-content-center align-items-center w-100">
+        <div class="col-lg-6">
+            <h3 class="fw-bold">Order Status</h3>
+            <p><span class="fw-bold">Order ID: </span> #<span class="order-id">SD2334 2345 2338D</span></p>
+        </div>
+    </div>
+
+<div class="border rounded d-flex flex-column justify-content-center align-items-center w-100 py-4">
+             <div class="d-flex justify-content-around align-items-center my-3 w-100">
+                    <div class="text-center">
+                        <span class="img"><svg width="40" height="40" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_181_10222)">
+                            <circle cx="15.2388" cy="12.0931" r="6.19373" fill="#FAC136"/>
+                            <path d="M18.7617 5.90997L11.6994 2.04333C11.5342 1.95213 11.3487 1.9043 11.16 1.9043C10.9714 1.9043 10.7859 1.95213 10.6207 2.04333L3.55837 5.90997C3.38166 6.00666 3.23419 6.14908 3.1314 6.32232C3.02861 6.49556 2.97429 6.69325 2.97412 6.89469V14.5702C2.97429 14.7716 3.02861 14.9693 3.1314 15.1426C3.23419 15.3158 3.38166 15.4582 3.55837 15.5549L10.6207 19.4216C10.7859 19.5126 10.9714 19.5604 11.16 19.5604C11.3487 19.5604 11.5342 19.5126 11.6994 19.4216L18.7617 15.5549C18.9384 15.4582 19.0859 15.3158 19.1887 15.1426C19.2915 14.9693 19.3458 14.7716 19.346 14.5702V6.89469C19.3458 6.69325 19.2915 6.49556 19.1887 6.32232C19.0859 6.14908 18.9384 6.00666 18.7617 5.90997ZM11.0798 2.8876C11.1034 2.87467 11.1299 2.8679 11.1568 2.8679C11.1838 2.8679 11.2103 2.87467 11.2339 2.8876L17.9423 6.55923L15.2185 8.04955L8.43542 4.33699L11.0798 2.8876ZM10.6785 18.3566L4.01743 14.7106C3.99281 14.6964 3.97241 14.6759 3.95831 14.6513C3.94421 14.6266 3.93692 14.5986 3.93717 14.5702V7.41474L10.6785 11.1064V18.3566ZM4.37777 6.55923L7.43304 4.88593L14.2153 8.59849L11.16 10.2702L4.37777 6.55923ZM18.3829 14.5702C18.3832 14.5986 18.3759 14.6266 18.3618 14.6513C18.3477 14.6759 18.3273 14.6964 18.3027 14.7106L11.6416 18.3566V11.1048L14.5307 9.52302V12.6585C14.5307 12.7863 14.5815 12.9087 14.6718 12.999C14.7621 13.0893 14.8845 13.1401 15.0122 13.1401C15.14 13.1401 15.2624 13.0893 15.3527 12.999C15.443 12.9087 15.4938 12.7863 15.4938 12.6585V8.99655L18.3829 7.41474V14.5702Z" fill="black"/>
+                            </g>
+                            <defs>
+                            <clipPath id="clip0_181_10222">
+                                <rect width="20.5451" height="20.5451" fill="white" transform="translate(0.887451 0.459961)"/>
+                            </clipPath>
+                            </defs>
+                        </svg></span> <br>
+                        <span class="status">Order Placed</span>
+                    </div>
+                    <div class="text-center">
+                        <span class="img">
+                            <svg width="40" height="40" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_181_10222)">
+                            <circle cx="15.2388" cy="12.0931" r="6.19373" fill="#FAC136"/>
+                            <path d="M18.7617 5.90997L11.6994 2.04333C11.5342 1.95213 11.3487 1.9043 11.16 1.9043C10.9714 1.9043 10.7859 1.95213 10.6207 2.04333L3.55837 5.90997C3.38166 6.00666 3.23419 6.14908 3.1314 6.32232C3.02861 6.49556 2.97429 6.69325 2.97412 6.89469V14.5702C2.97429 14.7716 3.02861 14.9693 3.1314 15.1426C3.23419 15.3158 3.38166 15.4582 3.55837 15.5549L10.6207 19.4216C10.7859 19.5126 10.9714 19.5604 11.16 19.5604C11.3487 19.5604 11.5342 19.5126 11.6994 19.4216L18.7617 15.5549C18.9384 15.4582 19.0859 15.3158 19.1887 15.1426C19.2915 14.9693 19.3458 14.7716 19.346 14.5702V6.89469C19.3458 6.69325 19.2915 6.49556 19.1887 6.32232C19.0859 6.14908 18.9384 6.00666 18.7617 5.90997ZM11.0798 2.8876C11.1034 2.87467 11.1299 2.8679 11.1568 2.8679C11.1838 2.8679 11.2103 2.87467 11.2339 2.8876L17.9423 6.55923L15.2185 8.04955L8.43542 4.33699L11.0798 2.8876ZM10.6785 18.3566L4.01743 14.7106C3.99281 14.6964 3.97241 14.6759 3.95831 14.6513C3.94421 14.6266 3.93692 14.5986 3.93717 14.5702V7.41474L10.6785 11.1064V18.3566ZM4.37777 6.55923L7.43304 4.88593L14.2153 8.59849L11.16 10.2702L4.37777 6.55923ZM18.3829 14.5702C18.3832 14.5986 18.3759 14.6266 18.3618 14.6513C18.3477 14.6759 18.3273 14.6964 18.3027 14.7106L11.6416 18.3566V11.1048L14.5307 9.52302V12.6585C14.5307 12.7863 14.5815 12.9087 14.6718 12.999C14.7621 13.0893 14.8845 13.1401 15.0122 13.1401C15.14 13.1401 15.2624 13.0893 15.3527 12.999C15.443 12.9087 15.4938 12.7863 15.4938 12.6585V8.99655L18.3829 7.41474V14.5702Z" fill="black"/>
+                            </g>
+                            <defs>
+                            <clipPath id="clip0_181_10222">
+                                <rect width="20.5451" height="20.5451" fill="white" transform="translate(0.887451 0.459961)"/>
+                            </clipPath>
+                            </defs>
+                        </svg>
+                    </span> <br>
+                        <span class="status">Accepted</span>
+                    </div>
+                    <div class="text-center">
+                        <span class="img"><svg width="40" height="40" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18.4443 5.90997L11.382 2.04333C11.2168 1.95213 11.0313 1.9043 10.8427 1.9043C10.654 1.9043 10.4685 1.95213 10.3034 2.04333L3.24099 5.90997C3.06427 6.00666 2.9168 6.14908 2.81402 6.32232C2.71123 6.49556 2.65691 6.69325 2.65674 6.89469V14.5702C2.65691 14.7716 2.71123 14.9693 2.81402 15.1426C2.9168 15.3158 3.06427 15.4582 3.24099 15.5549L10.3034 19.4216C10.4685 19.5126 10.6541 19.5604 10.8427 19.5604C11.0313 19.5604 11.2168 19.5126 11.382 19.4216L18.4443 15.5549C18.6211 15.4582 18.7685 15.3158 18.8713 15.1426C18.9741 14.9693 19.0284 14.7716 19.0286 14.5702V6.89469C19.0284 6.69325 18.9741 6.49556 18.8713 6.32232C18.7685 6.14908 18.6211 6.00666 18.4443 5.90997ZM10.7624 2.8876C10.786 2.87467 10.8125 2.8679 10.8395 2.8679C10.8664 2.8679 10.8929 2.87467 10.9165 2.8876L17.6249 6.55923L14.9011 8.04955L8.11804 4.33699L10.7624 2.8876ZM10.3611 18.3566L3.70004 14.7106C3.67543 14.6964 3.65503 14.6759 3.64093 14.6513C3.62683 14.6266 3.61953 14.5986 3.61979 14.5702V7.41474L10.3611 11.1064V18.3566ZM4.06038 6.55923L7.11566 4.88593L13.8979 8.59849L10.8427 10.2702L4.06038 6.55923ZM18.0655 14.5702C18.0658 14.5986 18.0585 14.6266 18.0444 14.6513C18.0303 14.6759 18.0099 14.6964 17.9853 14.7106L11.3242 18.3566V11.1048L14.2133 9.52302V12.6585C14.2133 12.7863 14.2641 12.9087 14.3544 12.999C14.4447 13.0893 14.5672 13.1401 14.6949 13.1401C14.8226 13.1401 14.9451 13.0893 15.0354 12.999C15.1257 12.9087 15.1764 12.7863 15.1764 12.6585V8.99655L18.0655 7.41474V14.5702Z" fill="black"/>
+                          </svg></span> <br>
+                        <span class="status">In progress</span>
+                    </div>
+                    <div class="text-center">
+                        <span class="img"><svg width="40" height="40" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_181_10242)">
+                              <path d="M3.70778 14.962L21.1107 17.1301V17.8624H3.70778V14.962ZM21.1107 9.16099L19.6604 10.6112V11.4567L8.34275 6.74199L8.43411 6.56071L10.3934 4.58548H11.5985C11.7332 4.58548 11.8623 4.532 11.9575 4.43681C12.0526 4.34162 12.1061 4.21252 12.1061 4.0779C12.1061 3.94328 12.0526 3.81417 11.9575 3.71898C11.8623 3.62379 11.7332 3.57031 11.5985 3.57031H10.1831C10.0482 3.57062 9.91888 3.62432 9.82344 3.71969L7.65679 5.9023C7.61848 5.94073 7.58621 5.98474 7.56107 6.03282L7.40299 6.35042L3.70778 4.81027C3.70778 7.71075 3.66427 10.5503 7.85547 11.3364C9.91481 11.7207 19.6604 13.5117 19.6604 13.5117L22.5609 10.6112L21.1107 9.16099Z" fill="black"/>
+                            </g>
+                            <defs>
+                              <clipPath id="clip0_181_10242">
+                                <rect width="21.7536" height="21.7536" fill="white" transform="translate(0.807251 0.459961)"/>
+                              </clipPath>
+                            </defs>
+                          </svg></span> <br>
+                        <span class="status">On the Way</span>
+                    </div>
+                    <div class="text-center">
+                        <span class="img"><svg width="40" height="40" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.82243 0.459961C8.6467 0.459961 8.47097 0.546069 8.29524 0.632177L1.35388 4.42093C1.09028 4.59315 0.914551 4.85147 0.914551 5.1959V12.9456C0.914551 13.2901 1.09028 13.5484 1.35388 13.7206L8.29524 17.5093C8.47097 17.5955 8.6467 17.6816 8.82243 17.6816C8.99816 17.6816 9.17389 17.5955 9.34962 17.5093L10.1404 17.0788C9.87681 16.5622 9.78895 15.9594 9.70108 15.3566V9.58741L14.973 6.65974V9.93184C15.5881 9.93184 16.2031 10.018 16.7303 10.1902V5.1959C16.7303 4.85147 16.5546 4.59315 16.291 4.42093L9.34962 0.632177C9.17389 0.546069 8.99816 0.459961 8.82243 0.459961ZM8.82243 2.35434L14.0943 5.1959L12.337 6.14309L7.15299 3.21542L8.82243 2.35434ZM5.39568 4.16261L10.5797 7.17639L8.82243 8.12357L3.55051 5.1959L5.39568 4.16261ZM2.67186 6.65974L7.94378 9.58741V15.3566L2.67186 12.429V6.65974ZM16.9939 12.3429L13.8308 15.4428L12.4249 14.065L11.4584 15.0983L13.9186 17.6816L18.1362 13.5484L16.9939 12.3429Z" fill="black"/>
+                          </svg></span> <br>
+                        <span class="status">Delivered</span>
+                    </div>
+          </div>
+
+          <div class="order-linecheck col-10">
+            <img src="/public/src/img/order-lines.svg" alt="" class="image-fluid w-100">
+          </div>
+
+          <div class="d-flex justify-content-around align-items-center w-100">
+
+              <div class="oders-duration">
+                  <span class="date">24 April, 2024</span><br>
+                  <span class="time">12:20 PM</span>
+                </div>
+              <div class="oders-duration">
+                  <span class="date">24 April, 2024</span><br>
+                  <span class="time">12:20 PM</span>
+                </div>
+              <div class="oders-duration">
+                  <span class="date">24 April, 2024</span><br>
+                  <span class="time">12:20 PM</span>
+                </div>
+              <div class="oders-duration">
+                  <span class="date">24 April, 2024</span><br>
+                  <span class="time">12:20 PM</span>
+                </div>
+              <div class="oders-duration">
+                  <span class="date">24 April, 2024</span><br>
+                  <span class="time">12:20 PM</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="products-ordered border rounded mt-5 p-3 col-lg-6">
+            <h3 class="fw-bold border-bottom py-2">Products</h3>
+            <div class="d-flex border rounded my-2 p-2">
+                <img src="/public/src/img/products/cashew.png" alt="" class="productcart-img">
+                <div class="ms-2">
+                    <span class="product-cart">Natural Cocoa Butter</span><br>
+                    <span class="shipment-type">Sea Shipment: <span>1000kgs</span></span>               
+                </div>
+            </div>
+            <div class="d-flex border rounded my-2 p-2">
+                <img src="/public/src/img/products/cashew.png" alt="" class="productcart-img">
+                <div class="ms-2">
+                    <span class="product-cart">Natural Cocoa Butter</span><br>
+                    <span class="shipment-type">Sea Shipment: <span>1000kgs</span></span>               
+                </div>
+            </div>
+            <div class="d-flex border rounded my-2 p-2">
+                <img src="/public/src/img/products/cashew.png" alt="" class="productcart-img">
+                <div class="ms-2">
+                    <span class="product-cart">Natural Cocoa Butter</span><br>
+                    <span class="shipment-type">Sea Shipment: <span>1000kgs</span></span>               
+                </div>
+            </div>
+        </div>
+    </div>
+  </main>
+
+    <!-- Footer Section Starts here -->
+    <footer class="pt-5 w-100 d-flex flex-column justify-content-center align-items-center">
+      <div class="d-none d-lg-flex row w-100 justify-content-between align-items-start container px-4 text-light">
+        <div class="col-lg-3">
+          <div class="footer-logo">
+            <h5 class="fs-6">
+            <img src="/public/src/img/danikomlogo.svg" alt="Danikom Logo"> Danikom Trading
+          </h5> 
+          </div>
+          <p class="mt-3">Danikom Trading is a credible export brand strategically
+            located in Tamale, the northern region of Ghana which
+            produces Unrefined Shea Butter, Black Soap, and other
+            range of natural cosmetic raw materials for the Ghanaian
+            and export markets. We also export Cocoa Butter, Soya 
+            beans and Cashews.
+            <!-- With over 7 years of experience, we are well known as
+            a credible, reliable, and trusted export brand serving our 
+            clients with quality products at competitive rates.
+            We have also carved a niche for ourselves in the market 
+            as the preferred producer and supplier of natural products. -->
+          </p>
+
+            <div class="socials d-flex align-items-center">
+              <div class="social">
+                <a href="#">
+                  <svg width="18" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M16.9397 0.291885H1.81293C1.11981 0.291885 0.556641 0.862928 0.556641 1.56393V16.6631C0.556641 17.3641 1.11981 17.9351 1.81293 17.9351H16.9397C17.6328 17.9351 18.1999 17.3641 18.1999 16.6631V1.56393C18.1999 0.862928 17.6328 0.291885 16.9397 0.291885ZM5.889 15.4147H3.27402V6.99474H5.89293V15.4147H5.889ZM4.58151 5.84478C3.74266 5.84478 3.06529 5.16347 3.06529 4.32857C3.06529 3.49366 3.74266 2.81235 4.58151 2.81235C5.41641 2.81235 6.09772 3.49366 6.09772 4.32857C6.09772 5.16741 5.42035 5.84478 4.58151 5.84478ZM15.6912 15.4147H13.0763V11.3189C13.0763 10.3422 13.0566 9.08594 11.7176 9.08594C10.3549 9.08594 10.1462 10.1493 10.1462 11.248V15.4147H7.53124V6.99474H10.0399V8.1447H10.0753C10.4258 7.48308 11.2804 6.78602 12.5525 6.78602C15.199 6.78602 15.6912 8.53065 15.6912 10.7991V15.4147Z"
+                      fill="black" />
+                  </svg>
+                </a>
+              </div>
+              <div class="social">
+                <a href="#">
+                  <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M16.9837 9.11351C16.9837 5.05557 13.6903 1.76216 9.63236 1.76216C5.57441 1.76216 2.28101 5.05557 2.28101 9.11351C2.28101 12.6716 4.80987 15.6342 8.16209 16.3178V11.3189H6.69182V9.11351H8.16209V7.27567C8.16209 5.85686 9.31625 4.7027 10.7351 4.7027H12.5729V6.90811H11.1026C10.6983 6.90811 10.3675 7.23892 10.3675 7.64324V9.11351H12.5729V11.3189H10.3675V16.4281C14.0799 16.0605 16.9837 12.9289 16.9837 9.11351Z"
+                      fill="black" />
+                  </svg>
+                </a>
+              </div>
+              <div class="social">
+                <a href="#">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M8.8865 6.72432C8.25285 6.72432 7.64515 6.97604 7.19709 7.4241C6.74903 7.87216 6.49731 8.47986 6.49731 9.11351C6.49731 9.74716 6.74903 10.3549 7.19709 10.8029C7.64515 11.251 8.25285 11.5027 8.8865 11.5027C9.52016 11.5027 10.1279 11.251 10.5759 10.8029C11.024 10.3549 11.2757 9.74716 11.2757 9.11351C11.2757 8.47986 11.024 7.87216 10.5759 7.4241C10.1279 6.97604 9.52016 6.72432 8.8865 6.72432Z"
+                      fill="black" />
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M5.04166 2.55757C7.59701 2.27433 10.1758 2.27433 12.7312 2.55757C14.1272 2.71342 15.2527 3.81245 15.4166 5.21362C15.7197 7.80472 15.7197 10.4223 15.4166 13.0134C15.2527 14.4146 14.1272 15.5136 12.7319 15.6702C10.1763 15.9535 7.59725 15.9535 5.04166 15.6702C3.64564 15.5136 2.52015 14.4146 2.35621 13.0141C2.05314 10.4228 2.05314 7.80496 2.35621 5.21362C2.52015 3.81245 3.64564 2.71342 5.04166 2.55757ZM12.5621 4.7027C12.3671 4.7027 12.1801 4.78015 12.0423 4.91801C11.9044 5.05588 11.827 5.24286 11.827 5.43783C11.827 5.6328 11.9044 5.81979 12.0423 5.95765C12.1801 6.09552 12.3671 6.17297 12.5621 6.17297C12.7571 6.17297 12.944 6.09552 13.0819 5.95765C13.2198 5.81979 13.2972 5.6328 13.2972 5.43783C13.2972 5.24286 13.2198 5.05588 13.0819 4.91801C12.944 4.78015 12.7571 4.7027 12.5621 4.7027ZM5.39453 9.11351C5.39453 8.1874 5.76242 7.29923 6.41728 6.64437C7.07213 5.98951 7.96031 5.62162 8.88642 5.62162C9.81253 5.62162 10.7007 5.98951 11.3556 6.64437C12.0104 7.29923 12.3783 8.1874 12.3783 9.11351C12.3783 10.0396 12.0104 10.9278 11.3556 11.5826C10.7007 12.2375 9.81253 12.6054 8.88642 12.6054C7.96031 12.6054 7.07213 12.2375 6.41728 11.5826C5.76242 10.9278 5.39453 10.0396 5.39453 9.11351Z"
+                      fill="black" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+        </div>
+
+        <div class="col-lg-2">
+          <h5 class="fs-6">Company</h5>
+          <ul class="list-unstyled">
+            <li><a href="./home.html" class="text-decoration-none text-light mt-3">Home</a></li>
+            <li><a href="./about.html" class="text-decoration-none text-light mt-3">About Us</a></li>
+            <li><a href="./products.html" class="text-decoration-none text-light mt-3">Our Products</a></li>
+            <li><a href="./contact.html" class="text-decoration-none text-light mt-3">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2">
+          <h5 class="fs-6">Customer Service</h5>
+          <ul class="list-unstyled">
+            <li><a href="./account.html" class="text-decoration-none text-light mt-3">My Account</a></li>
+            <li><a href="./orders.html" class="text-decoration-none text-light mt-3">Track Orders</a></li>
+            <li><a href="./faqs.html" class="text-decoration-none text-light mt-3">FAQs</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2">
+          <h5 class="fs-6">Our Information</h5>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-decoration-none text-light mt-3">Privacy</a></li>
+            <li><a href="#" class="text-decoration-none text-light mt-3">User T&Cs</a></li>
+            <li><a href="#" class="text-decoration-none text-light mt-3">Return Policy</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <h5 class="fs-6">Contact Info</h5>
+          <p>+233 (0) 24 662 6516</p>
+          <p>
+            <span>danikomtrading@gmail.com </span> <br>
+              <span>clientservices@danikom.net</span>
+          </p>
+          <p>PLT NO. 217, BLK A, Opposite <br>
+            Salvation of Christ Prayer Family <br>
+            Church Auditorium, <br>
+            Target Tamale, Ghana <br>
+            P. O. Box 3061, Tamale, Ghana <br>
+            NT – 0299 – 7389</p>
+        </div>
+      </div>
+      <div class="d-flex d-lg-none row w-100 justify-content-between align-items-start container px-4 text-light">
+        <div class="col-lg-3">
+          <div class="footer-logo">
+            <h5 class="fs-6">
+            <img src="/public/src/img/danikomlogo.svg" alt="Danikom Logo"> Danikom Trading
+          </h5> 
+          </div>
+          <p class="mt-3">Danikom Trading is a credible export brand strategically
+            located in Tamale, the northern region of Ghana which
+            produces Unrefined Shea Butter, Black Soap, and other
+            range of natural cosmetic raw materials for the Ghanaian
+            and export markets. We also export Cocoa Butter, Soya 
+            beans and Cashews.
+            <!-- With over 7 years of experience, we are well known as
+            a credible, reliable, and trusted export brand serving our 
+            clients with quality products at competitive rates.
+            We have also carved a niche for ourselves in the market 
+            as the preferred producer and supplier of natural products. -->
+          </p>
+        </div>
+
+        <div class="col-lg-3 mt-3">
+          <h5 class="fs-6">Contact Info</h5>
+          <p>+233 (0) 24 662 6516</p>
+          <p>
+            <span>danikomtrading@gmail.com </span> <br>
+              <span>clientservices@danikom.net</span>
+          </p>
+          <p>PLT NO. 217, BLK A, Opposite <br>
+            Salvation of Christ Prayer Family <br>
+            Church Auditorium, <br>
+            Target Tamale, Ghana <br>
+            P. O. Box 3061, Tamale, Ghana <br>
+            NT – 0299 – 7389</p>
+        </div>
+
+        <div class="socials d-flex align-items-center">
+          <div class="social">
+            <a href="#">
+              <svg width="18" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M16.9397 0.291885H1.81293C1.11981 0.291885 0.556641 0.862928 0.556641 1.56393V16.6631C0.556641 17.3641 1.11981 17.9351 1.81293 17.9351H16.9397C17.6328 17.9351 18.1999 17.3641 18.1999 16.6631V1.56393C18.1999 0.862928 17.6328 0.291885 16.9397 0.291885ZM5.889 15.4147H3.27402V6.99474H5.89293V15.4147H5.889ZM4.58151 5.84478C3.74266 5.84478 3.06529 5.16347 3.06529 4.32857C3.06529 3.49366 3.74266 2.81235 4.58151 2.81235C5.41641 2.81235 6.09772 3.49366 6.09772 4.32857C6.09772 5.16741 5.42035 5.84478 4.58151 5.84478ZM15.6912 15.4147H13.0763V11.3189C13.0763 10.3422 13.0566 9.08594 11.7176 9.08594C10.3549 9.08594 10.1462 10.1493 10.1462 11.248V15.4147H7.53124V6.99474H10.0399V8.1447H10.0753C10.4258 7.48308 11.2804 6.78602 12.5525 6.78602C15.199 6.78602 15.6912 8.53065 15.6912 10.7991V15.4147Z"
+                  fill="black" />
+              </svg>
+            </a>
+          </div>
+          <div class="social">
+            <a href="#">
+              <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M16.9837 9.11351C16.9837 5.05557 13.6903 1.76216 9.63236 1.76216C5.57441 1.76216 2.28101 5.05557 2.28101 9.11351C2.28101 12.6716 4.80987 15.6342 8.16209 16.3178V11.3189H6.69182V9.11351H8.16209V7.27567C8.16209 5.85686 9.31625 4.7027 10.7351 4.7027H12.5729V6.90811H11.1026C10.6983 6.90811 10.3675 7.23892 10.3675 7.64324V9.11351H12.5729V11.3189H10.3675V16.4281C14.0799 16.0605 16.9837 12.9289 16.9837 9.11351Z"
+                  fill="black" />
+              </svg>
+            </a>
+          </div>
+          <div class="social">
+            <a href="#">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M8.8865 6.72432C8.25285 6.72432 7.64515 6.97604 7.19709 7.4241C6.74903 7.87216 6.49731 8.47986 6.49731 9.11351C6.49731 9.74716 6.74903 10.3549 7.19709 10.8029C7.64515 11.251 8.25285 11.5027 8.8865 11.5027C9.52016 11.5027 10.1279 11.251 10.5759 10.8029C11.024 10.3549 11.2757 9.74716 11.2757 9.11351C11.2757 8.47986 11.024 7.87216 10.5759 7.4241C10.1279 6.97604 9.52016 6.72432 8.8865 6.72432Z"
+                  fill="black" />
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M5.04166 2.55757C7.59701 2.27433 10.1758 2.27433 12.7312 2.55757C14.1272 2.71342 15.2527 3.81245 15.4166 5.21362C15.7197 7.80472 15.7197 10.4223 15.4166 13.0134C15.2527 14.4146 14.1272 15.5136 12.7319 15.6702C10.1763 15.9535 7.59725 15.9535 5.04166 15.6702C3.64564 15.5136 2.52015 14.4146 2.35621 13.0141C2.05314 10.4228 2.05314 7.80496 2.35621 5.21362C2.52015 3.81245 3.64564 2.71342 5.04166 2.55757ZM12.5621 4.7027C12.3671 4.7027 12.1801 4.78015 12.0423 4.91801C11.9044 5.05588 11.827 5.24286 11.827 5.43783C11.827 5.6328 11.9044 5.81979 12.0423 5.95765C12.1801 6.09552 12.3671 6.17297 12.5621 6.17297C12.7571 6.17297 12.944 6.09552 13.0819 5.95765C13.2198 5.81979 13.2972 5.6328 13.2972 5.43783C13.2972 5.24286 13.2198 5.05588 13.0819 4.91801C12.944 4.78015 12.7571 4.7027 12.5621 4.7027ZM5.39453 9.11351C5.39453 8.1874 5.76242 7.29923 6.41728 6.64437C7.07213 5.98951 7.96031 5.62162 8.88642 5.62162C9.81253 5.62162 10.7007 5.98951 11.3556 6.64437C12.0104 7.29923 12.3783 8.1874 12.3783 9.11351C12.3783 10.0396 12.0104 10.9278 11.3556 11.5826C10.7007 12.2375 9.81253 12.6054 8.88642 12.6054C7.96031 12.6054 7.07213 12.2375 6.41728 11.5826C5.76242 10.9278 5.39453 10.0396 5.39453 9.11351Z"
+                  fill="black" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright pt-3 mt-3">
+        <p class="container mt-0 fs-6">
+          Copyright © Danikom Trading 2024. All Rights Reserved
+        </p>
+      </div>
+    </footer>
+    <!-- Footer Section Ends here -->
+</body>
+
+</html>
