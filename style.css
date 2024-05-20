@@ -601,6 +601,10 @@ input[type="text"], input[type="email"], input[type="tel"] {
     width: 100% !important;
   }
 
+  .ratings-review {
+    font-size: .7rem !important;
+  }
+
   /* .sponsors-imgs {
     width: 15rem;
     height: 15rem;
