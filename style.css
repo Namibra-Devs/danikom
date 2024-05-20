@@ -223,6 +223,7 @@ footer {
 
 footer p, footer a {
   font-size: .8rem !important;
+  color: var(--ash-inactive-color) !important;
 }
 
 .copyright {
@@ -232,6 +233,7 @@ footer p, footer a {
 
 .copyright p {
   font-weight: 500;
+  color: var(--Active-colour) !important;
 }
 
 
@@ -575,6 +577,14 @@ input[type="text"], input[type="email"], input[type="tel"] {
     outline: none !important;
     border-radius: .5rem;
   }
+
+  span.header-big, span.header-small {
+    font-size: .6rem !important;
+  }
+
+  .track-btn, .invoice-btn, .cancel-btn, .currency, .hash {
+    font-size: .7rem !important;
+  }
   /* .sponsors-imgs {
     width: 15rem;
     height: 15rem;
@@ -613,7 +623,7 @@ input[type="text"], input[type="email"], input[type="tel"] {
 }
 
 .header-big {
-  font-size: .9rem !important;
+  font-size: .8rem !important;
 }
 
 .fs-smaller {
@@ -624,6 +634,7 @@ input[type="text"], input[type="email"], input[type="tel"] {
   border-top-right-radius: .5rem;
   border-top-left-radius: .5rem;
 }
+
 
 .products-inorders {
   border-radius: .5rem !important;
