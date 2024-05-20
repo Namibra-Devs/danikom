@@ -7,6 +7,7 @@
 
 body {
   font-family: Inter, 'sans-serif' !important;
+  overflow-x: hidden !important;
 }
 
 .notification {
@@ -65,10 +66,12 @@ body {
 main {
   background-color: var(--ash-inactive-color);
   padding-top: 9rem;
+  overflow-x: hidden !important;
 }
 
 form {
   box-shadow: none !important;
+  overflow-x: hidden !important;
 }
 
 button, a {
@@ -529,6 +532,10 @@ input[type="text"], input[type="email"], input[type="tel"] {
   color: var(--Active-colour);
 }
 
+.send-code {
+  width: 25rem !important; 
+}
+
 .order-note {
   color: var(--Active-colour);
 }
@@ -589,6 +596,11 @@ input[type="text"], input[type="email"], input[type="tel"] {
   .check-update, .check-update button {
     font-size: .8rem;
   }
+
+  .btn-login {
+    width: 100% !important;
+  }
+
   /* .sponsors-imgs {
     width: 15rem;
     height: 15rem;
@@ -670,3 +682,10 @@ color: var(--button-color) !important;
   text-decoration: underline !important;
 }
 
+.code-input {
+  width: 4rem !important;
+  height: 3rem !important;
+  border-radius: .1rem !important;
+  border: .1rem solid var(--Active-colour) !important;
+  text-align: center;
+}
