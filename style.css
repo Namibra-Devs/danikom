@@ -585,6 +585,10 @@ input[type="text"], input[type="email"], input[type="tel"] {
   .track-btn, .invoice-btn, .cancel-btn, .currency, .hash {
     font-size: .7rem !important;
   }
+
+  .check-update, .check-update button {
+    font-size: .8rem;
+  }
   /* .sponsors-imgs {
     width: 15rem;
     height: 15rem;
@@ -649,6 +653,12 @@ input[type="text"], input[type="email"], input[type="tel"] {
   border: .1rem solid var(--Active-colour) !important;
 }
 
+.donwload-btn {
+color: var(--button-color) !important;
+  background-color: var(--Active-colour) !important;
+
+}
+
 .forgot-pass {
   color: var(--Active-colour) !important;
   font-size: .8rem;
@@ -659,3 +669,4 @@ input[type="text"], input[type="email"], input[type="tel"] {
   font-size: .8rem;
   text-decoration: underline !important;
 }
+
