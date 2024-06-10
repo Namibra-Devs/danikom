@@ -209,9 +209,14 @@ a.details-products {
 }
 
 .trackorder{
-  background-color: var(--button-color) !important;
-  color: var(--Active-colour) !important;
+  background-color: var(--Active-colour) !important;
+  color: var(--ash-inactive-color) !important;
   border-radius: .5rem !important;
+}
+
+.btn-update {
+  background-color: var(--Active-colour) !important;
+  border-radius: 1rem !important;
 }
 
 .livechat {
@@ -335,18 +340,21 @@ footer p, footer a {
   box-shadow: none !important;
 }
 
-.products-links ul li button.active, button.available.active {
+.products-links ul li button.active, button.available.active, .available-products.active {
   color: var(--Active-colour) !important;
-  border-bottom: 2px solid var(--Active-colour) !important;
+  border-bottom: 1.5px solid var(--Active-colour) !important;
   font-weight: 500;
   border-radius: 0 !important;
   background: transparent !important;
 }
 
-.products-links ul li button:hover, button.available.active:active, button.available.active:hover {
+a.available-products:hover {
   outline: 0 !important;
 }
 
+.products-links ul li button:hover, button.available.active:active, button.available.active:hover {
+  outline: 0 !important;
+}
 a.available.active {
   background-color: var(--button-color) !important;
   color: var(--Active-colour) !important;
@@ -612,6 +620,16 @@ input[type="text"], input[type="email"], input[type="tel"] {
     margin: .5rem;
   } */
   
+}
+
+.quantity span {
+  font-size: .7rem;
+}
+
+.quantity input {
+  width: 2rem !important;
+  border: 1px solid var(--Active-colour);
+  border-radius: .1rem;
 }
 
 
