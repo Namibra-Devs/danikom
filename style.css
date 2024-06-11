@@ -723,7 +723,11 @@ color: var(--button-color) !important;
   text-align: center;
 }
 
-
-
+/* Nested dropdown */
+.dropdown-submenu .dropdown-menu {
+  top: 0 !important;
+  left: 100% !important;
+  margin-top: -1px !important;
+}
 
 /* This is a plugin for countries */

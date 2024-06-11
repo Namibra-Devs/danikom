@@ -1,6 +1,7 @@
-$(document).ready(function () {
-    $("a.learn_more").click(function () {
-        window.open($(this).attr("href"));
-        return false;
+$(document).ready(function(){
+    $('.dropdown-submenu a.test').on("click", function(e){
+      $(this).next('ul').toggle();
+      e.stopPropagation();
+      e.preventDefault();
     });
-});
+  });
