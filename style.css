@@ -149,7 +149,7 @@ a.details-products {
   position: relative !important;
   display: flex;
   justify-content: center;
-  margin-top: 20rem !important;
+  margin-top: 26rem !important;
 }
 
 .carousel-indicators button {
@@ -310,6 +310,12 @@ footer p, footer a {
 .buy-btn, .btn-send {
   color: var(--button-color) !important;
   background-color: var(--Active-colour) !important;
+  border-radius: .5rem !important;
+}
+
+.btn-goback {
+  color: var(--Active-color) !important;
+  background-color: var(--button-color) !important;
   border-radius: .5rem !important;
 }
 
@@ -482,7 +488,7 @@ a.billing:hover {
   width: 20rem;
 }
 
-input[type="text"], input[type="email"], input[type="tel"] {
+input[type="text"], input[type="email"], input[type="tel"], select {
   border-radius: 1rem !important;
   box-shadow: none !important;
   border-width: .1rem;
@@ -502,14 +508,19 @@ input[type="text"], input[type="email"], input[type="tel"] {
 
 }
 
+select {
+  margin-top: .35rem !important;
+  border-width: .1rem !important;
+}
+
 
 .input-group span {
   background-color: transparent !important;
   border: 0 !important;
 }
 
-.singup-form input:active, .singup-form input:focus, div.input-group:focus-within, div.input-group:active {
-  border: .1rem solid var(--Active-colour);
+.singup-form input:active, .singup-form input:focus, div.input-group:focus-within, div.input-group:active, select:active, select:focus-within, select:focus {
+  border: .1rem solid var(--Active-colour) !important;
 }
 .terms-conditions, .privicy-terms {
   color: var(--Active-colour) !important;
@@ -711,3 +722,8 @@ color: var(--button-color) !important;
   border: .1rem solid var(--Active-colour) !important;
   text-align: center;
 }
+
+
+
+
+/* This is a plugin for countries */
