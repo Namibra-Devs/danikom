@@ -43,6 +43,6 @@ class ProductOrder extends Model
 
 
     public function orderitems() {
-        return $this->hasMany('App\OrderItem');
+        return $this->hasMany('App\Models\OrderItem');
     }
 }
