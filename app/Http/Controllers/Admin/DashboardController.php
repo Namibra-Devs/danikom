@@ -4,9 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Language;
-use App\Quote;
-use App\Product;
 use App\ProductOrder;
 
 class DashboardController extends Controller
