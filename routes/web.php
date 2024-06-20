@@ -17,11 +17,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'guest:admin'], function () {
 Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin', 'checkstatus']], function () {
 
   // Admin logout Route
-  Route::get('/logout', 'Admin\LoginController@logout')->name('admin.logout');
+  Route::get('/logout', 'App\Http\Controllers\Admin\LoginController@logout')->name('admin.logout');
 
   Route::group(['middleware' => 'checkpermission:Dashboard'], function () {
     // Admin Dashboard Routes
-    Route::get('/dashboard', 'Admin\DashboardController@dashboard')->name('admin.dashboard');
+    Route::get('/dashboard', 'App\Http\Controllers\Admin\DashboardController@dashboard')->name('admin.dashboard');
   });
     
 });
