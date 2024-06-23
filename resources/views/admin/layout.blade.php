@@ -18,7 +18,7 @@
     content='width=device-width, initial-scale=1.0, shrink-to-fit=no'
     name='viewport'
     />
-    <title>Shanti Jewelry</title>
+    <title>Danikom</title>
     <link
     rel="icon"
     href="{{asset('assets/frontend/images/logo.svg')}}"

@@ -6,12 +6,13 @@ use App\Models\Permalink;
 /*=======================================================
 ******************** Admin Routes **********************
 =======================================================*/
+
 Route::group(['prefix' => 'admin', 'middleware' => 'guest:admin'], function () {
-    Route::post('/login', 'App\Http\Controllers\Admin\LoginController@authenticate')->name('admin.auth');
-  
-    Route::get('/mail-form', 'App\Http\Controllers\Admin\ForgetController@mailForm')->name('admin.forget.form');
-    Route::post('/sendmail', 'App\Http\Controllers\Admin\ForgetController@sendmail')->name('admin.forget.mail');
-  });
+  Route::post('/login', 'App\Http\Controllers\Admin\LoginController@authenticate')->name('admin.auth');
+
+  Route::get('/mail-form', 'App\Http\Controllers\Admin\ForgetController@mailForm')->name('admin.forget.form');
+  Route::post('/sendmail', 'App\Http\Controllers\Admin\ForgetController@sendmail')->name('admin.forget.mail');
+});
 
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin', 'checkstatus']], function () {
@@ -19,38 +20,104 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin', 'checkstatus']
   // Admin logout Route
   Route::get('/logout', 'App\Http\Controllers\Admin\LoginController@logout')->name('admin.logout');
 
-    // Summernote image upload
-    Route::post('/summernote/upload', 'App\Http\Controllers\Admin\SummernoteController@upload')->name('admin.summernote.upload');
+  // Summernote image upload
+  Route::post('/summernote/upload', 'App\Http\Controllers\Admin\SummernoteController@upload')->name('admin.summernote.upload');
 
-    // Admin File Manager Routes
-    Route::get('/file-manager', 'Admin\SummernoteController@fileManager')->name('admin.file-manager');
+  // Admin File Manager Routes
+  Route::get('/file-manager', 'Admin\SummernoteController@fileManager')->name('admin.file-manager');
 
   Route::group(['middleware' => 'checkpermission:Dashboard'], function () {
     // Admin Dashboard Routes
     Route::get('/dashboard', 'App\Http\Controllers\Admin\DashboardController@dashboard')->name('admin.dashboard');
   });
 
-    // Admin Profile Routes
-    Route::get('/changePassword', 'App\Http\Controllers\Admin\ProfileController@changePass')->name('admin.changePass');
-    Route::post('/profile/updatePassword', 'App\Http\Controllers\Admin\ProfileController@updatePassword')->name('admin.updatePassword');
-    Route::get('/profile/edit', 'App\Http\Controllers\Admin\ProfileController@editProfile')->name('admin.editProfile');
-    Route::post('/propic/update', 'App\Http\Controllers\Admin\ProfileController@updatePropic')->name('admin.propic.update');
-    Route::post('/profile/update', 'App\Http\Controllers\Admin\ProfileController@updateProfile')->name('admin.updateProfile');
+  // Admin Profile Routes
+  Route::get('/changePassword', 'App\Http\Controllers\Admin\ProfileController@changePass')->name('admin.changePass');
+  Route::post('/profile/updatePassword', 'App\Http\Controllers\Admin\ProfileController@updatePassword')->name('admin.updatePassword');
+  Route::get('/profile/edit', 'App\Http\Controllers\Admin\ProfileController@editProfile')->name('admin.editProfile');
+  Route::post('/propic/update', 'App\Http\Controllers\Admin\ProfileController@updatePropic')->name('admin.propic.update');
+  Route::post('/profile/update', 'App\Http\Controllers\Admin\ProfileController@updateProfile')->name('admin.updateProfile');
 
-    Route::group(['middleware' => 'checkpermission:Users Management'], function () {
-      // Register User start
-      Route::get('register/users', 'App\Http\Controllers\Admin\RegisterUserController@index')->name('admin.register.user');
-      Route::post('register/users/ban', 'App\Http\Controllers\Admin\RegisterUserController@userban')->name('register.user.ban');
-      Route::post('register/users/email', 'App\Http\Controllers\Admin\RegisterUserController@emailStatus')->name('register.user.email');
-      Route::get('register/user/details/{id}', 'App\Http\Controllers\Admin\RegisterUserController@view')->name('register.user.view');
-      Route::post('register/user/delete', 'App\Http\Controllers\Admin\RegisterUserController@delete')->name('register.user.delete');
-      Route::post('register/user/bulk-delete', 'App\Http\Controllers\Admin\RegisterUserController@bulkDelete')->name('register.user.bulk.delete');
-      Route::get('register/user/{id}/changePassword', 'App\Http\Controllers\Admin\RegisterUserController@changePass')->name('register.user.changePass');
-      Route::post('register/user/updatePassword', 'App\Http\Controllers\Admin\RegisterUserController@updatePassword')->name('register.user.updatePassword');
-      //Register User end
+  Route::group(['middleware' => 'checkpermission:Users Management'], function () {
+    // Register User start
+    Route::get('register/users', 'App\Http\Controllers\Admin\RegisterUserController@index')->name('admin.register.user');
+    Route::post('register/users/ban', 'App\Http\Controllers\Admin\RegisterUserController@userban')->name('register.user.ban');
+    Route::post('register/users/email', 'App\Http\Controllers\Admin\RegisterUserController@emailStatus')->name('register.user.email');
+    Route::get('register/user/details/{id}', 'App\Http\Controllers\Admin\RegisterUserController@view')->name('register.user.view');
+    Route::post('register/user/delete', 'App\Http\Controllers\Admin\RegisterUserController@delete')->name('register.user.delete');
+    Route::post('register/user/bulk-delete', 'App\Http\Controllers\Admin\RegisterUserController@bulkDelete')->name('register.user.bulk.delete');
+    Route::get('register/user/{id}/changePassword', 'App\Http\Controllers\Admin\RegisterUserController@changePass')->name('register.user.changePass');
+    Route::post('register/user/updatePassword', 'App\Http\Controllers\Admin\RegisterUserController@updatePassword')->name('register.user.updatePassword');
+    //Register User end
+
+  });
+
+    // Admin Product Management Routes
+    Route::group(['middleware' => 'checkpermission:Shop Management'], function () {
+      Route::get('/category', 'App\Http\Controllers\Admin\ProductCategory@index')->name('admin.category.index');
+      Route::post('/category/store', 'App\Http\Controllers\Admin\ProductCategory@store')->name('admin.category.store');
+      Route::get('/category/{id}/edit', 'App\Http\Controllers\Admin\ProductCategory@edit')->name('admin.category.edit');
+      Route::post('/category/update', 'App\Http\Controllers\Admin\ProductCategory@update')->name('admin.category.update');
+      Route::post('/category/feature', 'App\Http\Controllers\Admin\ProductCategory@feature')->name('admin.category.feature');
+      Route::post('/category/home', 'App\Http\Controllers\Admin\ProductCategory@home')->name('admin.category.home');
+      Route::post('/category/delete', 'App\Http\Controllers\Admin\ProductCategory@delete')->name('admin.category.delete');
+      Route::post('/category/bulk-delete', 'App\Http\Controllers\Admin\ProductCategory@bulkDelete')->name('admin.pcategory.bulk.delete');
   
+      Route::get('/shipping', 'App\Http\Controllers\Admin\ShopSettingController@index')->name('admin.shipping.index');
+      Route::post('/shipping/store', 'App\Http\Controllers\Admin\ShopSettingController@store')->name('admin.shipping.store');
+      Route::get('/shipping/{id}/edit', 'App\Http\Controllers\Admin\ShopSettingController@edit')->name('admin.shipping.edit');
+      Route::post('/shipping/update', 'App\Http\Controllers\Admin\ShopSettingController@update')->name('admin.shipping.update');
+      Route::post('/shipping/delete', 'App\Http\Controllers\Admin\ShopSettingController@delete')->name('admin.shipping.delete');
+  
+      Route::get('/product', 'App\Http\Controllers\Admin\ProductController@index')->name('admin.product.index');
+      Route::get('/product/create', 'App\Http\Controllers\Admin\ProductController@create')->name('admin.product.create');
+      Route::post('/product/store', 'App\Http\Controllers\Admin\ProductController@store')->name('admin.product.store');
+      Route::get('/product/{id}/edit', 'App\Http\Controllers\Admin\ProductController@edit')->name('admin.product.edit');
+      Route::post('/product/update', 'App\Http\Controllers\Admin\ProductController@update')->name('admin.product.update');
+      Route::post('/product/feature', 'App\Http\Controllers\Admin\ProductController@feature')->name('admin.product.feature');
+      Route::post('/product/delete', 'App\Http\Controllers\Admin\ProductController@delete')->name('admin.product.delete');
+      Route::get('/product/populer/tags/', 'App\Http\Controllers\Admin\ProductController@populerTag')->name('admin.product.tags');
+      Route::post('/product/populer/tags/update', 'App\Http\Controllers\Admin\ProductController@populerTagupdate')->name('admin.popular-tag.update');
+      Route::post('/product/paymentStatus', 'App\Http\Controllers\Admin\ProductController@paymentStatus')->name('admin.product.paymentStatus');
+  
+      Route::get('product/{id}/getcategory', 'App\Http\Controllers\Admin\ProductController@getCategory')->name('admin.product.getcategory');
+      Route::post('/product/delete', 'App\Http\Controllers\Admin\ProductController@delete')->name('admin.product.delete');
+      Route::post('/product/bulk-delete', 'App\Http\Controllers\Admin\ProductController@bulkDelete')->name('admin.product.bulk.delete');
+      Route::post('/product/sliderupdate', 'App\Http\Controllers\Admin\ProductController@sliderupdate')->name('admin.product.sliderupdate');
+      Route::post('/product/{id}/uploadUpdate', 'App\Http\Controllers\Admin\ProductController@uploadUpdate')->name('admin.product.uploadUpdate');
+      Route::post('/product/update', 'App\Http\Controllers\Admin\ProductController@update')->name('admin.product.update');
+      Route::get('/product/{id}/images', 'App\Http\Controllers\Admin\ProductController@images')->name('admin.product.images');
+  
+  
+      Route::get('/product/settings', 'App\Http\Controllers\Admin\ProductController@settings')->name('admin.product.settings');
+      Route::post('/product/settings', 'App\Http\Controllers\Admin\ProductController@updateSettings')->name('admin.product.settings');
+  
+  
+      // Admin Coupon Routes
+      Route::get('/coupon', 'App\Http\Controllers\Admin\CouponController@index')->name('admin.coupon.index');
+      Route::post('/coupon/store', 'App\Http\Controllers\Admin\CouponController@store')->name('admin.coupon.store');
+      Route::get('/coupon/{id}/edit', 'App\Http\Controllers\Admin\CouponController@edit')->name('admin.coupon.edit');
+      Route::post('/coupon/update', 'App\Http\Controllers\Admin\CouponController@update')->name('admin.coupon.update');
+      Route::post('/coupon/delete', 'App\Http\Controllers\Admin\CouponController@delete')->name('admin.coupon.delete');
+      // Admin Coupon Routes End
+  
+  
+      // Product Order
+      Route::get('/product/all/orders', 'App\Http\Controllers\Admin\ProductOrderController@all')->name('admin.all.product.orders');
+      Route::get('/product/pending/orders', 'App\Http\Controllers\Admin\ProductOrderController@pending')->name('admin.pending.product.orders');
+      Route::get('/product/processing/orders', 'App\Http\Controllers\Admin\ProductOrderController@processing')->name('admin.processing.product.orders');
+      Route::get('/product/completed/orders', 'App\Http\Controllers\Admin\ProductOrderController@completed')->name('admin.completed.product.orders');
+      Route::get('/product/rejected/orders', 'App\Http\Controllers\Admin\ProductOrderController@rejected')->name('admin.rejected.product.orders');
+      Route::post('/product/orders/status', 'App\Http\Controllers\Admin\ProductOrderController@status')->name('admin.product.orders.status');
+      Route::get('/product/orders/detais/{id}', 'App\Http\Controllers\Admin\ProductOrderController@details')->name('admin.product.details');
+      Route::post('/product/order/delete', 'App\Http\Controllers\Admin\ProductOrderController@orderDelete')->name('admin.product.order.delete');
+      Route::post('/product/order/bulk-delete', 'App\Http\Controllers\Admin\ProductOrderController@bulkOrderDelete')->name('admin.product.order.bulk.delete');
+      Route::get('/product/orders/report', 'App\Http\Controllers\Admin\ProductOrderController@report')->name('admin.orders.report');
+      Route::get('/product/export/report', 'App\Http\Controllers\Admin\ProductOrderController@exportReport')->name('admin.orders.export');
+      Route::post('/orders/status', 'App\Http\Controllers\Admin\PackageController@status')->name('admin.orders.status');
+      Route::post('/orders/mail', 'App\Http\Controllers\Admin\PackageController@mail')->name('admin.orders.mail');
+      // Product Order end
     });
-    
 });
 
 // User Routes
@@ -76,43 +143,43 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth', 'userstatus']], funct
 });
 
 if (!app()->runningInConsole()) {
-    Route::group([], function () {
-  
-        $wdPermalinks = Permalink::where('details', 0)->get();
-        foreach ($wdPermalinks as $pl) {
-          $type = $pl->type;
-          $permalink = $pl->permalink;
-      
-      
-          if ($type == 'products') {
-            $action = 'Front\ProductController@product';
-            $routeName = 'front.product';
-          } elseif ($type == 'cart') {
-            $action = 'Front\ProductController@cart';
-            $routeName = 'front.cart';
-          } elseif ($type == 'product_checkout') {
-            $action = 'Front\ProductController@checkout';
-            $routeName = 'front.checkout';
-          } elseif ($type == 'blogs') {
-            $action = 'Front\FrontendController@blogs';
-            $routeName = 'front.blogs';
-          } elseif ($type == 'login') {
-            $action = 'User\LoginController@showLoginForm';
-            $routeName = 'user.login';
-          } elseif ($type == 'register') {
-            $action = 'User\RegisterController@registerPage';
-            $routeName = 'user-register';
-          } elseif ($type == 'forget_password') {
-            $action = 'User\ForgotController@showforgotform';
-            $routeName = 'user-forgot';
-          } elseif ($type == 'admin_login') {
-            $action = 'App\Http\Controllers\Admin\LoginController@login';
-            $routeName = 'admin.login';
-            Route::get("$permalink", "$action")->name("$routeName")->middleware('guest:admin');
-            continue;
-          }
-      
-          Route::get("$permalink", "$action")->name("$routeName");
-        }
-      });
+  Route::group([], function () {
+
+    $wdPermalinks = Permalink::where('details', 0)->get();
+    foreach ($wdPermalinks as $pl) {
+      $type = $pl->type;
+      $permalink = $pl->permalink;
+
+
+      if ($type == 'products') {
+        $action = 'Front\ProductController@product';
+        $routeName = 'front.product';
+      } elseif ($type == 'cart') {
+        $action = 'Front\ProductController@cart';
+        $routeName = 'front.cart';
+      } elseif ($type == 'product_checkout') {
+        $action = 'Front\ProductController@checkout';
+        $routeName = 'front.checkout';
+      } elseif ($type == 'blogs') {
+        $action = 'Front\FrontendController@blogs';
+        $routeName = 'front.blogs';
+      } elseif ($type == 'login') {
+        $action = 'User\LoginController@showLoginForm';
+        $routeName = 'user.login';
+      } elseif ($type == 'register') {
+        $action = 'User\RegisterController@registerPage';
+        $routeName = 'user-register';
+      } elseif ($type == 'forget_password') {
+        $action = 'User\ForgotController@showforgotform';
+        $routeName = 'user-forgot';
+      } elseif ($type == 'admin_login') {
+        $action = 'App\Http\Controllers\Admin\LoginController@login';
+        $routeName = 'admin.login';
+        Route::get("$permalink", "$action")->name("$routeName")->middleware('guest:admin');
+        continue;
+      }
+
+      Route::get("$permalink", "$action")->name("$routeName");
+    }
+  });
 }

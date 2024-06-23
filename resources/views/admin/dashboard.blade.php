@@ -27,7 +27,7 @@
                                 <div class="col-9 col-stats">
                                     <div class="numbers">
                                         <p class="card-category">Product</p>
-                                        <h4 class="card-title">{{ \App\Product::count() }}</h4>
+                                        <h4 class="card-title">{{ \App\Models\Product::count() }}</h4>
                                     </div>
                                 </div>
                             </div>
@@ -49,7 +49,7 @@
                                 <div class="col-9 col-stats">
                                     <div class="numbers">
                                         <p class="card-category">Product Orders</p>
-                                        <h4 class="card-title">{{ \App\ProductOrder::count() }}</h4>
+                                        <h4 class="card-title">{{ \App\Models\ProductOrder::count() }}</h4>
                                     </div>
                                 </div>
                             </div>

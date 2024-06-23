@@ -126,13 +126,13 @@
                             <ul class="nav nav-collapse">
 
                                 <li
-                                        class="
+                                    class="
     @if (request()->path() == 'admin/shipping') active
     @elseif(request()->routeIs('admin.shipping.edit')) active @endif">
-                                        <a href="{{ route('admin.shipping.index') }}">
-                                            <span class="sub-item">Shipping Charges</span>
-                                        </a>
-                                    </li>
+                                    <a href="{{ route('admin.shipping.index') }}">
+                                        <span class="sub-item">Shipping Charges</span>
+                                    </a>
+                                </li>
                                 <li
                                     class="
 @if (request()->path() == 'admin/coupon') active
