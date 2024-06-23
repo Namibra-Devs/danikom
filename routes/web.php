@@ -30,6 +30,20 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin', 'checkstatus']
     Route::get('/profile/edit', 'Admin\ProfileController@editProfile')->name('admin.editProfile');
     Route::post('/propic/update', 'Admin\ProfileController@updatePropic')->name('admin.propic.update');
     Route::post('/profile/update', 'Admin\ProfileController@updateProfile')->name('admin.updateProfile');
+
+    Route::group(['middleware' => 'checkpermission:Users Management'], function () {
+      // Register User start
+      Route::get('register/users', 'Admin\RegisterUserController@index')->name('admin.register.user');
+      Route::post('register/users/ban', 'Admin\RegisterUserController@userban')->name('register.user.ban');
+      Route::post('register/users/email', 'Admin\RegisterUserController@emailStatus')->name('register.user.email');
+      Route::get('register/user/details/{id}', 'Admin\RegisterUserController@view')->name('register.user.view');
+      Route::post('register/user/delete', 'Admin\RegisterUserController@delete')->name('register.user.delete');
+      Route::post('register/user/bulk-delete', 'Admin\RegisterUserController@bulkDelete')->name('register.user.bulk.delete');
+      Route::get('register/user/{id}/changePassword', 'Admin\RegisterUserController@changePass')->name('register.user.changePass');
+      Route::post('register/user/updatePassword', 'Admin\RegisterUserController@updatePassword')->name('register.user.updatePassword');
+      //Register User end
+  
+    });
     
 });
 

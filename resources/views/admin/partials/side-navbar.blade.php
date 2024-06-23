@@ -1,5 +1,4 @@
 @php
-    $default = \App\Language::where('is_default', 1)->first();
     $admin = Auth::guard('admin')->user();
     if (!empty($admin->role)) {
         $permissions = $admin->role->permissions;
