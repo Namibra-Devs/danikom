@@ -23,6 +23,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin', 'checkstatus']
     // Admin Dashboard Routes
     Route::get('/dashboard', 'App\Http\Controllers\Admin\DashboardController@dashboard')->name('admin.dashboard');
   });
+
+    // Admin Profile Routes
+    Route::get('/changePassword', 'Admin\ProfileController@changePass')->name('admin.changePass');
+    Route::post('/profile/updatePassword', 'Admin\ProfileController@updatePassword')->name('admin.updatePassword');
+    Route::get('/profile/edit', 'Admin\ProfileController@editProfile')->name('admin.editProfile');
+    Route::post('/propic/update', 'Admin\ProfileController@updatePropic')->name('admin.propic.update');
+    Route::post('/profile/update', 'Admin\ProfileController@updateProfile')->name('admin.updateProfile');
     
 });
 
