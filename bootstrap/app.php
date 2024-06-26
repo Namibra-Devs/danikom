@@ -7,6 +7,7 @@ use App\Http\Middleware\Authenticate;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Middleware\CheckStatus;
 use App\Http\Middleware\CheckPermission;
+use App\Http\Middleware\SetLfmPath;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -19,7 +20,8 @@ return Application::configure(basePath: dirname(__DIR__))
             'guest' => RedirectIfAuthenticated::class,
             'auth' => Authenticate::class,
             'checkstatus' => CheckStatus::class,
-            'checkpermission' => CheckPermission::class
+            'checkpermission' => CheckPermission::class,
+            'setLfmPath' => SetLfmPath::class,
             
         ]);
     })

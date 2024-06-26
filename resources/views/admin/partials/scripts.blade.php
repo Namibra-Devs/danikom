@@ -11,7 +11,7 @@
 <script src="{{asset('assets/admin/js/plugin/datatables/datatables.min.js')}}"></script>
 
 <!-- jQuery Timepicker -->
-<script src="{{asset('assets/frontend/js/jquery.timepicker.min.js')}}"></script>
+<script src="{{asset('assets/admin/js/jquery.timepicker.min.js')}}"></script>
 
 <!-- Select2 -->
 <script src="{{asset('assets/admin/js/plugin/select2/select2.min.js')}}"></script>

@@ -3,6 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Permalink;
 
+
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth:admin', 'setLfmPath']], function () {
+  \UniSharp\LaravelFilemanager\Lfm::routes();
+  Route::post('summernote/upload', 'Admin\SummernoteController@uploadFileManager')->name('lfm.summernote.upload');
+});
+
 /*=======================================================
 ******************** Admin Routes **********************
 =======================================================*/
