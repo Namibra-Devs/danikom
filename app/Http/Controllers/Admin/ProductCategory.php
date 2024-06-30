@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Str;
 use App\Models\Pcategory;
-use App\Megamenu;
+use App\Models\Megamenu;
 use Validator;
 use Session;
 
@@ -74,6 +74,19 @@ class ProductCategory extends Controller
         return "success";
     }
 
+    public function deleteFromMegaMenu($category) {
+        $megamenu = Megamenu::where('category', 1)->where('type', 'products');
+        if ($megamenu->count() > 0) {
+            $megamenu = $megamenu->first();
+            $menus = json_decode($megamenu->menus, true);
+            $catId = $category->id;
+            if (is_array($menus) && array_key_exists("$catId", $menus)) {
+                unset($menus["$catId"]);
+                $megamenu->menus = json_encode($menus);
+                $megamenu->save();
+            }
+        }
+    }
 
 
     public function feature(Request $request)
@@ -115,8 +128,6 @@ class ProductCategory extends Controller
             Session::flash('warning', 'First, delete all the product under the selected categories!');
             return back();
         }
-
-        $this->deleteFromMegaMenu($category);
 
         $category->delete();
 
