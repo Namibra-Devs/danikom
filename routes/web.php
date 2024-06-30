@@ -148,6 +148,16 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth', 'userstatus']], funct
   Route::post('/zip-file/upload', 'User\TicketController@zip_upload')->name('zip.upload');
 });
 
+
+/*=======================================================
+******************** Frontend Routes **********************
+=======================================================*/
+
+Route::get('/', 'App\Http\Controllers\Frontend\FrontendController@index')->name('frontend.index');
+
+
+
+
 if (!app()->runningInConsole()) {
   Route::group([], function () {
 
