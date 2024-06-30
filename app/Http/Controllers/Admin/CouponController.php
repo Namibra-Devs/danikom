@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Coupon;
+use App\Models\Coupon;
 use Illuminate\Http\Request;
 use Validator;
 use Session;
