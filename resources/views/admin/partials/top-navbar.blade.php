@@ -3,7 +3,7 @@
   <div class="logo-header" data-background-color="dark2">
 
     <a href="" class="logo" target="_blank">
-      <img src="{{asset('assets/frontend/images/logo.svg')}}" alt="navbar brand" class="navbar-brand" width="120">
+      <img src="{{asset('assets/frontend/images/danikomlogo.svg')}}" alt="navbar brand" class="navbar-brand" width="120">
     </a>
     <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon">

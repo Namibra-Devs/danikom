@@ -366,14 +366,13 @@
                 @endif
 
 
-                @if (empty($admin->role) || (!empty($permissions) && in_array('Events Management', $permissions)))
                     <li class="nav-item @if (request()->path() == 'admin/file-manager') active @endif">
                         <a href="{{ route('admin.file-manager') }}">
                             <i class="la flaticon-list"></i>
                             <span class="sub-item">File Manager</span>
                         </a>
                     </li>
-                @endif
+                
             </ul>
         </div>
     </div>
