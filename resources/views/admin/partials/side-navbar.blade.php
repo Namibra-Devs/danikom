@@ -16,7 +16,7 @@
                         <img src="{{ asset('assets/admin/images/propics/' . Auth::guard('admin')->user()->image) }}"
                             alt="..." class="avatar-img rounded">
                     @else --}}
-                    <img src="{{ asset('assets/admin/images/blank_user.jpg') }}" alt="..." class="avatar-img rounded">
+                    {{-- <img src="{{ asset('assets/admin/images/blank_user.jpg') }}" alt="..." class="avatar-img rounded"> --}}
                     {{-- @endif --}}
                 </div>
                 <div class="info">

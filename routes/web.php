@@ -6,7 +6,7 @@ use App\Models\Permalink;
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth:admin', 'setLfmPath']], function () {
   \UniSharp\LaravelFilemanager\Lfm::routes();
-  Route::post('summernote/upload', 'Admin\SummernoteController@uploadFileManager')->name('lfm.summernote.upload');
+  Route::post('summernote/upload', 'App\Http\Controllers\Admin\SummernoteController@uploadFileManager')->name('lfm.summernote.upload');
 });
 
 /*=======================================================
@@ -30,7 +30,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin', 'checkstatus']
   Route::post('/summernote/upload', 'App\Http\Controllers\Admin\SummernoteController@upload')->name('admin.summernote.upload');
 
   // Admin File Manager Routes
-  Route::get('/file-manager', 'Admin\SummernoteController@fileManager')->name('admin.file-manager');
+  Route::get('/file-manager', 'App\Http\Controllers\Admin\SummernoteController@fileManager')->name('admin.file-manager');
 
   Route::group(['middleware' => 'checkpermission:Dashboard'], function () {
     // Admin Dashboard Routes
@@ -56,6 +56,25 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin', 'checkstatus']
     Route::post('register/user/updatePassword', 'App\Http\Controllers\Admin\RegisterUserController@updatePassword')->name('register.user.updatePassword');
     //Register User end
 
+  });
+
+  Route::group(['middleware' => 'checkpermission:Role Management'], function () {
+    // Admin Roles Routes
+    Route::get('/roles', 'App\Http\Controllers\Admin\RoleController@index')->name('admin.role.index');
+    Route::post('/role/store', 'App\Http\Controllers\Admin\RoleController@store')->name('admin.role.store');
+    Route::post('/role/update', 'App\Http\Controllers\Admin\RoleController@update')->name('admin.role.update');
+    Route::post('/role/delete', 'App\Http\Controllers\Admin\RoleController@delete')->name('admin.role.delete');
+    Route::get('role/{id}/permissions/manage', 'App\Http\Controllers\Admin\RoleController@managePermissions')->name('admin.role.permissions.manage');
+    Route::post('role/permissions/update', 'App\Http\Controllers\Admin\RoleController@updatePermissions')->name('admin.role.permissions.update');
+  });
+
+  Route::group(['middleware' => 'checkpermission:Users Management'], function () {
+    // Admin Users Routes
+    Route::get('/users', 'App\Http\Controllers\Admin\UserController@index')->name('admin.user.index');
+    Route::post('/user/store', 'App\Http\Controllers\Admin\UserController@store')->name('admin.user.store');
+    Route::get('/user/{id}/edit', 'App\Http\Controllers\Admin\UserController@edit')->name('admin.user.edit');
+    Route::post('/user/update', 'App\Http\Controllers\Admin\UserController@update')->name('admin.user.update');
+    Route::post('/user/delete', 'App\Http\Controllers\Admin\UserController@delete')->name('admin.user.delete');
   });
 
     // Admin Product Management Routes

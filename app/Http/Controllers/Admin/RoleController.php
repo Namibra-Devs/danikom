@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Admin;
-use App\Role;
+use App\Models\Admin;
+use App\Models\Role;
 use Validator;
 use Session;
 
