@@ -254,41 +254,7 @@ class ProductController extends Controller
             ];
         }
 
-        // if product type is 'physical'
-        if ($product->type == 'physical') {
-            $rules['stock'] = 'required';
-            $rules['sku'] = [
-                'required',
-                Rule::unique('products')->ignore($request->product_id),
-            ];
-        }
-
-        // if product type is 'digital'
-        if ($product->type == 'digital') {
-            $rules['file_type'] = 'required';
-
-            // if 'file upload' is chosen
-            if ($request->has('file_type') && $request->file_type == 'upload') {
-
-                if (empty($product->download_file)) {
-                    $rules['download_file'][] = 'required';
-                }
-                $rules['download_file'][] = function ($attribute, $value, $fail) use ($product, $request) {
-                    $allowedExts = array('zip');
-                    if ($request->hasFile('download_file')) {
-                        $file = $request->file('download_file');
-                        $ext = $file->getClientOriginalExtension();
-                        if (!in_array($ext, $allowedExts)) {
-                            return $fail("Only zip file is allowed");
-                        }
-                    }
-                };
-            }
-            // if 'file donwload link' is chosen
-            elseif ($request->has('file_type') && $request->file_type == 'link') {
-                $rules['download_link'] = 'required';
-            }
-        }
+       
 
         $messages = [
             'category_id.required' => 'Service is required',

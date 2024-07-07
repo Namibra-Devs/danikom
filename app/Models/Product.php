@@ -24,7 +24,7 @@ class Product extends Model
         'status',
         'meta_keywords',
         'meta_description',
-        'type',
+        // 'type',
         'download_link',
         'download_file'
     ];
