@@ -173,6 +173,9 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth', 'userstatus']], funct
 =======================================================*/
 
 Route::get('/', 'App\Http\Controllers\Frontend\FrontendController@index')->name('frontend.index');
+Route::get('/about', 'App\Http\Controllers\Frontend\FrontendController@about')->name('frontend.about');
+Route::get('/contact', 'App\Http\Controllers\Frontend\FrontendController@contact')->name('frontend.contact');
+Route::get('/products', 'App\Http\Controllers\Frontend\FrontendController@products')->name('frontend.products');
 
 
 

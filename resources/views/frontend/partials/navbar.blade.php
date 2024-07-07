@@ -52,7 +52,7 @@
     <nav class="navbar d-none d-lg-flex navbar-expand-lg bg-white shadow">
         <div class="container-fluid mx-lg-5 px-lg-4 mx-2 px-2">
             <div class="me-lg-5 pe-lg-5">
-                <a href="./index.html" class="text-decoration-none text-dark logo">
+                <a href="{{ route('frontend.index') }}" class="text-decoration-none text-dark logo">
                     <img src="{{ asset('assets/frontend/images/danikomlogo.svg') }}" alt="Danikom Logo" class="me-1" />Danikom Trading
                 </a>
             </div>
@@ -76,10 +76,10 @@
             <div class="collapse navbar-collapse ms-lg-5 ps-lg-5 mt-4 mt-lg-0" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 ms-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="./index.html">Home</a>
+                        <a class="nav-link text-dark" href="{{ route('frontend.index') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="./about.html">About Us</a>
+                        <a class="nav-link text-dark" href="{{ route('frontend.about') }}">About Us</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-dark" href="#" role="button"
@@ -126,7 +126,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="./contact.html">Contact us</a>
+                        <a class="nav-link text-dark" href="{{ route('frontend.contact') }}">Contact us</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav">
@@ -172,7 +172,7 @@
         <div class="container-fluid mx-lg-5 px-lg-4 mx-2 px-2">
             <div class="d-flex flex-column justify-content-center w-100">
                 <div class="d-block text-center">
-                    <a href="./index.html" class="text-decoration-none text-dark logo">
+                    <a href="{{ route('frontend.index') }}" class="text-decoration-none text-dark logo">
                         <img src="{{ asset('assets/frontend/images/danikomlogo.svg') }}" alt="Danikom Logo" class="me-1" />Danikom
                         Trading
                     </a>
@@ -197,10 +197,10 @@
             <div class="collapse navbar-collapse border-top-2 w-100" id="navbarSupportedContent">
                 <ul class="navbar-nav d-flex justify-content-center">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="./index.html">Home</a>
+                        <a class="nav-link text-dark" href="{{ route('frontend.index') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="./about.html">About Us</a>
+                        <a class="nav-link text-dark" href="{{ route('frontend.about') }}">About Us</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-dark" href="#" role="button"
@@ -246,7 +246,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="./contact.html">Contact us</a>
+                        <a class="nav-link text-dark" href="{{ route('frontend.contact') }}">Contact us</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-dark" href="./track.html">Track Order</a>

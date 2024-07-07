@@ -86,14 +86,14 @@
                         of natural products.</p>
 
                     <div class="d-flex align-items-center my-3">
-                        <a href="./about.html" class="btn text-light px-3 py-2 rounded-pill details">See Details <svg
+                        <a href="{{ route('frontend.about') }}" class="btn text-light px-3 py-2 rounded-pill details">See Details <svg
                                 class="ms-2" width="18" height="15" viewBox="0 0 18 15" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M17.293 8.20711C17.6836 7.81658 17.6836 7.18342 17.293 6.79289L10.9291 0.428933C10.5386 0.0384087 9.90539 0.0384086 9.51487 0.428933C9.12435 0.819457 9.12435 1.45262 9.51487 1.84315L15.1717 7.5L9.51487 13.1569C9.12435 13.5474 9.12435 14.1805 9.51487 14.5711C9.90539 14.9616 10.5386 14.9616 10.9291 14.5711L17.293 8.20711ZM0.585937 8.5L16.5859 8.5L16.5859 6.5L0.585938 6.5L0.585937 8.5Z"
                                     fill="white" />
                             </svg></a>
-                        <a href="./products.html" class="text-dark ms-4">View All Products</a>
+                        <a href="{{ route('frontend.products') }}" class="text-dark ms-4">View All Products</a>
                     </div>
 
                     <div class="ratings-header d-flex w-100">
