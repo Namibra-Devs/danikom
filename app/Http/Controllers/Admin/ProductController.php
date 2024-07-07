@@ -334,29 +334,6 @@ class ProductController extends Controller
     }
 
 
-    public function deleteFromMegaMenu($product) {
-        // unset service from megamenu for service_category = 1
-        $megamenu = Megamenu::where('category', 1)->where('type', 'products');
-        if ($megamenu->count() > 0) {
-            $megamenu = $megamenu->first();
-            $menus = json_decode($megamenu->menus, true);
-            $catId = $product->category->id;
-            if (is_array($menus) && array_key_exists("$catId", $menus)) {
-                if (in_array($product->id, $menus["$catId"])) {
-                    $index = array_search($product->id, $menus["$catId"]);
-                    unset($menus["$catId"]["$index"]);
-                    $menus["$catId"] = array_values($menus["$catId"]);
-                    if (count($menus["$catId"]) == 0) {
-                        unset($menus["$catId"]);
-                    }
-                    $megamenu->menus = json_encode($menus);
-                    $megamenu->save();
-                }
-            }
-        }
-    }
-
-
     public function feature(Request $request)
     {
         $product = Product::findOrFail($request->product_id);
@@ -384,7 +361,6 @@ class ProductController extends Controller
         @unlink('assets/frontend/images/product/featured/' . $product->feature_image);
         @unlink('core/storage/digital_products/' . $product->download_file);
 
-        $this->deleteFromMegaMenu($product);
 
         $product->delete();
 
