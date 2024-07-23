@@ -57,27 +57,27 @@
       <div class="col-lg-2">
         <h5 class="fs-6">Company</h5>
         <ul class="list-unstyled">
-          <li><a href="./home.html" class="text-decoration-none text-light mt-3">Home</a></li>
-          <li><a href="./about.html" class="text-decoration-none text-light mt-3">About Us</a></li>
-          <li><a href="./products.html" class="text-decoration-none text-light mt-3">Our Products</a></li>
-          <li><a href="./contact.html" class="text-decoration-none text-light mt-3">Contact Us</a></li>
+          <li><a href="{{ route('frontend.index') }}" class="text-decoration-none text-light mt-3">Home</a></li>
+          <li><a href="{{ route('frontend.about') }}" class="text-decoration-none text-light mt-3">About Us</a></li>
+          <li><a href="{{ route('frontend.product') }}" class="text-decoration-none text-light mt-3">Our Products</a></li>
+          <li><a href="{{ route('frontend.product') }}" class="text-decoration-none text-light mt-3">Contact Us</a></li>
         </ul>
       </div>
 
       <div class="col-lg-2">
         <h5 class="fs-6">Customer Service</h5>
         <ul class="list-unstyled">
-          <li><a href="./account.html" class="text-decoration-none text-light mt-3">My Account</a></li>
-          <li><a href="./trackorder.html" class="text-decoration-none text-light mt-3">Track Orders</a></li>
-          <li><a href="./faqs.html" class="text-decoration-none text-light mt-3">FAQs</a></li>
+          <li><a href="#" class="text-decoration-none text-light mt-3">My Account</a></li>
+          <li><a href="#" class="text-decoration-none text-light mt-3">Track Orders</a></li>
+          <li><a href="#" class="text-decoration-none text-light mt-3">FAQs</a></li>
         </ul>
       </div>
       <div class="col-lg-2">
         <h5 class="fs-6">Our Information</h5>
         <ul class="list-unstyled">
-          <li><a href="./privacypolicy.html" class="text-decoration-none text-light mt-3">Privacy</a></li>
+          <li><a href="{{ route('frontend.ppolicy') }}" class="text-decoration-none text-light mt-3">Privacy</a></li>
           <li><a href="#" class="text-decoration-none text-light mt-3">User T&Cs</a></li>
-          <li><a href="./returnpolicy.html" class="text-decoration-none text-light mt-3">Return Policy</a></li>
+          <li><a href="{{ route('frontend.rpolicy') }}" class="text-decoration-none text-light mt-3">Return Policy</a></li>
         </ul>
       </div>
       <div class="col-lg-3">

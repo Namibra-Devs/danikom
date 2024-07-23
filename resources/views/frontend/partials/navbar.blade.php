@@ -8,7 +8,7 @@
             </div>
             <div class="signup">
                 Sign up and be part of the family.
-                <a href="./signup.html" class="signup-top">Sign up now</a>
+                <a href="#" class="signup-top">Sign up now</a>
             </div>
             <div class="socials d-flex justify-content-center">
                 <div class="social">
@@ -131,7 +131,7 @@
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="./search.html" class="btn px-4 rounded-5">
+                        <a href="#" class="btn px-4 rounded-5">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -141,7 +141,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="./cart.html" class="btn px-4 rounded-5">
+                        <a href="#" class="btn px-4 rounded-5">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path

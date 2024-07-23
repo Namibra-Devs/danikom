@@ -18,4 +18,16 @@ class FrontendController extends Controller
     public function contact() {
         return view('frontend.pages.contact');
     }
+
+    public function search() {
+        return view('frontend.pages.search');
+    }
+
+    public function ppolicy() {
+        return view('frontend.pages.privacypolicy');
+    }
+
+    public function rpolicy() {
+        return view('frontend.pages.returnpolicy');
+    }
 }

@@ -221,7 +221,7 @@
                             beans, which are fermented, roasted, and then separated from
                             their hulls. About 54–58% of the residue is cocoa butter.</p>
                         <div class="d-flex justify-content-center align-items-center">
-                            <a href="./naturalcocoa.html" class="btn rounded-pill details details-products text-white">See
+                            <a href="#" class="btn rounded-pill details details-products text-white">See
                                 Details
                                 <svg class="ms-2" width="15" height="15" viewBox="0 0 18 15" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -247,7 +247,7 @@
                                 beans, which are fermented, roasted, and then separated from
                                 their hulls. About 54–58% of the residue is cocoa butter.</p>
                             <div class="d-flex justify-content-center align-items-center">
-                                <a href="./naturalcocoa.html"
+                                <a href="#"
                                     class="btn rounded-pill details details-products text-white">See Details
                                     <svg class="ms-2" width="15" height="15" viewBox="0 0 18 15"
                                         fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -265,7 +265,7 @@
                             <h5 class="card-title">Unrefined Shea Butter (Yellow)</h5>
                             <p class="card-text">Traditionally extracted Unrefined Shea Butter.</p>
                             <div class="d-flex justify-content-center align-items-center">
-                                <a href="./yellowshea.html"
+                                <a href="#"
                                     class="btn rounded-pill details details-products text-white">See Details
                                     <svg class="ms-2" width="15" height="15" viewBox="0 0 18 15"
                                         fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -283,7 +283,7 @@
                             <h5 class="card-title">Unrefined Shea Butter (Ivory)</h5>
                             <p class="card-text">Traditionally extracted Unrefined Shea Butter.</p>
                             <div class="d-flex justify-content-center align-items-center">
-                                <a href="./ivoryshea.html"
+                                <a href="#"
                                     class="btn rounded-pill details details-products text-white">See Details <svg
                                         class="ms-2" width="15" height="15" viewBox="0 0 18 15" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -308,7 +308,7 @@
                             <p class="card-text">
                                 Beautiful and colourfully woven baskets with several uses.</p>
                             <div class="d-flex justify-content-center align-items-center">
-                                <a href="./handcraftedbasket.html"
+                                <a href="#"
                                     class="btn rounded-pill details details-products text-white">See
                                     Details <svg class="ms-2" width="15" height="15" viewBox="0 0 18 15"
                                         fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -330,7 +330,7 @@
                                 100% natural antibacterial soap for moisturizing and preventing dry skin.
                             </p>
                             <div class="d-flex justify-content-center align-items-center">
-                                <a href="./bodicare.html" class="btn rounded-pill details details-products text-white">See
+                                <a href="#" class="btn rounded-pill details details-products text-white">See
                                     Details <svg class="ms-2" width="15" height="15" viewBox="0 0 18 15"
                                         fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -352,7 +352,7 @@
                                 affordable price.
                             </p>
                             <div class="d-flex justify-content-center align-items-center">
-                                <a href="./cashewnuts.html"
+                                <a href="#"
                                     class="btn rounded-pill details details-products text-white">See Details
                                     <svg class="ms-2" width="15" height="15" viewBox="0 0 18 15"
                                         fill="none" xmlns="http://www.w3.org/2000/svg">
