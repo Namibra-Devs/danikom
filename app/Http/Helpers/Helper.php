@@ -8,3 +8,9 @@ if (! function_exists('make_slug')) {
         return $slug;
     }
 }
+
+if (! function_exists('convertUtf8')) {
+    function convertUtf8( $value ) {
+        return mb_detect_encoding($value, mb_detect_order(), true) === 'UTF-8' ? $value : mb_convert_encoding($value, 'UTF-8');
+    }
+}

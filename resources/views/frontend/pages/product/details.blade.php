@@ -13,533 +13,312 @@
         <!-- Hero Header ends here -->
 
 
-        <!-- Product starts here -->
-        <div class="bg-white">
+        <!--====== PRODUCT DETAILS PART START ======-->
 
-            <div class="container py-5">
-
-                <div class="row justify-content-center align-items-center">
-                    <div class="col-lg-4 col-md-6 col-11 ms-lg-4">
-                        <div class="card p-2">
-                            <img src="/public/src/img/products/cocoa.png" class="card-img-top w-100" alt="ceo-image">
+        <div class="product-details-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="product-item-slide ">
+                            @foreach ($product->product_images as $image)
+                                <div class="item pt-30">
+                                    <a class="image-popup"
+                                        href="{{ asset('assets/frontend/images/product/sliders/' . $image->image) }}"><img
+                                            src="{{ asset('assets/frontend/images/product/sliders/' . $image->image) }}"
+                                            alt=""></a>
+                                </div>
+                            @endforeach
+                        </div>
+                        <div class="product-details-slide-item mt-30">
+                            <ul class="d-flex">
+                                @foreach ($product->product_images as $image)
+                                    <li><img src="{{ asset('assets/frontend/images/product/sliders/' . $image->image) }}"
+                                            alt=""></li>
+                                @endforeach
+                            </ul>
                         </div>
                     </div>
-                    <div class="col-lg-7 col-md-6 col-11 ms-lg-3 my-lg-3 mt-4 mt-lg-0">
-                        <div class="">
-                            <div class="header d-flex">
-                                <h4 class="text-uppercase fs-5 ms-2">Our Unrefined Shea Butter (Ivory)</h4>
+                    <div class="col-lg-6">
+                        <div class="product-details-content ml-60 mt-30">
+                            <div class="product-details-content-item">
+                                <h4 class="title pb-0">{{ convertUtf8($product->title) }}</h4>
+                                <div class="d-flex justify-content-between">
+                                    <div class="rate">
+                                        <div class="rating" style="width:{{ $product->rating * 20 }}%"></div>
+                                    </div>
+
+                                    @if ($product->stock > 0)
+                                        <h4 class="badge badge-success">
+                                            <i class="far fa-check-circle"></i> {{ __('In Stock') }}
+                                        </h4>
+                                    @else
+                                        <h4 class="badge badge-danger">
+                                            <i class="far fa-times-circle"></i> {{ __('Out of Stock') }}
+                                        </h4>
+                                    @endif
+                                </div>
+
+                                <span>GH₵ {{ $product->current_price }}
+                                    @if (!empty($product->previous_price))
+                                        <del> <span class="prepice"> {{ $product->previous_price }}</span></del>
+                                    @endif
+                                </span>
+
+                                @if (!empty($product->summary))
+                                    <p>{{ convertUtf8($product->summary) }}</p>
+                                @endif
                             </div>
-                            <p class="">Traditionally extracted Unrefined Shea Butter.</p>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <svg class="" width="20" height="31" viewBox="0 0 32 31" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M14.0979 1.8541C14.6966 0.0114832 17.3034 0.0114789 17.9021 1.8541L20.2658 9.12868C20.5335 9.95272 21.3014 10.5106 22.1679 10.5106H29.8168C31.7543 10.5106 32.5598 12.9899 30.9924 14.1287L24.8043 18.6246C24.1033 19.1339 23.81 20.0366 24.0777 20.8607L26.4414 28.1353C27.0401 29.9779 24.9311 31.5101 23.3637 30.3713L17.1756 25.8754C16.4746 25.3661 15.5254 25.3661 14.8244 25.8754L8.63631 30.3713C7.06888 31.5101 4.95992 29.9779 5.55862 28.1353L7.92228 20.8607C8.19002 20.0366 7.89671 19.1339 7.19573 18.6246L1.00761 14.1287C-0.559815 12.9899 0.245734 10.5106 2.18318 10.5106H9.83212C10.6986 10.5106 11.4665 9.95272 11.7342 9.12868L14.0979 1.8541Z"
-                                    fill="#FAC136" />
-                            </svg>
-                            <svg class=" ms-2" width="20" height="31" viewBox="0 0 32 31" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M14.0979 1.8541C14.6966 0.0114832 17.3034 0.0114789 17.9021 1.8541L20.2658 9.12868C20.5335 9.95272 21.3014 10.5106 22.1679 10.5106H29.8168C31.7543 10.5106 32.5598 12.9899 30.9924 14.1287L24.8043 18.6246C24.1033 19.1339 23.81 20.0366 24.0777 20.8607L26.4414 28.1353C27.0401 29.9779 24.9311 31.5101 23.3637 30.3713L17.1756 25.8754C16.4746 25.3661 15.5254 25.3661 14.8244 25.8754L8.63631 30.3713C7.06888 31.5101 4.95992 29.9779 5.55862 28.1353L7.92228 20.8607C8.19002 20.0366 7.89671 19.1339 7.19573 18.6246L1.00761 14.1287C-0.559815 12.9899 0.245734 10.5106 2.18318 10.5106H9.83212C10.6986 10.5106 11.4665 9.95272 11.7342 9.12868L14.0979 1.8541Z"
-                                    fill="#FAC136" />
-                            </svg>
-                            <svg class=" ms-2" width="20" height="31" viewBox="0 0 32 31" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M14.0979 1.8541C14.6966 0.0114832 17.3034 0.0114789 17.9021 1.8541L20.2658 9.12868C20.5335 9.95272 21.3014 10.5106 22.1679 10.5106H29.8168C31.7543 10.5106 32.5598 12.9899 30.9924 14.1287L24.8043 18.6246C24.1033 19.1339 23.81 20.0366 24.0777 20.8607L26.4414 28.1353C27.0401 29.9779 24.9311 31.5101 23.3637 30.3713L17.1756 25.8754C16.4746 25.3661 15.5254 25.3661 14.8244 25.8754L8.63631 30.3713C7.06888 31.5101 4.95992 29.9779 5.55862 28.1353L7.92228 20.8607C8.19002 20.0366 7.89671 19.1339 7.19573 18.6246L1.00761 14.1287C-0.559815 12.9899 0.245734 10.5106 2.18318 10.5106H9.83212C10.6986 10.5106 11.4665 9.95272 11.7342 9.12868L14.0979 1.8541Z"
-                                    fill="#FAC136" />
-                            </svg>
-                            <svg class=" ms-2" width="20" height="31" viewBox="0 0 32 31" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M14.0979 1.8541C14.6966 0.0114832 17.3034 0.0114789 17.9021 1.8541L20.2658 9.12868C20.5335 9.95272 21.3014 10.5106 22.1679 10.5106H29.8168C31.7543 10.5106 32.5598 12.9899 30.9924 14.1287L24.8043 18.6246C24.1033 19.1339 23.81 20.0366 24.0777 20.8607L26.4414 28.1353C27.0401 29.9779 24.9311 31.5101 23.3637 30.3713L17.1756 25.8754C16.4746 25.3661 15.5254 25.3661 14.8244 25.8754L8.63631 30.3713C7.06888 31.5101 4.95992 29.9779 5.55862 28.1353L7.92228 20.8607C8.19002 20.0366 7.89671 19.1339 7.19573 18.6246L1.00761 14.1287C-0.559815 12.9899 0.245734 10.5106 2.18318 10.5106H9.83212C10.6986 10.5106 11.4665 9.95272 11.7342 9.12868L14.0979 1.8541Z"
-                                    fill="#FAC136" />
-                            </svg>
-                            <svg class=" ms-2" width="20" height="31" viewBox="0 0 32 31" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M14.0979 1.8541C14.6966 0.0114832 17.3034 0.0114789 17.9021 1.8541L20.2658 9.12868C20.5335 9.95272 21.3014 10.5106 22.1679 10.5106H29.8168C31.7543 10.5106 32.5598 12.9899 30.9924 14.1287L24.8043 18.6246C24.1033 19.1339 23.81 20.0366 24.0777 20.8607L26.4414 28.1353C27.0401 29.9779 24.9311 31.5101 23.3637 30.3713L17.1756 25.8754C16.4746 25.3661 15.5254 25.3661 14.8244 25.8754L8.63631 30.3713C7.06888 31.5101 4.95992 29.9779 5.55862 28.1353L7.92228 20.8607C8.19002 20.0366 7.89671 19.1339 7.19573 18.6246L1.00761 14.1287C-0.559815 12.9899 0.245734 10.5106 2.18318 10.5106H9.83212C10.6986 10.5106 11.4665 9.95272 11.7342 9.12868L14.0979 1.8541Z"
-                                    fill="#FAC136" />
-                            </svg>
-                            <span class="d-flex justify-content-center align-items-center ratings-review">
-                                <span class="rated-number ms-2 d-block">4.9</span>( <span class="rate-count">123 </span>
-                                &nbsp; Reviews)
-                            </span>
-                        </div>
-                        <p class="py-2 pe-lg-5">Packaging in 25kg & 12kg per carton for Africa and other markets; 25pounds
-                            per carton for USA, Canada and the Caribbean. Other Packaging sizes are available but base on
-                            client request.</p>
 
-                        <div class="d-flex">
-                            <button class="btn cart-btn">Add to Cart</button>
-                            <a href="#buynow" class="btn ms-2 buy-btn">Buy Now</a>
-                        </div>
-                    </div>
+                            <div class="product-btns d-block d-sm-flex align-items-center mt-40">
+                                <div class="product-quantity  d-flex" id="quantity">
+                                    <button type="button" id="sub" class="sub subclick">-</button>
+                                    <input type="text" class="cart-amount" id="1" value="1" />
+                                    <button type="button" id="add" class="add addclick">+</button>
+                                </div>
+                            </div>
 
-                </div>
-                <div class="row justify-content-center align-items-center w-100">
+                            <div class="actions">
 
+                                <form class="d-inline-block ml-2" method="GET"
+                                    action="{{ route('frontend.product.checkout', $product->slug) }}">
+                                    <input type="hidden" value="" name="qty" id="order_click_with_qty">
+                                    {{-- <div class="row flex-start mx-0 product-sizes">
+                              <div class="product-description-label text-body mt-2 pr-2">Sizes
+                                  :
+                              </div>
+                              <div>
+                                  <div class="list-inline checkbox-alphanumeric checkbox-alphanumeric--style-1 mb-2 mx-1 flex-start row"
+                                      style="padding-left: 0;">
+                                      <div>
+                                          <li class="for-mobile-capacity">
+                                              <input type="radio" id="choice_1-M" name="choice_1" value="M" checked="">
+                                              <label style="font-size: 12px;" for="choice_1-M">M</label>
+                                          </li>
+                                      </div>
+                                      <div>
+                                          <li class="for-mobile-capacity">
+                                              <input type="radio" id="choice_1-L" name="choice_1" value="L">
+                                              <label style="font-size: 12px;" for="choice_1-L">L</label>
+                                          </li>
+                                      </div>
+                                      <div>
+                                          <li class="for-mobile-capacity">
+                                              <input type="radio" id="choice_1-XL" name="choice_1" value="XL">
+                                              <label style="font-size: 12px;" for="choice_1-XL">XL</label>
+                                          </li>
+                                      </div>
+                                      <div>
+                                          <li class="for-mobile-capacity">
+                                              <input type="radio" id="choice_1-2XL" name="choice_1" value="2XL">
+                                              <label style="font-size: 12px;" for="choice_1-2XL">2XL</label>
+                                          </li>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div> --}}
+                                    <a class="main-btn cart-btn cart-link d-inline-block"
+                                        data-href="{{ route('add.cart', $product->id) }}">{{ __('Add To Cart') }}</a>
+                                    <button type="submit" class="main-btn checkout-btn">{{ __('Order Now') }}</button>
+                                </form>
+                            </div>
 
-
-                    <div class="col-lg-10 mt-5 products-links" id="link-div">
-                        <ul class="nav nav-pills mt-3 mb-3 w-100 justify-content-center gap-4" id="pills-tab"
-                            role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
-                                    data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
-                                    aria-selected="true">Desicription</button>
+                            {{-- <div class="product-social-icon social-link a2a_kit a2a_kit_size_32">
+                      <ul class="social-share">
+                          <li>
+                              <a class="facebook a2a_button_facebook" href="">
+                                <i class="fab fa-facebook-f"></i>
+                              </a>
                             </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
-                                    data-bs-target="#pills-profile" type="button" role="tab"
-                                    aria-controls="pills-profile" aria-selected="false">Addtional Info</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
-                                    data-bs-target="#pills-contact" type="button" role="tab"
-                                    aria-controls="pills-contact" aria-selected="false">Reviews</button>
-                            </li>
-                        </ul>
-                        <div class="tab-content mt-4" id="pills-tabContent">
-                            <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
-                                aria-labelledby="pills-home-tab">
-                                <p>
+                              <li>
+                                  <a class="twitter a2a_button_twitter" href="">
+                                    <i class="fab fa-twitter"></i>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a class="linkedin a2a_button_linkedin" href="">
+                                    <i class="fab fa-linkedin-in"></i>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a class="pinterest a2a_button_pinterest" href="">
+                                    <i class="fab fa-pinterest"></i>
+                                  </a>
+                              </li>
+                              <li>
 
-                                    Shea butter is a fatty extract from the seed of the Shea nut. The extract is known to
-                                    contain a number of ingredients with biological activity. This biological activity
-                                    includes moisturizing abilities and the healing of minor skin ailments. <br>
-                                    Our Shea Butter is pure unrefined handcrafted and extracted using the traditional
-                                    method. This traditional handcrafted method of processing shea butter is proven to be
-                                    the most-trusted method of production that keeps all the much-talked-about beneficial
-                                    properties of the Shea. Our extraction process is done using clean water and without any
-                                    chemical additives whatsoever. This makes our Shea Butter very natural and
-                                    chemicals-free.
-                                </p>
-                                <div class="mt-3">
-                                    <h4 class="fw-bold">Suggested Use</h4>
-                                    <ul class="list-group-disc">
-                                        <li>Our pure Shea butter is used for body, hand and facial products because of its
-                                            un-saponifiable content. Pure Shea butter
-                                            contain sester resins recommended for damaged skin repair, cleansing and the
-                                            sun's protection.</li>
-                                        <li>Phytosterols content helps cellular stimulation and regeneration. Pure Shea
-                                            butter contains latex, which prevents against sun
-                                            allergies.</li>
-                                        <li> Clinical studies have demonstrated that pure shea butter enhances capillary
-                                            vessels blood activity, increasing oxygenation
-                                            and metabolic residues elimination.</li>
-                                        <li>Shea nut products, the solid fat (butter or stearin) and the liquid oil (olien),
-                                            are ideal for use as raw materials in cooking oil,
-                                            margarine, cosmetics, soap, detergents and candles, but it has found its primary
-                                            market niche as a substitute for cocoa
-                                            butter in the chocolate and confectionery industry.</li>
-                                        <li> Pure Shea butter has been used for centuries in Africa. It is used to
-                                            moisturize and protect the skin from sun, wind, heat and
-                                            salt water. It is known as the most effective skin moisturizer and conditioner
-                                            because of its high content of non-saponifiable
-                                            fats including vitamin F.</li>
-                                        <li>It is an excellent skin moistener and is used for aging skin, eczema and all
-                                            forms of massage. It is also used to relax the
-                                            muscles and to treat sprains wounds and colds. The unique formula of Pure Shea
-                                            butter also helps prevent and protect dry
-                                            skin providing temporal relief from irritation, dryness and wind burned skin.
+                              <a class="a2a_dd plus" href="https://www.addtoany.com/share">
+                                  <i class="fas fa-plus"></i>
+                                </a>
+                              </li>
+                      </ul>
+                  </div> --}}
+                            <script async src="https://static.addtoany.com/menu/page.js"></script>
+                            <div class="product-details-tags">
+                                <ul>
+                                    @if (!empty($product->sku))
+                                        <li><span>{{ __('SKU') }}:</span> {{ $product->sku }} </li>
+                                    @endif
+                                    @if (!empty($product->category))
+                                        <li><span>{{ __('Category') }}:</span> <a
+                                                href="{{ route('frontend.product') . '?category_id=' . $product->category_id }}">{{ $product->category ? convertUtf8($product->category->name) : '' }}</a>
                                         </li>
-                                        <li>Pure Shea Butter can be used as a hair dressing cream to moisturize a dry scalp
-                                            and stimulate hair growth. As a hair cream,
-                                            it helps to hold the hairstyle and lightly relax curls.</li>
-                                        <li>
-                                            Medicinally, Pure Shea Butter has been studied as an anti-inflammatory tropical
-                                            cream, being helpful in cases of arthritis
-                                            (Kerharo), and it contains stigmasterol, which is the sterol known as "the
-                                            anti-stiffness factor" making it helpful in cases
-                                            of rheumatism (Hampton). It has additionally been studied as a nasal
-                                            decongestant by applying it to the inside of the
-                                            nostrils (Tella).</li>
-                                        <li>
-                                            Pure Shea Butter is also helpful in cases of eczema and dermatitis and "contains
-                                            chemical constituents that help to heal
-                                            bruising and soreness" (Falconi).</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="pills-profile" role="tabpanel"
-                                aria-labelledby="pills-profile-tab">
-                                <div>
-                                    <table class="table border">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col" class="featured-table">Feature</th>
-                                                <th scope="col" class="desicription-table">Desicription</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Quality</td>
-                                                <td>Natural Unrefined Shea Butter</td>
-                                            </tr>
-                                            <tr class="table-active">
-                                                <td>Color</td>
-                                                <td>Ivory/White</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Packing</td>
-                                                <td>
-                                                    <p class="pb-1">
-                                                        Packaging in 25kg & 12kg per carton for Africa and other markets
-                                                    </p>
-                                                    <p>
-                                                        25 pounds per carton for USA, Canada and the Caribbean.
-                                                    </p>
-                                                    <p class="pb-1">Other Packaging sizes are available but base on
-                                                        client request</p>
-                                                </td>
-                                            </tr>
-                                            <tr class="table-active">
-                                                <td>Production</td>
-                                                <td>We produce to meet export or international standards.</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="tab-pane w-100 fade pb-5" id="pills-contact" role="tabpanel"
-                                aria-labelledby="pills-contact-tab">
-                                <div class="row justify-content-center align-items-center w-100 border-bottom pb-5">
-                                    <div
-                                        class="col-lg-3 col-md-4 col-4 justify-content-lg-center align-items-center p-3 border bg-light">
-                                        <span class="d-flex justify-content-center align-items-end ratings-review">
-                                            <span class="rated-number display-lg-3 display-4 d-block">4.9</span> out of 5
-                                        </span>
-                                        <div class="d-flex justify-content-center align-items-center">
-                                            <svg class="" width="20" height="31" viewBox="0 0 32 31"
-                                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M14.0979 1.8541C14.6966 0.0114832 17.3034 0.0114789 17.9021 1.8541L20.2658 9.12868C20.5335 9.95272 21.3014 10.5106 22.1679 10.5106H29.8168C31.7543 10.5106 32.5598 12.9899 30.9924 14.1287L24.8043 18.6246C24.1033 19.1339 23.81 20.0366 24.0777 20.8607L26.4414 28.1353C27.0401 29.9779 24.9311 31.5101 23.3637 30.3713L17.1756 25.8754C16.4746 25.3661 15.5254 25.3661 14.8244 25.8754L8.63631 30.3713C7.06888 31.5101 4.95992 29.9779 5.55862 28.1353L7.92228 20.8607C8.19002 20.0366 7.89671 19.1339 7.19573 18.6246L1.00761 14.1287C-0.559815 12.9899 0.245734 10.5106 2.18318 10.5106H9.83212C10.6986 10.5106 11.4665 9.95272 11.7342 9.12868L14.0979 1.8541Z"
-                                                    fill="#FAC136" />
-                                            </svg>
-                                            <svg class=" ms-2" width="20" height="31" viewBox="0 0 32 31"
-                                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M14.0979 1.8541C14.6966 0.0114832 17.3034 0.0114789 17.9021 1.8541L20.2658 9.12868C20.5335 9.95272 21.3014 10.5106 22.1679 10.5106H29.8168C31.7543 10.5106 32.5598 12.9899 30.9924 14.1287L24.8043 18.6246C24.1033 19.1339 23.81 20.0366 24.0777 20.8607L26.4414 28.1353C27.0401 29.9779 24.9311 31.5101 23.3637 30.3713L17.1756 25.8754C16.4746 25.3661 15.5254 25.3661 14.8244 25.8754L8.63631 30.3713C7.06888 31.5101 4.95992 29.9779 5.55862 28.1353L7.92228 20.8607C8.19002 20.0366 7.89671 19.1339 7.19573 18.6246L1.00761 14.1287C-0.559815 12.9899 0.245734 10.5106 2.18318 10.5106H9.83212C10.6986 10.5106 11.4665 9.95272 11.7342 9.12868L14.0979 1.8541Z"
-                                                    fill="#FAC136" />
-                                            </svg>
-                                            <svg class=" ms-2" width="20" height="31" viewBox="0 0 32 31"
-                                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M14.0979 1.8541C14.6966 0.0114832 17.3034 0.0114789 17.9021 1.8541L20.2658 9.12868C20.5335 9.95272 21.3014 10.5106 22.1679 10.5106H29.8168C31.7543 10.5106 32.5598 12.9899 30.9924 14.1287L24.8043 18.6246C24.1033 19.1339 23.81 20.0366 24.0777 20.8607L26.4414 28.1353C27.0401 29.9779 24.9311 31.5101 23.3637 30.3713L17.1756 25.8754C16.4746 25.3661 15.5254 25.3661 14.8244 25.8754L8.63631 30.3713C7.06888 31.5101 4.95992 29.9779 5.55862 28.1353L7.92228 20.8607C8.19002 20.0366 7.89671 19.1339 7.19573 18.6246L1.00761 14.1287C-0.559815 12.9899 0.245734 10.5106 2.18318 10.5106H9.83212C10.6986 10.5106 11.4665 9.95272 11.7342 9.12868L14.0979 1.8541Z"
-                                                    fill="#FAC136" />
-                                            </svg>
-                                            <svg class=" ms-2" width="20" height="31" viewBox="0 0 32 31"
-                                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M14.0979 1.8541C14.6966 0.0114832 17.3034 0.0114789 17.9021 1.8541L20.2658 9.12868C20.5335 9.95272 21.3014 10.5106 22.1679 10.5106H29.8168C31.7543 10.5106 32.5598 12.9899 30.9924 14.1287L24.8043 18.6246C24.1033 19.1339 23.81 20.0366 24.0777 20.8607L26.4414 28.1353C27.0401 29.9779 24.9311 31.5101 23.3637 30.3713L17.1756 25.8754C16.4746 25.3661 15.5254 25.3661 14.8244 25.8754L8.63631 30.3713C7.06888 31.5101 4.95992 29.9779 5.55862 28.1353L7.92228 20.8607C8.19002 20.0366 7.89671 19.1339 7.19573 18.6246L1.00761 14.1287C-0.559815 12.9899 0.245734 10.5106 2.18318 10.5106H9.83212C10.6986 10.5106 11.4665 9.95272 11.7342 9.12868L14.0979 1.8541Z"
-                                                    fill="#FAC136" />
-                                            </svg>
-                                            <svg class="ms-2" width="20" height="31" viewBox="0 0 32 31"
-                                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M14.0979 1.8541C14.6966 0.0114832 17.3034 0.0114789 17.9021 1.8541L20.2658 9.12868C20.5335 9.95272 21.3014 10.5106 22.1679 10.5106H29.8168C31.7543 10.5106 32.5598 12.9899 30.9924 14.1287L24.8043 18.6246C24.1033 19.1339 23.81 20.0366 24.0777 20.8607L26.4414 28.1353C27.0401 29.9779 24.9311 31.5101 23.3637 30.3713L17.1756 25.8754C16.4746 25.3661 15.5254 25.3661 14.8244 25.8754L8.63631 30.3713C7.06888 31.5101 4.95992 29.9779 5.55862 28.1353L7.92228 20.8607C8.19002 20.0366 7.89671 19.1339 7.19573 18.6246L1.00761 14.1287C-0.559815 12.9899 0.245734 10.5106 2.18318 10.5106H9.83212C10.6986 10.5106 11.4665 9.95272 11.7342 9.12868L14.0979 1.8541Z"
-                                                    fill="#FAC136" />
-                                            </svg>
-
-                                        </div>
-                                        <span class="text-center w-100 rate-count count d-block">(123 Reviews)</span>
-                                    </div>
-
-                                    <div class="ms-lg-5 ms-3 col-7 justify-content-center justify-content-lg-start">
-                                        <div class="top-ratings row align-items-center">
-                                            <span class="col star-num text-center px-0 mx-0" style="width: 1%;">5
-                                                Star</span>
-                                            <div class="col-10 progress-div px-0 mx-0">
-
-                                                <div class="progress mx-0 px-0">
-                                                    <div class="progress-bar bg-warning" role="progressbar"
-                                                        style="width: 90%" aria-valuenow="80" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="top-ratings row align-items-center">
-                                            <span class="col star-num text-center px-0 mx-0" style="width: 1%;">4
-                                                Star</span>
-                                            <div class="col-10 progress-div px-0 mx-0">
-
-                                                <div class="progress mx-0 px-0">
-                                                    <div class="progress-bar bg-warning" role="progressbar"
-                                                        style="width: 80%" aria-valuenow="80" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="top-ratings row align-items-center">
-                                            <span class="col star-num text-center px-0 mx-0" style="width: 1%;">3
-                                                Star</span>
-                                            <div class="col-10 progress-div px-0 mx-0">
-
-                                                <div class="progress mx-0 px-0">
-                                                    <div class="progress-bar bg-warning" role="progressbar"
-                                                        style="width: 65%" aria-valuenow="80" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="top-ratings row align-items-center">
-                                            <span class="col star-num text-center px-0 mx-0" style="width: 1%;">2
-                                                Star</span>
-                                            <div class="col-10 progress-div px-0 mx-0">
-
-                                                <div class="progress mx-0 px-0">
-                                                    <div class="progress-bar bg-warning" role="progressbar"
-                                                        style="width: 25%" aria-valuenow="80" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="top-ratings row align-items-center">
-                                            <span class="col star-num text-center px-0 mx-0" style="width: 2%;">1
-                                                Star</span>
-                                            <div class="col-10 progress-div px-0 mx-0">
-
-                                                <div class="progress mx-0 px-0">
-                                                    <div class="progress-bar bg-warning" role="progressbar"
-                                                        style="width: 5%" aria-valuenow="80" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Reviews Section starts here -->
-                                <div class="reviews-details pt-5">
-                                    <div class="header d-flex justify-content-between w-100 h-100">
-                                        <div>
-                                            <p class="fw-bold">Review List</p>
-                                            <p class="pagination">Showing &nbsp; <spand class="page-count"> 1 </spand>
-                                                &nbsp; of &nbsp;<span class="page-count">2</span> &nbsp; Results</p>
-                                        </div>
-
-                                        <div>
-                                            <p class="d-inline me-2">Sorted By:
-                                            <div class="btn-group d-inline">
-                                                <button class="btn btn-warning btn-sm dropdown-toggle" type="button"
-                                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                                    All
-                                                </button>
-                                                <ul class="dropdown-menu ps-2">
-                                                    <li><button class="dropdown-item" type="button">Most Helpful</button>
-                                                    </li>
-                                                    <li><button class="dropdown-item" type="button">Most
-                                                            Favourable</button></li>
-                                                    <li><button class="dropdown-item" type="button">Most
-                                                            Critical</button></li>
-                                                    <li><button class="dropdown-item" type="button">Most Recent</button>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            </p>
-
-                                        </div>
-                                    </div>
-
-
-                                    <div class="row">
-                                        <div class="border-bottom">
-                                            <div
-                                                class="d-flex justify-content-between align-items-center reviewer py-3 w-100">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="reviewer-image">
-                                                        <img src="/public/src/img/testimonials/client1.svg"
-                                                            class="img-fluid w-100 reviewer-img" alt="">
-                                                    </div>
-
-                                                    <div class="reviewer-info p-2 ms-2">
-
-                                                        <h6 class="reviewer-name fw-bold pe-5">Janice Antwi</h6>
-                                                        <p class="reviewer-post">Beautician</p>
-                                                    </div>
-
-                                                </div>
-                                                <div class="date">
-                                                    <p> <span class="day-count">6</span> <span
-                                                            class="time-span">days</span> ago</p>
-                                                </div>
-                                            </div>
-                                            <div class="review-message py-2">
-                                                Danikom is a great company and trustworthy to do business with, with no
-                                                doubt i always feel happy and comfortable trading with them, with no issue
-                                                of delay in my products delivery.
-                                            </div>
-                                            <div class="d-flex justify-content-start align-items-center mb-3">
-                                                <svg class="" width="20" height="31" viewBox="0 0 32 31"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M14.0979 1.8541C14.6966 0.0114832 17.3034 0.0114789 17.9021 1.8541L20.2658 9.12868C20.5335 9.95272 21.3014 10.5106 22.1679 10.5106H29.8168C31.7543 10.5106 32.5598 12.9899 30.9924 14.1287L24.8043 18.6246C24.1033 19.1339 23.81 20.0366 24.0777 20.8607L26.4414 28.1353C27.0401 29.9779 24.9311 31.5101 23.3637 30.3713L17.1756 25.8754C16.4746 25.3661 15.5254 25.3661 14.8244 25.8754L8.63631 30.3713C7.06888 31.5101 4.95992 29.9779 5.55862 28.1353L7.92228 20.8607C8.19002 20.0366 7.89671 19.1339 7.19573 18.6246L1.00761 14.1287C-0.559815 12.9899 0.245734 10.5106 2.18318 10.5106H9.83212C10.6986 10.5106 11.4665 9.95272 11.7342 9.12868L14.0979 1.8541Z"
-                                                        fill="#FAC136" />
-                                                </svg>
-                                                <svg class=" ms-2" width="20" height="31" viewBox="0 0 32 31"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M14.0979 1.8541C14.6966 0.0114832 17.3034 0.0114789 17.9021 1.8541L20.2658 9.12868C20.5335 9.95272 21.3014 10.5106 22.1679 10.5106H29.8168C31.7543 10.5106 32.5598 12.9899 30.9924 14.1287L24.8043 18.6246C24.1033 19.1339 23.81 20.0366 24.0777 20.8607L26.4414 28.1353C27.0401 29.9779 24.9311 31.5101 23.3637 30.3713L17.1756 25.8754C16.4746 25.3661 15.5254 25.3661 14.8244 25.8754L8.63631 30.3713C7.06888 31.5101 4.95992 29.9779 5.55862 28.1353L7.92228 20.8607C8.19002 20.0366 7.89671 19.1339 7.19573 18.6246L1.00761 14.1287C-0.559815 12.9899 0.245734 10.5106 2.18318 10.5106H9.83212C10.6986 10.5106 11.4665 9.95272 11.7342 9.12868L14.0979 1.8541Z"
-                                                        fill="#FAC136" />
-                                                </svg>
-                                                <svg class=" ms-2" width="20" height="31" viewBox="0 0 32 31"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M14.0979 1.8541C14.6966 0.0114832 17.3034 0.0114789 17.9021 1.8541L20.2658 9.12868C20.5335 9.95272 21.3014 10.5106 22.1679 10.5106H29.8168C31.7543 10.5106 32.5598 12.9899 30.9924 14.1287L24.8043 18.6246C24.1033 19.1339 23.81 20.0366 24.0777 20.8607L26.4414 28.1353C27.0401 29.9779 24.9311 31.5101 23.3637 30.3713L17.1756 25.8754C16.4746 25.3661 15.5254 25.3661 14.8244 25.8754L8.63631 30.3713C7.06888 31.5101 4.95992 29.9779 5.55862 28.1353L7.92228 20.8607C8.19002 20.0366 7.89671 19.1339 7.19573 18.6246L1.00761 14.1287C-0.559815 12.9899 0.245734 10.5106 2.18318 10.5106H9.83212C10.6986 10.5106 11.4665 9.95272 11.7342 9.12868L14.0979 1.8541Z"
-                                                        fill="#FAC136" />
-                                                </svg>
-                                                <svg class=" ms-2" width="20" height="31" viewBox="0 0 32 31"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M14.0979 1.8541C14.6966 0.0114832 17.3034 0.0114789 17.9021 1.8541L20.2658 9.12868C20.5335 9.95272 21.3014 10.5106 22.1679 10.5106H29.8168C31.7543 10.5106 32.5598 12.9899 30.9924 14.1287L24.8043 18.6246C24.1033 19.1339 23.81 20.0366 24.0777 20.8607L26.4414 28.1353C27.0401 29.9779 24.9311 31.5101 23.3637 30.3713L17.1756 25.8754C16.4746 25.3661 15.5254 25.3661 14.8244 25.8754L8.63631 30.3713C7.06888 31.5101 4.95992 29.9779 5.55862 28.1353L7.92228 20.8607C8.19002 20.0366 7.89671 19.1339 7.19573 18.6246L1.00761 14.1287C-0.559815 12.9899 0.245734 10.5106 2.18318 10.5106H9.83212C10.6986 10.5106 11.4665 9.95272 11.7342 9.12868L14.0979 1.8541Z"
-                                                        fill="#FAC136" />
-                                                </svg>
-                                                <svg class=" ms-2" width="20" height="31" viewBox="0 0 32 31"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M14.0979 1.8541C14.6966 0.0114832 17.3034 0.0114789 17.9021 1.8541L20.2658 9.12868C20.5335 9.95272 21.3014 10.5106 22.1679 10.5106H29.8168C31.7543 10.5106 32.5598 12.9899 30.9924 14.1287L24.8043 18.6246C24.1033 19.1339 23.81 20.0366 24.0777 20.8607L26.4414 28.1353C27.0401 29.9779 24.9311 31.5101 23.3637 30.3713L17.1756 25.8754C16.4746 25.3661 15.5254 25.3661 14.8244 25.8754L8.63631 30.3713C7.06888 31.5101 4.95992 29.9779 5.55862 28.1353L7.92228 20.8607C8.19002 20.0366 7.89671 19.1339 7.19573 18.6246L1.00761 14.1287C-0.559815 12.9899 0.245734 10.5106 2.18318 10.5106H9.83212C10.6986 10.5106 11.4665 9.95272 11.7342 9.12868L14.0979 1.8541Z"
-                                                        fill="#FAC136" />
-                                                </svg>
-                                                <span class="rated-number ms-2 d-block">5.0</span>
-                                            </div>
-                                        </div>
-                                        <div class="border-bottom">
-                                            <div
-                                                class="d-flex justify-content-between align-items-center reviewer py-3 w-100">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="reviewer-image">
-                                                        <img src="/public/src/img/testimonials/client2.svg"
-                                                            class="img-fluid w-100 reviewer-img" alt="">
-                                                    </div>
-
-                                                    <div class="reviewer-info p-2 ms-2">
-
-                                                        <h6 class="reviewer-name fw-bold pe-5">Janice Antwi</h6>
-                                                        <p class="reviewer-post">Beautician</p>
-                                                    </div>
-
-                                                </div>
-                                                <div class="date">
-                                                    <p> <span class="day-count">6</span> <span
-                                                            class="time-span">days</span> ago</p>
-                                                </div>
-                                            </div>
-                                            <div class="review-message py-2">
-                                                Danikom is a great company and trustworthy to do business with, with no
-                                                doubt i always feel happy and comfortable trading with them, with no issue
-                                                of delay in my products delivery.
-                                            </div>
-                                            <div class="d-flex justify-content-start align-items-center mb-3">
-                                                <svg class="" width="20" height="31" viewBox="0 0 32 31"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M14.0979 1.8541C14.6966 0.0114832 17.3034 0.0114789 17.9021 1.8541L20.2658 9.12868C20.5335 9.95272 21.3014 10.5106 22.1679 10.5106H29.8168C31.7543 10.5106 32.5598 12.9899 30.9924 14.1287L24.8043 18.6246C24.1033 19.1339 23.81 20.0366 24.0777 20.8607L26.4414 28.1353C27.0401 29.9779 24.9311 31.5101 23.3637 30.3713L17.1756 25.8754C16.4746 25.3661 15.5254 25.3661 14.8244 25.8754L8.63631 30.3713C7.06888 31.5101 4.95992 29.9779 5.55862 28.1353L7.92228 20.8607C8.19002 20.0366 7.89671 19.1339 7.19573 18.6246L1.00761 14.1287C-0.559815 12.9899 0.245734 10.5106 2.18318 10.5106H9.83212C10.6986 10.5106 11.4665 9.95272 11.7342 9.12868L14.0979 1.8541Z"
-                                                        fill="#FAC136" />
-                                                </svg>
-                                                <svg class=" ms-2" width="20" height="31" viewBox="0 0 32 31"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M14.0979 1.8541C14.6966 0.0114832 17.3034 0.0114789 17.9021 1.8541L20.2658 9.12868C20.5335 9.95272 21.3014 10.5106 22.1679 10.5106H29.8168C31.7543 10.5106 32.5598 12.9899 30.9924 14.1287L24.8043 18.6246C24.1033 19.1339 23.81 20.0366 24.0777 20.8607L26.4414 28.1353C27.0401 29.9779 24.9311 31.5101 23.3637 30.3713L17.1756 25.8754C16.4746 25.3661 15.5254 25.3661 14.8244 25.8754L8.63631 30.3713C7.06888 31.5101 4.95992 29.9779 5.55862 28.1353L7.92228 20.8607C8.19002 20.0366 7.89671 19.1339 7.19573 18.6246L1.00761 14.1287C-0.559815 12.9899 0.245734 10.5106 2.18318 10.5106H9.83212C10.6986 10.5106 11.4665 9.95272 11.7342 9.12868L14.0979 1.8541Z"
-                                                        fill="#FAC136" />
-                                                </svg>
-                                                <svg class=" ms-2" width="20" height="31" viewBox="0 0 32 31"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M14.0979 1.8541C14.6966 0.0114832 17.3034 0.0114789 17.9021 1.8541L20.2658 9.12868C20.5335 9.95272 21.3014 10.5106 22.1679 10.5106H29.8168C31.7543 10.5106 32.5598 12.9899 30.9924 14.1287L24.8043 18.6246C24.1033 19.1339 23.81 20.0366 24.0777 20.8607L26.4414 28.1353C27.0401 29.9779 24.9311 31.5101 23.3637 30.3713L17.1756 25.8754C16.4746 25.3661 15.5254 25.3661 14.8244 25.8754L8.63631 30.3713C7.06888 31.5101 4.95992 29.9779 5.55862 28.1353L7.92228 20.8607C8.19002 20.0366 7.89671 19.1339 7.19573 18.6246L1.00761 14.1287C-0.559815 12.9899 0.245734 10.5106 2.18318 10.5106H9.83212C10.6986 10.5106 11.4665 9.95272 11.7342 9.12868L14.0979 1.8541Z"
-                                                        fill="#FAC136" />
-                                                </svg>
-                                                <svg class=" ms-2" width="20" height="31" viewBox="0 0 32 31"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M14.0979 1.8541C14.6966 0.0114832 17.3034 0.0114789 17.9021 1.8541L20.2658 9.12868C20.5335 9.95272 21.3014 10.5106 22.1679 10.5106H29.8168C31.7543 10.5106 32.5598 12.9899 30.9924 14.1287L24.8043 18.6246C24.1033 19.1339 23.81 20.0366 24.0777 20.8607L26.4414 28.1353C27.0401 29.9779 24.9311 31.5101 23.3637 30.3713L17.1756 25.8754C16.4746 25.3661 15.5254 25.3661 14.8244 25.8754L8.63631 30.3713C7.06888 31.5101 4.95992 29.9779 5.55862 28.1353L7.92228 20.8607C8.19002 20.0366 7.89671 19.1339 7.19573 18.6246L1.00761 14.1287C-0.559815 12.9899 0.245734 10.5106 2.18318 10.5106H9.83212C10.6986 10.5106 11.4665 9.95272 11.7342 9.12868L14.0979 1.8541Z"
-                                                        fill="#FAC136" />
-                                                </svg>
-                                                <svg class=" ms-2" width="20" height="31" viewBox="0 0 32 31"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M14.0979 1.8541C14.6966 0.0114832 17.3034 0.0114789 17.9021 1.8541L20.2658 9.12868C20.5335 9.95272 21.3014 10.5106 22.1679 10.5106H29.8168C31.7543 10.5106 32.5598 12.9899 30.9924 14.1287L24.8043 18.6246C24.1033 19.1339 23.81 20.0366 24.0777 20.8607L26.4414 28.1353C27.0401 29.9779 24.9311 31.5101 23.3637 30.3713L17.1756 25.8754C16.4746 25.3661 15.5254 25.3661 14.8244 25.8754L8.63631 30.3713C7.06888 31.5101 4.95992 29.9779 5.55862 28.1353L7.92228 20.8607C8.19002 20.0366 7.89671 19.1339 7.19573 18.6246L1.00761 14.1287C-0.559815 12.9899 0.245734 10.5106 2.18318 10.5106H9.83212C10.6986 10.5106 11.4665 9.95272 11.7342 9.12868L14.0979 1.8541Z"
-                                                        fill="#FAC136" />
-                                                </svg>
-                                                <span class="rated-number ms-2 d-block">5.0</span>
-                                            </div>
-                                        </div>
-                                        <div class="border-bottom">
-                                            <div
-                                                class="d-flex justify-content-between align-items-center reviewer py-3 w-100">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="reviewer-image">
-                                                        <img src="/public/src/img/testimonials/client1.svg"
-                                                            class="img-fluid w-100 reviewer-img" alt="">
-                                                    </div>
-
-                                                    <div class="reviewer-info p-2 ms-2">
-
-                                                        <h6 class="reviewer-name fw-bold pe-5">Janice Antwi</h6>
-                                                        <p class="reviewer-post">Beautician</p>
-                                                    </div>
-
-                                                </div>
-                                                <div class="date">
-                                                    <p> <span class="day-count">6</span> <span
-                                                            class="time-span">days</span> ago</p>
-                                                </div>
-                                            </div>
-                                            <div class="review-message py-2">
-                                                Danikom is a great company and trustworthy to do business with, with no
-                                                doubt i always feel happy and comfortable trading with them, with no issue
-                                                of delay in my products delivery.
-                                            </div>
-                                            <div class="d-flex justify-content-start align-items-center mb-3">
-                                                <svg class="" width="20" height="31" viewBox="0 0 32 31"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M14.0979 1.8541C14.6966 0.0114832 17.3034 0.0114789 17.9021 1.8541L20.2658 9.12868C20.5335 9.95272 21.3014 10.5106 22.1679 10.5106H29.8168C31.7543 10.5106 32.5598 12.9899 30.9924 14.1287L24.8043 18.6246C24.1033 19.1339 23.81 20.0366 24.0777 20.8607L26.4414 28.1353C27.0401 29.9779 24.9311 31.5101 23.3637 30.3713L17.1756 25.8754C16.4746 25.3661 15.5254 25.3661 14.8244 25.8754L8.63631 30.3713C7.06888 31.5101 4.95992 29.9779 5.55862 28.1353L7.92228 20.8607C8.19002 20.0366 7.89671 19.1339 7.19573 18.6246L1.00761 14.1287C-0.559815 12.9899 0.245734 10.5106 2.18318 10.5106H9.83212C10.6986 10.5106 11.4665 9.95272 11.7342 9.12868L14.0979 1.8541Z"
-                                                        fill="#FAC136" />
-                                                </svg>
-                                                <svg class=" ms-2" width="20" height="31" viewBox="0 0 32 31"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M14.0979 1.8541C14.6966 0.0114832 17.3034 0.0114789 17.9021 1.8541L20.2658 9.12868C20.5335 9.95272 21.3014 10.5106 22.1679 10.5106H29.8168C31.7543 10.5106 32.5598 12.9899 30.9924 14.1287L24.8043 18.6246C24.1033 19.1339 23.81 20.0366 24.0777 20.8607L26.4414 28.1353C27.0401 29.9779 24.9311 31.5101 23.3637 30.3713L17.1756 25.8754C16.4746 25.3661 15.5254 25.3661 14.8244 25.8754L8.63631 30.3713C7.06888 31.5101 4.95992 29.9779 5.55862 28.1353L7.92228 20.8607C8.19002 20.0366 7.89671 19.1339 7.19573 18.6246L1.00761 14.1287C-0.559815 12.9899 0.245734 10.5106 2.18318 10.5106H9.83212C10.6986 10.5106 11.4665 9.95272 11.7342 9.12868L14.0979 1.8541Z"
-                                                        fill="#FAC136" />
-                                                </svg>
-                                                <svg class=" ms-2" width="20" height="31" viewBox="0 0 32 31"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M14.0979 1.8541C14.6966 0.0114832 17.3034 0.0114789 17.9021 1.8541L20.2658 9.12868C20.5335 9.95272 21.3014 10.5106 22.1679 10.5106H29.8168C31.7543 10.5106 32.5598 12.9899 30.9924 14.1287L24.8043 18.6246C24.1033 19.1339 23.81 20.0366 24.0777 20.8607L26.4414 28.1353C27.0401 29.9779 24.9311 31.5101 23.3637 30.3713L17.1756 25.8754C16.4746 25.3661 15.5254 25.3661 14.8244 25.8754L8.63631 30.3713C7.06888 31.5101 4.95992 29.9779 5.55862 28.1353L7.92228 20.8607C8.19002 20.0366 7.89671 19.1339 7.19573 18.6246L1.00761 14.1287C-0.559815 12.9899 0.245734 10.5106 2.18318 10.5106H9.83212C10.6986 10.5106 11.4665 9.95272 11.7342 9.12868L14.0979 1.8541Z"
-                                                        fill="#FAC136" />
-                                                </svg>
-                                                <svg class=" ms-2" width="20" height="31" viewBox="0 0 32 31"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M14.0979 1.8541C14.6966 0.0114832 17.3034 0.0114789 17.9021 1.8541L20.2658 9.12868C20.5335 9.95272 21.3014 10.5106 22.1679 10.5106H29.8168C31.7543 10.5106 32.5598 12.9899 30.9924 14.1287L24.8043 18.6246C24.1033 19.1339 23.81 20.0366 24.0777 20.8607L26.4414 28.1353C27.0401 29.9779 24.9311 31.5101 23.3637 30.3713L17.1756 25.8754C16.4746 25.3661 15.5254 25.3661 14.8244 25.8754L8.63631 30.3713C7.06888 31.5101 4.95992 29.9779 5.55862 28.1353L7.92228 20.8607C8.19002 20.0366 7.89671 19.1339 7.19573 18.6246L1.00761 14.1287C-0.559815 12.9899 0.245734 10.5106 2.18318 10.5106H9.83212C10.6986 10.5106 11.4665 9.95272 11.7342 9.12868L14.0979 1.8541Z"
-                                                        fill="#FAC136" />
-                                                </svg>
-                                                <svg class=" ms-2" width="20" height="31" viewBox="0 0 32 31"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M14.0979 1.8541C14.6966 0.0114832 17.3034 0.0114789 17.9021 1.8541L20.2658 9.12868C20.5335 9.95272 21.3014 10.5106 22.1679 10.5106H29.8168C31.7543 10.5106 32.5598 12.9899 30.9924 14.1287L24.8043 18.6246C24.1033 19.1339 23.81 20.0366 24.0777 20.8607L26.4414 28.1353C27.0401 29.9779 24.9311 31.5101 23.3637 30.3713L17.1756 25.8754C16.4746 25.3661 15.5254 25.3661 14.8244 25.8754L8.63631 30.3713C7.06888 31.5101 4.95992 29.9779 5.55862 28.1353L7.92228 20.8607C8.19002 20.0366 7.89671 19.1339 7.19573 18.6246L1.00761 14.1287C-0.559815 12.9899 0.245734 10.5106 2.18318 10.5106H9.83212C10.6986 10.5106 11.4665 9.95272 11.7342 9.12868L14.0979 1.8541Z"
-                                                        fill="#FAC136" />
-                                                </svg>
-                                                <span class="rated-number ms-2 d-block">5.0</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Reviews Section ends here -->
+                                    @endif
+                                    @if (!empty($product->tags))
+                                        <li><span>{{ __('Product Tags') }}:</span>{{ $product->tags }}</li>
+                                    @endif
+                                </ul>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>
         </div>
-        </div>
-        </div>
 
-        <!-- Products Section ends here -->
+        <!--====== PRODUCT DETAILS PART ENDS ======-->
+
+        <!--====== SHOP TAB PART START ======-->
+
+    <div class="shop-tab-area" @if ($related_product->count() == 0) style="padding-bottom:120px;" @endif>
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-11">
+                  <div class="shop-tab-area">
+                      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                          <li class="nav-item">
+                              <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home"
+                                  role="tab" aria-controls="pills-home"
+                                  aria-selected="true">{{ __('Description') }}</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact"
+                                  role="tab" aria-controls="pills-contact" aria-selected="false">{{ __('Reviews') }}
+                                  {{-- ({{ count($reviews) }})</a> --}}
+                          </li>
+                      </ul>
+                      <div class="tab-content" id="pills-tabContent">
+                          <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                              aria-labelledby="pills-home-tab">
+                              {!! convertUtf8($product->description) !!}
+
+                          </div>
+                          <div class="tab-pane fade" id="pills-contact" role="tabpanel"
+                              aria-labelledby="pills-contact-tab">
+                              <div class="shop-review-area">
+                                  <div class="shop-review-title">
+                                      <h3 class="title">{{ convertUtf8($product->title) }}</h3>
+                                  </div>
+                                  {{-- @if (count($reviews) > 0)
+                                      @foreach ($reviews as $review)
+                                          <div class="shop-review-user">
+                                              @if (strpos($review->user->photo, 'facebook') !== false || strpos($review->user->photo, 'google'))
+                                                  <img class="lazy"
+                                                      data-src="{{ $review->user->photo ? $review->user->photo : asset('assets/frontend/images/user/profile.jpg') }}"
+                                                      alt="user image" width="60">
+                                              @else
+                                                  <img class="lazy"
+                                                      data-src="{{ $review->user->photo ? asset('assets/frontend/images/user/' . $review->user->photo) : '' }}"
+                                                      alt="user image" width="60">
+                                              @endif
+                                              <ul>
+                                                  <div class="rate">
+                                                      <div class="rating" style="width:{{ $review->review * 20 }}%">
+                                                      </div>
+                                                  </div>
+                                              </ul>
+                                              <span><span>{{ convertUtf8($review->user->username) }}</span> –
+                                                  {{ $review->created_at->format('d-m-Y') }}</span>
+                                              <p>{{ convertUtf8($review->comment) }}</p>
+                                          </div>
+                                      @endforeach
+                                  @else
+                                      <div class="bg-light mt-4 text-center py-5">
+                                          {{ __('NOT RATED YET') }}
+                                      </div>
+                                  @endif --}}
+                                  @if (Auth::user())
+                                      @if (App\OrderItem::where('user_id', Auth::user()->id)->where('product_id', $product->id)->exists())
+                                          <div class="shop-review-form">
+                                              @error('error')
+                                                  <p class="text-danger my-2">{{ Session::get('error') }}</p>
+                                              @enderror
+                                              <form class="mt-5" action="{{ route('product.review.submit') }}"
+                                                  method="POST">@csrf
+                                                  <div class="input-box">
+                                                      <span>{{ __('Comment') }}</span>
+                                                      <textarea name="comment" cols="30" rows="10" placeholder="{{ __('Comment') }}"></textarea>
+                                                  </div>
+                                                  <input type="hidden" value="" id="reviewValue"
+                                                      name="review">
+                                                  <input type="hidden" value="{{ $product->id }}" name="product_id">
+                                                  <div class="input-box">
+                                                      <span>{{ __('Rating') }} *</span>
+                                                      <div class="review-content ">
+                                                          <ul class="review-value review-1">
+                                                              <li><a class="cursor-pointer" data-href="1"><i
+                                                                          class="far fa-star"></i></a></li>
+                                                          </ul>
+                                                          <ul class="review-value review-2">
+                                                              <li><a class="cursor-pointer" data-href="2"><i
+                                                                          class="far fa-star"></i></a></li>
+                                                              <li><a class="cursor-pointer" data-href="2"><i
+                                                                          class="far fa-star"></i></a></li>
+                                                          </ul>
+                                                          <ul class="review-value review-3">
+                                                              <li><a class="cursor-pointer" data-href="3"><i
+                                                                          class="far fa-star"></i></a></li>
+                                                              <li><a class="cursor-pointer" data-href="3"><i
+                                                                          class="far fa-star"></i></a></li>
+                                                              <li><a class="cursor-pointer" data-href="3"><i
+                                                                          class="far fa-star"></i></a></li>
+                                                          </ul>
+                                                          <ul class="review-value review-4">
+                                                              <li><a class="cursor-pointer" data-href="4"><i
+                                                                          class="far fa-star"></i></a></li>
+                                                              <li><a class="cursor-pointer" data-href="4"><i
+                                                                          class="far fa-star"></i></a></li>
+                                                              <li><a class="cursor-pointer" data-href="4"><i
+                                                                          class="far fa-star"></i></a></li>
+                                                              <li><a class="cursor-pointer" data-href="4"><i
+                                                                          class="far fa-star"></i></a></li>
+                                                          </ul>
+                                                          <ul class="review-value review-5">
+                                                              <li><a class="cursor-pointer" data-href="5"><i
+                                                                          class="far fa-star"></i></a></li>
+                                                              <li><a class="cursor-pointer" data-href="5"><i
+                                                                          class="far fa-star"></i></a></li>
+                                                              <li><a class="cursor-pointer" data-href="5"><i
+                                                                          class="far fa-star"></i></a></li>
+                                                              <li><a class="cursor-pointer" data-href="5"><i
+                                                                          class="far fa-star"></i></a></li>
+                                                              <li><a class="cursor-pointer" data-href="5"><i
+                                                                          class="far fa-star"></i></a></li>
+                                                          </ul>
+                                                      </div>
+                                                  </div>
+                                                  <div class="input-btn mt-3">
+                                                      <button type="submit">{{ __('Submit') }}</button>
+                                                  </div>
+                                              </form>
+                                          </div>
+                                      @endif
+                                  @else
+                                      <div class="review-login mt-5">
+                                          <a class="boxed-btn d-inline-block mr-2"
+                                              href="{{ route('user.login') }}">{{ __('Login') }}</a>
+                                          {{ __('to leave a rating') }}
+                                      </div>
+                                  @endif
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!--====== SHOP TAB PART ENDS ======-->
+
 
         <!-- Related products Sections starts here -->
         <div class="testimonies bg-white py-5 ">
@@ -556,290 +335,32 @@
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <div class="row d-flex justify-content-center align-items-center gap-3">
-                                <div class="col-lg-3 col-10">
-                                    <div class="card p-2 mt-2 small-card">
-                                        <img src="/public/src/img/products/basket.png" class="card-img-top w-100"
-                                            alt="...">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Unrefined Shea Butter (Yellow)</h5>
-                                            <p class="card-text">Traditionally extracted Unrefined Shea Butter.</p>
-                                            <div class="d-flex justify-content-center align-items-center">
-                                                <a href="./yellowshea.html"
-                                                    class="btn rounded-pill details details-products text-white">See
-                                                    Details <svg class="ms-2" width="15" height="15"
-                                                        viewBox="0 0 18 15" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M17.293 8.20711C17.6836 7.81658 17.6836 7.18342 17.293 6.79289L10.9291 0.428933C10.5386 0.0384087 9.90539 0.0384086 9.51487 0.428933C9.12435 0.819457 9.12435 1.45262 9.51487 1.84315L15.1717 7.5L9.51487 13.1569C9.12435 13.5474 9.12435 14.1805 9.51487 14.5711C9.90539 14.9616 10.5386 14.9616 10.9291 14.5711L17.293 8.20711ZM0.585937 8.5L16.5859 8.5L16.5859 6.5L0.585938 6.5L0.585937 8.5Z"
-                                                            fill="white" />
-                                                    </svg></a>
-                                            </div>
+                              @foreach ($related_products as $product)
+                              <div class="col-lg-3 col-10">
+                                <div class="card p-2 mt-2 small-card">
+                                    <img src="{{ asset('assets/frontend/images/product/featured/' . $product->feature_image) }}" class="card-img-top w-100"
+                                        alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ convertUtf8($product->title) }}</h5>
+                                        <p class="card-text">{{ convertUtf8($product->summary) }}</p>
+                                        <div class="d-flex justify-content-center align-items-center">
+                                            <a href="{{ route('front.product.details', $product->slug) }}"
+                                                class="btn rounded-pill details details-products text-white">See
+                                                Details <svg class="ms-2" width="15" height="15"
+                                                    viewBox="0 0 18 15" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M17.293 8.20711C17.6836 7.81658 17.6836 7.18342 17.293 6.79289L10.9291 0.428933C10.5386 0.0384087 9.90539 0.0384086 9.51487 0.428933C9.12435 0.819457 9.12435 1.45262 9.51487 1.84315L15.1717 7.5L9.51487 13.1569C9.12435 13.5474 9.12435 14.1805 9.51487 14.5711C9.90539 14.9616 10.5386 14.9616 10.9291 14.5711L17.293 8.20711ZM0.585937 8.5L16.5859 8.5L16.5859 6.5L0.585938 6.5L0.585937 8.5Z"
+                                                        fill="white" />
+                                                </svg></a>
                                         </div>
                                     </div>
-
                                 </div>
-                                <div class="col-lg-3 col-10 d-lg-block d-none">
-                                    <div class="card p-2 mt-2 small-card">
-                                        <img src="/public/src/img/products/bodicare.png" class="card-img-top w-100"
-                                            alt="...">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Unrefined Shea Butter (Ivory)</h5>
-                                            <p class="card-text">Traditionally extracted Unrefined Shea Butter.</p>
-                                            <div class="d-flex justify-content-center align-items-center">
-                                                <a href="./ivoryshea.html"
-                                                    class="btn rounded-pill details details-products text-white">See
-                                                    Details <svg class="ms-2" width="15" height="15"
-                                                        viewBox="0 0 18 15" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M17.293 8.20711C17.6836 7.81658 17.6836 7.18342 17.293 6.79289L10.9291 0.428933C10.5386 0.0384087 9.90539 0.0384086 9.51487 0.428933C9.12435 0.819457 9.12435 1.45262 9.51487 1.84315L15.1717 7.5L9.51487 13.1569C9.12435 13.5474 9.12435 14.1805 9.51487 14.5711C9.90539 14.9616 10.5386 14.9616 10.9291 14.5711L17.293 8.20711ZM0.585937 8.5L16.5859 8.5L16.5859 6.5L0.585938 6.5L0.585937 8.5Z"
-                                                            fill="white" />
-                                                    </svg></a>
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                </div>
-                                <div class="col-lg-3 col-10 d-lg-block d-none">
-                                    <div class="card p-2 mt-2 small-card">
-                                        <img src="/public/src/img/products/cashew.png" class="card-img-top w-100"
-                                            alt="...">
-                                        <div class="card-body">
-                                            <h5 class="card-title ">Handcrafted Basket</h5>
-                                            <p class="card-text">
-                                                Beautiful and colourfully woven baskets with several uses.</p>
-                                            <div class="d-flex justify-content-center align-items-center">
-                                                <a href="./handcraftedbasket.html"
-                                                    class="btn rounded-pill details details-products text-white">See
-                                                    Details <svg class="ms-2" width="15" height="15"
-                                                        viewBox="0 0 18 15" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M17.293 8.20711C17.6836 7.81658 17.6836 7.18342 17.293 6.79289L10.9291 0.428933C10.5386 0.0384087 9.90539 0.0384086 9.51487 0.428933C9.12435 0.819457 9.12435 1.45262 9.51487 1.84315L15.1717 7.5L9.51487 13.1569C9.12435 13.5474 9.12435 14.1805 9.51487 14.5711C9.90539 14.9616 10.5386 14.9616 10.9291 14.5711L17.293 8.20711ZM0.585937 8.5L16.5859 8.5L16.5859 6.5L0.585938 6.5L0.585937 8.5Z"
-                                                            fill="white" />
-                                                    </svg></a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
                             </div>
-                        </div>
-
-                        <div class="carousel-item">
-                            <div class="row d-flex justify-content-center align-items-center gap-3">
-                                <div class="col-lg-3 col-10">
-                                    <div class="card p-2 mt-2 small-card">
-                                        <img src="/public/src/img/products/basket.png" class="card-img-top w-100"
-                                            alt="...">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Unrefined Shea Butter (Yellow)</h5>
-                                            <p class="card-text">Traditionally extracted Unrefined Shea Butter.</p>
-                                            <div class="d-flex justify-content-center align-items-center">
-                                                <a href="./yellowshea.html"
-                                                    class="btn rounded-pill details details-products text-white">See
-                                                    Details <svg class="ms-2" width="15" height="15"
-                                                        viewBox="0 0 18 15" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M17.293 8.20711C17.6836 7.81658 17.6836 7.18342 17.293 6.79289L10.9291 0.428933C10.5386 0.0384087 9.90539 0.0384086 9.51487 0.428933C9.12435 0.819457 9.12435 1.45262 9.51487 1.84315L15.1717 7.5L9.51487 13.1569C9.12435 13.5474 9.12435 14.1805 9.51487 14.5711C9.90539 14.9616 10.5386 14.9616 10.9291 14.5711L17.293 8.20711ZM0.585937 8.5L16.5859 8.5L16.5859 6.5L0.585938 6.5L0.585937 8.5Z"
-                                                            fill="white" />
-                                                    </svg></a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="col-lg-3 col-10 d-lg-block d-none">
-                                    <div class="card p-2 mt-2 small-card">
-                                        <img src="/public/src/img/products/bodicare.png" class="card-img-top w-100"
-                                            alt="...">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Unrefined Shea Butter (Ivory)</h5>
-                                            <p class="card-text">Traditionally extracted Unrefined Shea Butter.</p>
-                                            <div class="d-flex justify-content-center align-items-center">
-                                                <a href="./ivoryshea.html"
-                                                    class="btn rounded-pill details details-products text-white">See
-                                                    Details <svg class="ms-2" width="15" height="15"
-                                                        viewBox="0 0 18 15" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M17.293 8.20711C17.6836 7.81658 17.6836 7.18342 17.293 6.79289L10.9291 0.428933C10.5386 0.0384087 9.90539 0.0384086 9.51487 0.428933C9.12435 0.819457 9.12435 1.45262 9.51487 1.84315L15.1717 7.5L9.51487 13.1569C9.12435 13.5474 9.12435 14.1805 9.51487 14.5711C9.90539 14.9616 10.5386 14.9616 10.9291 14.5711L17.293 8.20711ZM0.585937 8.5L16.5859 8.5L16.5859 6.5L0.585938 6.5L0.585937 8.5Z"
-                                                            fill="white" />
-                                                    </svg></a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="col-lg-3 col-10 d-lg-block d-none">
-                                    <div class="card p-2 mt-2 small-card">
-                                        <img src="/public/src/img/products/cashew.png" class="card-img-top w-100"
-                                            alt="...">
-                                        <div class="card-body">
-                                            <h5 class="card-title ">Handcrafted Basket</h5>
-                                            <p class="card-text">
-                                                Beautiful and colourfully woven baskets with several uses.</p>
-                                            <div class="d-flex justify-content-center align-items-center">
-                                                <a href="./handcraftedbasket.html"
-                                                    class="btn rounded-pill details details-products text-white">See
-                                                    Details <svg class="ms-2" width="15" height="15"
-                                                        viewBox="0 0 18 15" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M17.293 8.20711C17.6836 7.81658 17.6836 7.18342 17.293 6.79289L10.9291 0.428933C10.5386 0.0384087 9.90539 0.0384086 9.51487 0.428933C9.12435 0.819457 9.12435 1.45262 9.51487 1.84315L15.1717 7.5L9.51487 13.1569C9.12435 13.5474 9.12435 14.1805 9.51487 14.5711C9.90539 14.9616 10.5386 14.9616 10.9291 14.5711L17.293 8.20711ZM0.585937 8.5L16.5859 8.5L16.5859 6.5L0.585938 6.5L0.585937 8.5Z"
-                                                            fill="white" />
-                                                    </svg></a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="carousel-item">
-                            <div class="row d-flex justify-content-center align-items-center gap-3">
-                                <div class="col-lg-3 col-10">
-                                    <div class="card p-2 mt-2 small-card">
-                                        <img src="/public/src/img/products/basket.png" class="card-img-top w-100"
-                                            alt="...">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Unrefined Shea Butter (Yellow)</h5>
-                                            <p class="card-text">Traditionally extracted Unrefined Shea Butter.</p>
-                                            <div class="d-flex justify-content-center align-items-center">
-                                                <a href="./yellowshea.html"
-                                                    class="btn rounded-pill details details-products text-white">See
-                                                    Details <svg class="ms-2" width="15" height="15"
-                                                        viewBox="0 0 18 15" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M17.293 8.20711C17.6836 7.81658 17.6836 7.18342 17.293 6.79289L10.9291 0.428933C10.5386 0.0384087 9.90539 0.0384086 9.51487 0.428933C9.12435 0.819457 9.12435 1.45262 9.51487 1.84315L15.1717 7.5L9.51487 13.1569C9.12435 13.5474 9.12435 14.1805 9.51487 14.5711C9.90539 14.9616 10.5386 14.9616 10.9291 14.5711L17.293 8.20711ZM0.585937 8.5L16.5859 8.5L16.5859 6.5L0.585938 6.5L0.585937 8.5Z"
-                                                            fill="white" />
-                                                    </svg></a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="col-lg-3 col-10 d-lg-block d-none">
-                                    <div class="card p-2 mt-2 small-card">
-                                        <img src="/public/src/img/products/bodicare.png" class="card-img-top w-100"
-                                            alt="...">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Unrefined Shea Butter (Ivory)</h5>
-                                            <p class="card-text">Traditionally extracted Unrefined Shea Butter.</p>
-                                            <div class="d-flex justify-content-center align-items-center">
-                                                <a href="./ivoryshea.html"
-                                                    class="btn rounded-pill details details-products text-white">See
-                                                    Details <svg class="ms-2" width="15" height="15"
-                                                        viewBox="0 0 18 15" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M17.293 8.20711C17.6836 7.81658 17.6836 7.18342 17.293 6.79289L10.9291 0.428933C10.5386 0.0384087 9.90539 0.0384086 9.51487 0.428933C9.12435 0.819457 9.12435 1.45262 9.51487 1.84315L15.1717 7.5L9.51487 13.1569C9.12435 13.5474 9.12435 14.1805 9.51487 14.5711C9.90539 14.9616 10.5386 14.9616 10.9291 14.5711L17.293 8.20711ZM0.585937 8.5L16.5859 8.5L16.5859 6.5L0.585938 6.5L0.585937 8.5Z"
-                                                            fill="white" />
-                                                    </svg></a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="col-lg-3 col-10 d-lg-block d-none">
-                                    <div class="card p-2 mt-2 small-card">
-                                        <img src="/public/src/img/products/cashew.png" class="card-img-top w-100"
-                                            alt="...">
-                                        <div class="card-body">
-                                            <h5 class="card-title ">Handcrafted Basket</h5>
-                                            <p class="card-text">
-                                                Beautiful and colourfully woven baskets with several uses.</p>
-                                            <div class="d-flex justify-content-center align-items-center">
-                                                <a href="./handcraftedbasket.html"
-                                                    class="btn rounded-pill details details-products text-white">See
-                                                    Details <svg class="ms-2" width="15" height="15"
-                                                        viewBox="0 0 18 15" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M17.293 8.20711C17.6836 7.81658 17.6836 7.18342 17.293 6.79289L10.9291 0.428933C10.5386 0.0384087 9.90539 0.0384086 9.51487 0.428933C9.12435 0.819457 9.12435 1.45262 9.51487 1.84315L15.1717 7.5L9.51487 13.1569C9.12435 13.5474 9.12435 14.1805 9.51487 14.5711C9.90539 14.9616 10.5386 14.9616 10.9291 14.5711L17.293 8.20711ZM0.585937 8.5L16.5859 8.5L16.5859 6.5L0.585938 6.5L0.585937 8.5Z"
-                                                            fill="white" />
-                                                    </svg></a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="carousel-item">
-                            <div class="row d-flex justify-content-center align-items-center gap-3">
-                                <div class="col-lg-3 col-10">
-                                    <div class="card p-2 mt-2 small-card">
-                                        <img src="/public/src/img/products/basket.png" class="card-img-top w-100"
-                                            alt="...">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Unrefined Shea Butter (Yellow)</h5>
-                                            <p class="card-text">Traditionally extracted Unrefined Shea Butter.</p>
-                                            <div class="d-flex justify-content-center align-items-center">
-                                                <a href="./yellowshea.html"
-                                                    class="btn rounded-pill details details-products text-white">See
-                                                    Details <svg class="ms-2" width="15" height="15"
-                                                        viewBox="0 0 18 15" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M17.293 8.20711C17.6836 7.81658 17.6836 7.18342 17.293 6.79289L10.9291 0.428933C10.5386 0.0384087 9.90539 0.0384086 9.51487 0.428933C9.12435 0.819457 9.12435 1.45262 9.51487 1.84315L15.1717 7.5L9.51487 13.1569C9.12435 13.5474 9.12435 14.1805 9.51487 14.5711C9.90539 14.9616 10.5386 14.9616 10.9291 14.5711L17.293 8.20711ZM0.585937 8.5L16.5859 8.5L16.5859 6.5L0.585938 6.5L0.585937 8.5Z"
-                                                            fill="white" />
-                                                    </svg></a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="col-lg-3 col-10 d-lg-block d-none">
-                                    <div class="card p-2 mt-2 small-card">
-                                        <img src="/public/src/img/products/bodicare.png" class="card-img-top w-100"
-                                            alt="...">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Unrefined Shea Butter (Ivory)</h5>
-                                            <p class="card-text">Traditionally extracted Unrefined Shea Butter.</p>
-                                            <div class="d-flex justify-content-center align-items-center">
-                                                <a href="./ivoryshea.html"
-                                                    class="btn rounded-pill details details-products text-white">See
-                                                    Details <svg class="ms-2" width="15" height="15"
-                                                        viewBox="0 0 18 15" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M17.293 8.20711C17.6836 7.81658 17.6836 7.18342 17.293 6.79289L10.9291 0.428933C10.5386 0.0384087 9.90539 0.0384086 9.51487 0.428933C9.12435 0.819457 9.12435 1.45262 9.51487 1.84315L15.1717 7.5L9.51487 13.1569C9.12435 13.5474 9.12435 14.1805 9.51487 14.5711C9.90539 14.9616 10.5386 14.9616 10.9291 14.5711L17.293 8.20711ZM0.585937 8.5L16.5859 8.5L16.5859 6.5L0.585938 6.5L0.585937 8.5Z"
-                                                            fill="white" />
-                                                    </svg></a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="col-lg-3 col-10 d-lg-block d-none">
-                                    <div class="card p-2 mt-2 small-card">
-                                        <img src="/public/src/img/products/cashew.png" class="card-img-top w-100"
-                                            alt="...">
-                                        <div class="card-body">
-                                            <h5 class="card-title ">Handcrafted Basket</h5>
-                                            <p class="card-text">
-                                                Beautiful and colourfully woven baskets with several uses.</p>
-                                            <div class="d-flex justify-content-center align-items-center">
-                                                <a href="./handcraftedbasket.html"
-                                                    class="btn rounded-pill details details-products text-white">See
-                                                    Details <svg class="ms-2" width="15" height="15"
-                                                        viewBox="0 0 18 15" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M17.293 8.20711C17.6836 7.81658 17.6836 7.18342 17.293 6.79289L10.9291 0.428933C10.5386 0.0384087 9.90539 0.0384086 9.51487 0.428933C9.12435 0.819457 9.12435 1.45262 9.51487 1.84315L15.1717 7.5L9.51487 13.1569C9.12435 13.5474 9.12435 14.1805 9.51487 14.5711C9.90539 14.9616 10.5386 14.9616 10.9291 14.5711L17.293 8.20711ZM0.585937 8.5L16.5859 8.5L16.5859 6.5L0.585938 6.5L0.585937 8.5Z"
-                                                            fill="white" />
-                                                    </svg></a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
+                              @endforeach
+                                
+                                
                             </div>
 
                         </div>
@@ -927,5 +448,26 @@
         </div>
         <!-- Shipping Section ends here-->
     </main>
-
 @endsection
+
+
+
+<div class="card p-2 mt-2 small-card">
+  <img src="/public/src/img/products/basket.png" class="card-img-top w-100"
+      alt="...">
+  <div class="card-body">
+      <h5 class="card-title">Unrefined Shea Butter (Yellow)</h5>
+      <p class="card-text">Traditionally extracted Unrefined Shea Butter.</p>
+      <div class="d-flex justify-content-center align-items-center">
+          <a href="./yellowshea.html"
+              class="btn rounded-pill details details-products text-white">See
+              Details <svg class="ms-2" width="15" height="15"
+                  viewBox="0 0 18 15" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                      d="M17.293 8.20711C17.6836 7.81658 17.6836 7.18342 17.293 6.79289L10.9291 0.428933C10.5386 0.0384087 9.90539 0.0384086 9.51487 0.428933C9.12435 0.819457 9.12435 1.45262 9.51487 1.84315L15.1717 7.5L9.51487 13.1569C9.12435 13.5474 9.12435 14.1805 9.51487 14.5711C9.90539 14.9616 10.5386 14.9616 10.9291 14.5711L17.293 8.20711ZM0.585937 8.5L16.5859 8.5L16.5859 6.5L0.585938 6.5L0.585937 8.5Z"
+                      fill="white" />
+              </svg></a>
+      </div>
+  </div>
+</div>

@@ -180,7 +180,14 @@ Route::get('/search', 'App\Http\Controllers\Frontend\FrontendController@search')
 Route::get('/privacy-policy', 'App\Http\Controllers\Frontend\FrontendController@ppolicy')->name('frontend.ppolicy');
 Route::get('/return-policy', 'App\Http\Controllers\Frontend\FrontendController@rpolicy')->name('frontend.rpolicy');
 
-
+// Product
+Route::get('/cart', 'App\Http\Controllers\Frontend\ProductController@cart')->name('frontend.cart');
+Route::get('/add-to-cart/{id}', 'App\Http\Controllers\Frontend\ProductController@addToCart')->name('add.cart');
+Route::post('/cart/update', 'App\Http\Controllers\Frontend\ProductController@updatecart')->name('cart.update');
+Route::get('/cart/item/remove/{id}', 'App\Http\Controllers\Frontend\ProductController@cartitemremove')->name('cart.item.remove');
+Route::get('/checkout', 'App\Http\Controllers\Frontend\ProductController@checkout')->name('frontend.checkout');
+Route::get('/checkout/{slug}', 'App\Http\Controllers\Frontend\ProductController@Prdouctcheckout')->name('frontend.product.checkout');
+Route::post('/coupon', 'App\Http\Controllers\Frontend\ProductController@coupon')->name('frontend.coupon');
 
 
 
@@ -196,7 +203,7 @@ if (!app()->runningInConsole()) {
         $permalink = $pl->permalink;
   
         if ($type == 'product_details') {
-          Route::get("$permalink/{slug}", 'App\Http\Controllers\Frontend\ProductController@productDetails')->name('front.product.details');
+          Route::get("$permalink/{slug}", 'App\Http\Controllers\Frontend\ProductController@productDetails')->name('frontend.product.details');
         }
       }
     });
@@ -211,16 +218,16 @@ if (!app()->runningInConsole()) {
 
       if ($type == 'products') {
         $action = 'Front\ProductController@product';
-        $routeName = 'front.product';
+        $routeName = 'frontend.product';
       } elseif ($type == 'cart') {
         $action = 'Front\ProductController@cart';
-        $routeName = 'front.cart';
+        $routeName = 'frontend.cart';
       } elseif ($type == 'product_checkout') {
         $action = 'Front\ProductController@checkout';
-        $routeName = 'front.checkout';
+        $routeName = 'frontend.checkout';
       } elseif ($type == 'blogs') {
         $action = 'Front\FrontendController@blogs';
-        $routeName = 'front.blogs';
+        $routeName = 'frontend.blogs';
       } elseif ($type == 'login') {
         $action = 'User\LoginController@showLoginForm';
         $routeName = 'user.login';
