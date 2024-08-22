@@ -80,7 +80,7 @@ class ProductController extends Controller
 
         $data['related_product'] = Product::where('category_id', $data['product']->category_id)->where('id', '!=', $data['product']->id)->get();
 
-        return view('frontend.product.details', $data);
+        return view('frontend.pages.product.details', $data);
     }
 
     public function cart()
