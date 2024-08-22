@@ -196,7 +196,7 @@ if (!app()->runningInConsole()) {
         $permalink = $pl->permalink;
   
         if ($type == 'product_details') {
-          Route::get("$permalink/{slug}", 'Front\ProductController@productDetails')->name('front.product.details');
+          Route::get("$permalink/{slug}", 'App\Http\Controllers\Frontend\ProductController@productDetails')->name('front.product.details');
         }
       }
     });
