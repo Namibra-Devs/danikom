@@ -61,7 +61,7 @@
                             <label for="">Featured Image ** </label>
                             <br>
                             <div class="thumb-preview" id="thumbPreview1">
-                                <img src="{{asset('assets/frontend/images/product/featured/' . $data->feature_image)}}" alt="Feature Image">
+                                <img src="{{asset('assets/frontend/images/products/featured/' . $data->feature_image)}}" alt="Feature Image">
                             </div>
                             <br>
                             <br>

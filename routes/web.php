@@ -185,6 +185,22 @@ Route::get('/return-policy', 'App\Http\Controllers\Frontend\FrontendController@r
 
 
 if (!app()->runningInConsole()) {
+
+    // Dynamic Routes
+
+    Route::group([], function () {
+
+      $wdPermalinks = Permalink::where('details', 1)->get();
+      foreach ($wdPermalinks as $pl) {
+        $type = $pl->type;
+        $permalink = $pl->permalink;
+  
+        if ($type == 'product_details') {
+          Route::get("$permalink/{slug}", 'Front\ProductController@productDetails')->name('front.product.details');
+        }
+      }
+    });
+
   Route::group([], function () {
 
     $wdPermalinks = Permalink::where('details', 0)->get();

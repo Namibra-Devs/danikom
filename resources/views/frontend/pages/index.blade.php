@@ -211,12 +211,11 @@
                 @foreach ($products as $product)
                 <div class="col-lg-3 col-md-6 col-11 ms-lg-4">
                     <div class="card p-2">
-                        <img src="{{ asset('assets/frontend/images/product/featured/' . $product->feature_image) }}" class="card-img-top w-100"
+                        <img src="{{ asset('assets/frontend/images/products/featured/' . $product->feature_image) }}" class="card-img-top w-100"
                             alt="...">
                         <div class="card-body">
                             <h5 class="card-title ">{{ $product->title }}</h5>
-                            <p class="card-text">
-                                Beautiful and colourfully woven baskets with several uses.</p>
+                            <p class="card-text">{{ $product->summary }}</p>
                             <div class="d-flex justify-content-center align-items-center">
                                 <a href="{{ route('front.product.details', $product->slug) }}"
                                     class="btn rounded-pill details details-products text-white">See

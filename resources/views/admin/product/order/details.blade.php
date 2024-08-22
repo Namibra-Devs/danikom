@@ -295,7 +295,7 @@
                    @foreach ($order->orderitems as $key => $item)
                    <tr>
                       <td>{{$key+1}}</td>
-                      <td><img src="{{asset('assets/frontend/images/product/featured/'.$item->image)}}" alt="product" width="100"></td>
+                      <td><img src="{{asset('assets/frontend/images/products/featured/'.$item->image)}}" alt="product" width="100"></td>
                       <td>{{convertUtf8($item->title)}}</td>
                       <td>
                          <b>{{__('Quantity')}}:</b> <span>{{$item->qty}}</span><br>

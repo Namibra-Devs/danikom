@@ -62,8 +62,8 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         if ($request->hasFile('file')) {
             $filename = time() . '.' . $img->getClientOriginalExtension();
-            $request->file('file')->move('assets/frontend/images/product/featured/', $filename);
-            @unlink('assets/frontend/images/product/featured/' . $product->feature_image);
+            $request->file('file')->move('assets/frontend/images/products/featured/', $filename);
+            @unlink('assets/frontend/images/products/featured/' . $product->feature_image);
             $product->feature_image = $filename;
             $product->save();
         }
@@ -153,7 +153,7 @@ class ProductController extends Controller
 
         // store featured image
         $filename = uniqid() .'.'. $extFeatured;
-        @copy($featredImg, 'assets/frontend/images/product/featured/' . $filename);
+        @copy($featredImg, 'assets/frontend/images/products/featured/' . $filename);
         $in['feature_image'] = $filename;
 
             $in['stock'] = $request->stock;
@@ -166,7 +166,7 @@ class ProductController extends Controller
         foreach ($sliders as $key => $slider) {
             $extSlider = pathinfo($slider, PATHINFO_EXTENSION);
             $filename = uniqid() .'.'. $extSlider;
-            @copy($slider, 'assets/frontend/images/product/sliders/' . $filename);
+            @copy($slider, 'assets/frontend/images/products/sliders/' . $filename);
 
             $pi = new ProductImage;
             $pi->product_id = $product->id;
@@ -192,7 +192,7 @@ class ProductController extends Controller
         $convImages = [];
 
         foreach ($images as $key => $image) {
-            $convImages[] = url("assets/frontend/images/product/sliders/$image->image");
+            $convImages[] = url("assets/frontend/images/products/sliders/$image->image");
         }
 
         return $convImages;
@@ -297,9 +297,9 @@ class ProductController extends Controller
 
         // update featured image
         if ($request->filled('featured_image')) {
-            @unlink('assets/frontend/images/product/featured/' . $product->feature_image);
+            @unlink('assets/frontend/images/products/featured/' . $product->feature_image);
             $filename = uniqid() .'.'. $extFeatured;
-            @copy($featredImg, 'assets/frontend/images/product/featured/' . $filename);
+            @copy($featredImg, 'assets/frontend/images/products/featured/' . $filename);
             $in['feature_image'] = $filename;
         }
 
@@ -310,14 +310,14 @@ class ProductController extends Controller
         foreach ($sliders as $key => $slider) {
             $extSlider = pathinfo($slider, PATHINFO_EXTENSION);
             $filename = uniqid() .'.'. $extSlider;
-            @copy($slider, 'assets/frontend/images/product/sliders/' . $filename);
+            @copy($slider, 'assets/frontend/images/products/sliders/' . $filename);
             $fileNames[] = $filename;
         }
 
         // delete & unlink previous slider images
         $pis = ProductImage::where('product_id', $product->id)->get();
         foreach ($pis as $key => $pi) {
-            @unlink('assets/frontend/images/product/sliders/' . $pi->image);
+            @unlink('assets/frontend/images/products/sliders/' . $pi->image);
             $pi->delete();
         }
 
@@ -354,11 +354,11 @@ class ProductController extends Controller
         $product = Product::findOrFail($request->product_id);
 
         foreach ($product->product_images as $key => $pi) {
-            @unlink('assets/frontend/images/product/sliders/' . $pi->image);
+            @unlink('assets/frontend/images/products/sliders/' . $pi->image);
             $pi->delete();
         }
 
-        @unlink('assets/frontend/images/product/featured/' . $product->feature_image);
+        @unlink('assets/frontend/images/products/featured/' . $product->feature_image);
         @unlink('core/storage/digital_products/' . $product->download_file);
 
 
@@ -376,17 +376,14 @@ class ProductController extends Controller
         foreach ($ids as $id) {
             $product = Product::findOrFail($id);
             foreach ($product->product_images as $key => $pi) {
-                @unlink('assets/frontend/images/product/sliders/' . $pi->image);
+                @unlink('assets/frontend/images/products/sliders/' . $pi->image);
                 $pi->delete();
             }
         }
 
         foreach ($ids as $id) {
             $product = product::findOrFail($id);
-            @unlink('assets/frontend/images/product/featured/' . $product->feature_image);
-
-            $this->deleteFromMegaMenu($product);
-
+            @unlink('assets/frontend/images/products/featured/' . $product->feature_image);
             $product->delete();
         }
 
