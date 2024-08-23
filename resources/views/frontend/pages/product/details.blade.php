@@ -1,5 +1,12 @@
 @extends('frontend.layout')
 
+@php
+    $reviews = App\Models\ProductReview::where('product_id', $product->id)->get();
+    $avarage_rating = App\Models\ProductReview::where('product_id', $product->id)->avg('review');
+    $avarage_rating = round($avarage_rating, 2);
+
+@endphp
+
 @section('content')
     <!-- Main Content starts here -->
     <main class="bg-light main">
@@ -207,7 +214,7 @@
                                   <div class="shop-review-title">
                                       <h3 class="title">{{ convertUtf8($product->title) }}</h3>
                                   </div>
-                                  {{-- @if (count($reviews) > 0)
+                                  @if (count($reviews) > 0)
                                       @foreach ($reviews as $review)
                                           <div class="shop-review-user">
                                               @if (strpos($review->user->photo, 'facebook') !== false || strpos($review->user->photo, 'google'))
@@ -234,7 +241,7 @@
                                       <div class="bg-light mt-4 text-center py-5">
                                           {{ __('NOT RATED YET') }}
                                       </div>
-                                  @endif --}}
+                                  @endif
                                   @if (Auth::user())
                                       @if (App\OrderItem::where('user_id', Auth::user()->id)->where('product_id', $product->id)->exists())
                                           <div class="shop-review-form">
