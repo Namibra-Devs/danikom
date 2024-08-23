@@ -313,3 +313,28 @@
  </div>
 </div>
 @endsection
+
+
+@section('scripts')
+    <script src="{{ asset('assets/frontend/js/slick.min.js') }}"></script>
+    <script src="{{ asset('assets/frontend/js/product.js') }}"></script>
+    <script src="{{ asset('assets/frontend/js/cart.js') }}"></script>
+    <script>
+        $('.image-popup').magnificPopup({
+            type: 'image',
+            gallery: {
+                enabled: true
+            }
+        });
+    </script>
+
+    <script>
+        $(document).on('click', '.review-value li a', function() {
+            $('.review-value li a i').removeClass('text-primary');
+            let reviewValue = $(this).attr('data-href');
+            parentClass = `review-${reviewValue}`;
+            $('.' + parentClass + ' li a i').addClass('text-primary');
+            $('#reviewValue').val(reviewValue);
+        })
+    </script>
+@endsection
