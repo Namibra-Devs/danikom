@@ -1,0 +1,33 @@
+.cke_editable {
+    text-align: right !important;
+}
+.cell {
+    text-align: right !important;
+    direction: rtl !important;
+}
+.pbcontainer {
+    direction: rtl;
+}
+
+.countdown {
+    direction: ltr !important;
+}
+.navbar-items-c {
+    float: left !important;
+}
+.navbar-brand {
+    margin-right: auto !important;
+    margin-left: 1rem !important;
+}
+
+input[type="submit"], button[type="submit"] {
+    float: none !important;
+}
+.tab-container {
+    direction: rtl !important;
+    text-align: right !important;
+}
+.tab-content {
+    direction: rtl !important;
+    text-align: right !important;
+}
