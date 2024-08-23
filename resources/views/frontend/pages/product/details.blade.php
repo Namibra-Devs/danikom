@@ -185,146 +185,149 @@
 
         <!--====== SHOP TAB PART START ======-->
 
-    <div class="shop-tab-area" @if ($related_product->count() == 0) style="padding-bottom:120px;" @endif>
-      <div class="container">
-          <div class="row">
-              <div class="col-lg-11">
-                  <div class="shop-tab-area">
-                      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                          <li class="nav-item">
-                              <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home"
-                                  role="tab" aria-controls="pills-home"
-                                  aria-selected="true">{{ __('Description') }}</a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact"
-                                  role="tab" aria-controls="pills-contact" aria-selected="false">{{ __('Reviews') }}
-                                  {{-- ({{ count($reviews) }})</a> --}}
-                          </li>
-                      </ul>
-                      <div class="tab-content" id="pills-tabContent">
-                          <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
-                              aria-labelledby="pills-home-tab">
-                              {!! convertUtf8($product->description) !!}
+        <div class="shop-tab-area" @if ($related_product->count() == 0) style="padding-bottom:120px;" @endif>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-11">
+                        <div class="shop-tab-area">
+                            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home"
+                                        role="tab" aria-controls="pills-home"
+                                        aria-selected="true">{{ __('Description') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact"
+                                        role="tab" aria-controls="pills-contact"
+                                        aria-selected="false">{{ __('Reviews') }}
+                                        ({{ count($reviews) }})</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="pills-tabContent">
+                                <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                                    aria-labelledby="pills-home-tab">
+                                    {!! replaceBaseUrl(convertUtf8($product->description)) !!}
 
-                          </div>
-                          <div class="tab-pane fade" id="pills-contact" role="tabpanel"
-                              aria-labelledby="pills-contact-tab">
-                              <div class="shop-review-area">
-                                  <div class="shop-review-title">
-                                      <h3 class="title">{{ convertUtf8($product->title) }}</h3>
-                                  </div>
-                                  @if (count($reviews) > 0)
-                                      @foreach ($reviews as $review)
-                                          <div class="shop-review-user">
-                                              @if (strpos($review->user->photo, 'facebook') !== false || strpos($review->user->photo, 'google'))
-                                                  <img class="lazy"
-                                                      data-src="{{ $review->user->photo ? $review->user->photo : asset('assets/frontend/images/user/profile.jpg') }}"
-                                                      alt="user image" width="60">
-                                              @else
-                                                  <img class="lazy"
-                                                      data-src="{{ $review->user->photo ? asset('assets/frontend/images/user/' . $review->user->photo) : '' }}"
-                                                      alt="user image" width="60">
-                                              @endif
-                                              <ul>
-                                                  <div class="rate">
-                                                      <div class="rating" style="width:{{ $review->review * 20 }}%">
-                                                      </div>
-                                                  </div>
-                                              </ul>
-                                              <span><span>{{ convertUtf8($review->user->username) }}</span> –
-                                                  {{ $review->created_at->format('d-m-Y') }}</span>
-                                              <p>{{ convertUtf8($review->comment) }}</p>
-                                          </div>
-                                      @endforeach
-                                  @else
-                                      <div class="bg-light mt-4 text-center py-5">
-                                          {{ __('NOT RATED YET') }}
-                                      </div>
-                                  @endif
-                                  @if (Auth::user())
-                                      @if (App\OrderItem::where('user_id', Auth::user()->id)->where('product_id', $product->id)->exists())
-                                          <div class="shop-review-form">
-                                              @error('error')
-                                                  <p class="text-danger my-2">{{ Session::get('error') }}</p>
-                                              @enderror
-                                              <form class="mt-5" action="{{ route('product.review.submit') }}"
-                                                  method="POST">@csrf
-                                                  <div class="input-box">
-                                                      <span>{{ __('Comment') }}</span>
-                                                      <textarea name="comment" cols="30" rows="10" placeholder="{{ __('Comment') }}"></textarea>
-                                                  </div>
-                                                  <input type="hidden" value="" id="reviewValue"
-                                                      name="review">
-                                                  <input type="hidden" value="{{ $product->id }}" name="product_id">
-                                                  <div class="input-box">
-                                                      <span>{{ __('Rating') }} *</span>
-                                                      <div class="review-content ">
-                                                          <ul class="review-value review-1">
-                                                              <li><a class="cursor-pointer" data-href="1"><i
-                                                                          class="far fa-star"></i></a></li>
-                                                          </ul>
-                                                          <ul class="review-value review-2">
-                                                              <li><a class="cursor-pointer" data-href="2"><i
-                                                                          class="far fa-star"></i></a></li>
-                                                              <li><a class="cursor-pointer" data-href="2"><i
-                                                                          class="far fa-star"></i></a></li>
-                                                          </ul>
-                                                          <ul class="review-value review-3">
-                                                              <li><a class="cursor-pointer" data-href="3"><i
-                                                                          class="far fa-star"></i></a></li>
-                                                              <li><a class="cursor-pointer" data-href="3"><i
-                                                                          class="far fa-star"></i></a></li>
-                                                              <li><a class="cursor-pointer" data-href="3"><i
-                                                                          class="far fa-star"></i></a></li>
-                                                          </ul>
-                                                          <ul class="review-value review-4">
-                                                              <li><a class="cursor-pointer" data-href="4"><i
-                                                                          class="far fa-star"></i></a></li>
-                                                              <li><a class="cursor-pointer" data-href="4"><i
-                                                                          class="far fa-star"></i></a></li>
-                                                              <li><a class="cursor-pointer" data-href="4"><i
-                                                                          class="far fa-star"></i></a></li>
-                                                              <li><a class="cursor-pointer" data-href="4"><i
-                                                                          class="far fa-star"></i></a></li>
-                                                          </ul>
-                                                          <ul class="review-value review-5">
-                                                              <li><a class="cursor-pointer" data-href="5"><i
-                                                                          class="far fa-star"></i></a></li>
-                                                              <li><a class="cursor-pointer" data-href="5"><i
-                                                                          class="far fa-star"></i></a></li>
-                                                              <li><a class="cursor-pointer" data-href="5"><i
-                                                                          class="far fa-star"></i></a></li>
-                                                              <li><a class="cursor-pointer" data-href="5"><i
-                                                                          class="far fa-star"></i></a></li>
-                                                              <li><a class="cursor-pointer" data-href="5"><i
-                                                                          class="far fa-star"></i></a></li>
-                                                          </ul>
-                                                      </div>
-                                                  </div>
-                                                  <div class="input-btn mt-3">
-                                                      <button type="submit">{{ __('Submit') }}</button>
-                                                  </div>
-                                              </form>
-                                          </div>
-                                      @endif
-                                  @else
-                                      <div class="review-login mt-5">
-                                          <a class="boxed-btn d-inline-block mr-2"
-                                              href="{{ route('user.login') }}">{{ __('Login') }}</a>
-                                          {{ __('to leave a rating') }}
-                                      </div>
-                                  @endif
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+                                </div>
+                                <div class="tab-pane fade" id="pills-contact" role="tabpanel"
+                                    aria-labelledby="pills-contact-tab">
+                                    <div class="shop-review-area">
+                                        <div class="shop-review-title">
+                                            <h3 class="title">{{ convertUtf8($product->title) }}</h3>
+                                        </div>
+                                        @if (count($reviews) > 0)
+                                            @foreach ($reviews as $review)
+                                                <div class="shop-review-user">
+                                                    @if (strpos($review->user->photo, 'facebook') !== false || strpos($review->user->photo, 'google'))
+                                                        <img class="lazy"
+                                                            data-src="{{ $review->user->photo ? $review->user->photo : asset('assets/frontend/images/user/profile.jpg') }}"
+                                                            alt="user image" width="60">
+                                                    @else
+                                                        <img class="lazy"
+                                                            data-src="{{ $review->user->photo ? asset('assets/frontend/images/user/' . $review->user->photo) : '' }}"
+                                                            alt="user image" width="60">
+                                                    @endif
+                                                    <ul>
+                                                        <div class="rate">
+                                                            <div class="rating"
+                                                                style="width:{{ $review->review * 20 }}%">
+                                                            </div>
+                                                        </div>
+                                                    </ul>
+                                                    <span><span>{{ convertUtf8($review->user->username) }}</span> –
+                                                        {{ $review->created_at->format('d-m-Y') }}</span>
+                                                    <p>{{ convertUtf8($review->comment) }}</p>
+                                                </div>
+                                            @endforeach
+                                        @else
+                                            <div class="bg-light mt-4 text-center py-5">
+                                                {{ __('NOT RATED YET') }}
+                                            </div>
+                                        @endif
+                                        @if (Auth::user())
+                                            @if (App\OrderItem::where('user_id', Auth::user()->id)->where('product_id', $product->id)->exists())
+                                                <div class="shop-review-form">
+                                                    @error('error')
+                                                        <p class="text-danger my-2">{{ Session::get('error') }}</p>
+                                                    @enderror
+                                                    <form class="mt-5" action="{{ route('product.review.submit') }}"
+                                                        method="POST">@csrf
+                                                        <div class="input-box">
+                                                            <span>{{ __('Comment') }}</span>
+                                                            <textarea name="comment" cols="30" rows="10" placeholder="{{ __('Comment') }}"></textarea>
+                                                        </div>
+                                                        <input type="hidden" value="" id="reviewValue"
+                                                            name="review">
+                                                        <input type="hidden" value="{{ $product->id }}"
+                                                            name="product_id">
+                                                        <div class="input-box">
+                                                            <span>{{ __('Rating') }} *</span>
+                                                            <div class="review-content ">
+                                                                <ul class="review-value review-1">
+                                                                    <li><a class="cursor-pointer" data-href="1"><i
+                                                                                class="far fa-star"></i></a></li>
+                                                                </ul>
+                                                                <ul class="review-value review-2">
+                                                                    <li><a class="cursor-pointer" data-href="2"><i
+                                                                                class="far fa-star"></i></a></li>
+                                                                    <li><a class="cursor-pointer" data-href="2"><i
+                                                                                class="far fa-star"></i></a></li>
+                                                                </ul>
+                                                                <ul class="review-value review-3">
+                                                                    <li><a class="cursor-pointer" data-href="3"><i
+                                                                                class="far fa-star"></i></a></li>
+                                                                    <li><a class="cursor-pointer" data-href="3"><i
+                                                                                class="far fa-star"></i></a></li>
+                                                                    <li><a class="cursor-pointer" data-href="3"><i
+                                                                                class="far fa-star"></i></a></li>
+                                                                </ul>
+                                                                <ul class="review-value review-4">
+                                                                    <li><a class="cursor-pointer" data-href="4"><i
+                                                                                class="far fa-star"></i></a></li>
+                                                                    <li><a class="cursor-pointer" data-href="4"><i
+                                                                                class="far fa-star"></i></a></li>
+                                                                    <li><a class="cursor-pointer" data-href="4"><i
+                                                                                class="far fa-star"></i></a></li>
+                                                                    <li><a class="cursor-pointer" data-href="4"><i
+                                                                                class="far fa-star"></i></a></li>
+                                                                </ul>
+                                                                <ul class="review-value review-5">
+                                                                    <li><a class="cursor-pointer" data-href="5"><i
+                                                                                class="far fa-star"></i></a></li>
+                                                                    <li><a class="cursor-pointer" data-href="5"><i
+                                                                                class="far fa-star"></i></a></li>
+                                                                    <li><a class="cursor-pointer" data-href="5"><i
+                                                                                class="far fa-star"></i></a></li>
+                                                                    <li><a class="cursor-pointer" data-href="5"><i
+                                                                                class="far fa-star"></i></a></li>
+                                                                    <li><a class="cursor-pointer" data-href="5"><i
+                                                                                class="far fa-star"></i></a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="input-btn mt-3">
+                                                            <button type="submit">{{ __('Submit') }}</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            @endif
+                                        @else
+                                            <div class="review-login mt-5">
+                                                <a class="boxed-btn d-inline-block mr-2"
+                                                    href="{{ route('user.login') }}">{{ __('Login') }}</a>
+                                                {{ __('to leave a rating') }}
+                                            </div>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-  <!--====== SHOP TAB PART ENDS ======-->
+        <!--====== SHOP TAB PART ENDS ======-->
 
 
         <!-- Related products Sections starts here -->
@@ -342,32 +345,32 @@
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <div class="row d-flex justify-content-center align-items-center gap-3">
-                              @foreach ($related_product as $product)
-                              <div class="col-lg-3 col-10">
-                                <div class="card p-2 mt-2 small-card">
-                                    <img src="{{ asset('assets/frontend/images/product/featured/' . $product->feature_image) }}" class="card-img-top w-100"
-                                        alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{ convertUtf8($product->title) }}</h5>
-                                        <p class="card-text">{{ convertUtf8($product->summary) }}</p>
-                                        <div class="d-flex justify-content-center align-items-center">
-                                            <a href="{{ route('front.product.details', $product->slug) }}"
-                                                class="btn rounded-pill details details-products text-white">See
-                                                Details <svg class="ms-2" width="15" height="15"
-                                                    viewBox="0 0 18 15" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M17.293 8.20711C17.6836 7.81658 17.6836 7.18342 17.293 6.79289L10.9291 0.428933C10.5386 0.0384087 9.90539 0.0384086 9.51487 0.428933C9.12435 0.819457 9.12435 1.45262 9.51487 1.84315L15.1717 7.5L9.51487 13.1569C9.12435 13.5474 9.12435 14.1805 9.51487 14.5711C9.90539 14.9616 10.5386 14.9616 10.9291 14.5711L17.293 8.20711ZM0.585937 8.5L16.5859 8.5L16.5859 6.5L0.585938 6.5L0.585937 8.5Z"
-                                                        fill="white" />
-                                                </svg></a>
+                                @foreach ($related_product as $product)
+                                    <div class="col-lg-3 col-10">
+                                        <div class="card p-2 mt-2 small-card">
+                                            <img src="{{ asset('assets/frontend/images/product/featured/' . $product->feature_image) }}"
+                                                class="card-img-top w-100" alt="...">
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ convertUtf8($product->title) }}</h5>
+                                                <p class="card-text">{{ convertUtf8($product->summary) }}</p>
+                                                <div class="d-flex justify-content-center align-items-center">
+                                                    <a href="{{ route('front.product.details', $product->slug) }}"
+                                                        class="btn rounded-pill details details-products text-white">See
+                                                        Details <svg class="ms-2" width="15" height="15"
+                                                            viewBox="0 0 18 15" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path
+                                                                d="M17.293 8.20711C17.6836 7.81658 17.6836 7.18342 17.293 6.79289L10.9291 0.428933C10.5386 0.0384087 9.90539 0.0384086 9.51487 0.428933C9.12435 0.819457 9.12435 1.45262 9.51487 1.84315L15.1717 7.5L9.51487 13.1569C9.12435 13.5474 9.12435 14.1805 9.51487 14.5711C9.90539 14.9616 10.5386 14.9616 10.9291 14.5711L17.293 8.20711ZM0.585937 8.5L16.5859 8.5L16.5859 6.5L0.585938 6.5L0.585937 8.5Z"
+                                                                fill="white" />
+                                                        </svg></a>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
 
-                            </div>
-                              @endforeach
-                                
-                                
+                                    </div>
+                                @endforeach
+
+
                             </div>
 
                         </div>
@@ -456,4 +459,3 @@
         <!-- Shipping Section ends here-->
     </main>
 @endsection
-

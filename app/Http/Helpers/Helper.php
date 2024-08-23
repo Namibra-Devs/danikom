@@ -14,3 +14,10 @@ if (! function_exists('convertUtf8')) {
         return mb_detect_encoding($value, mb_detect_order(), true) === 'UTF-8' ? $value : mb_convert_encoding($value, 'UTF-8');
     }
 }
+
+if (!function_exists('replaceBaseUrl') ) {
+    function replaceBaseUrl($content) {
+        $content = str_replace("{base_url}", url('/'), $content);
+        return $content;
+    }
+}
