@@ -62,6 +62,14 @@ body {
   border: none !important;
 }
 
+.bg-badge {
+  background: var(--Active-colour) !important;
+  color: white !important;
+  font-size: .6rem !important;
+  margin-left: .25rem;
+  text-align: center !important;
+}
+
 /* Home Page Main Style */
 main {
   background-color: var(--ash-inactive-color);

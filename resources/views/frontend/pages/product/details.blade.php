@@ -30,8 +30,8 @@
                             @foreach ($product->product_images as $image)
                                 <div class="item pt-30">
                                     <a class="image-popup"
-                                        href="{{ asset('assets/frontend/images/product/sliders/' . $image->image) }}"><img
-                                            src="{{ asset('assets/frontend/images/product/sliders/' . $image->image) }}"
+                                        href="{{ asset('assets/frontend/images/products/sliders/' . $image->image) }}"><img
+                                            src="{{ asset('assets/frontend/images/products/sliders/' . $image->image) }}"
                                             alt=""></a>
                                 </div>
                             @endforeach
@@ -39,7 +39,7 @@
                         <div class="product-details-slide-item mt-30">
                             <ul class="d-flex">
                                 @foreach ($product->product_images as $image)
-                                    <li><img src="{{ asset('assets/frontend/images/product/sliders/' . $image->image) }}"
+                                    <li><img src="{{ asset('assets/frontend/images/products/sliders/' . $image->image) }}"
                                             alt=""></li>
                                 @endforeach
                             </ul>

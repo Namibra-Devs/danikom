@@ -21,3 +21,18 @@ if (!function_exists('replaceBaseUrl') ) {
         return $content;
     }
 }
+
+if (!function_exists('cartLength')) {
+    function cartLength()
+    {
+        $length = 0;
+        if (session()->has('cart') && !empty(session()->get('cart'))) {
+            $cart = session()->get('cart');
+            foreach ($cart as $key => $cartItem) {
+                $length += (float)$cartItem['qty'];
+            }
+        }
+
+        return round($length, 2);
+    }
+}
