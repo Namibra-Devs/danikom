@@ -190,6 +190,28 @@ Route::get('/checkout/{slug}', 'App\Http\Controllers\Frontend\ProductController@
 Route::post('/coupon', 'App\Http\Controllers\Frontend\ProductController@coupon')->name('frontend.coupon');
 
 
+// User Login and Register routes
+Route::group([], function () {
+  Route::get('/login', 'User\LoginController@login')->name('user.login.submit');
+
+  Route::get('/register', 'User\RegisterController@registerPage')->name('user-register');
+  Route::post('/register/submit', 'User\RegisterController@register')->name('user-register-submit');
+  Route::get('/register/verify/{token}', 'User\RegisterController@token')->name('user-register-token');
+  Route::get('/forgot', 'User\ForgotController@showforgotform')->name('user-forgot');
+  Route::post('/forgot', 'User\ForgotController@forgot')->name('user-forgot-submit');
+});
+
+Route::group(['middleware' => ['web', 'setlang']], function () {
+  Route::get('/login', 'User\LoginController@showLoginForm')->name('user.login');
+  Route::post('/login', 'User\LoginController@login')->name('user.login.submit');
+  Route::get('/register', 'User\RegisterController@registerPage')->name('user-register');
+  Route::post('/register/submit', 'User\RegisterController@register')->name('user-register-submit');
+  Route::get('/register/verify/{token}', 'User\RegisterController@token')->name('user-register-token');
+  Route::get('/forgot', 'User\ForgotController@showforgotform')->name('user-forgot');
+  Route::post('/forgot', 'User\ForgotController@forgot')->name('user-forgot-submit');
+});
+
+
 
 if (!app()->runningInConsole()) {
 

@@ -335,7 +335,7 @@
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <div class="row d-flex justify-content-center align-items-center gap-3">
-                              @foreach ($related_products as $product)
+                              @foreach ($related_product as $product)
                               <div class="col-lg-3 col-10">
                                 <div class="card p-2 mt-2 small-card">
                                     <img src="{{ asset('assets/frontend/images/product/featured/' . $product->feature_image) }}" class="card-img-top w-100"
@@ -450,24 +450,3 @@
     </main>
 @endsection
 
-
-
-<div class="card p-2 mt-2 small-card">
-  <img src="/public/src/img/products/basket.png" class="card-img-top w-100"
-      alt="...">
-  <div class="card-body">
-      <h5 class="card-title">Unrefined Shea Butter (Yellow)</h5>
-      <p class="card-text">Traditionally extracted Unrefined Shea Butter.</p>
-      <div class="d-flex justify-content-center align-items-center">
-          <a href="./yellowshea.html"
-              class="btn rounded-pill details details-products text-white">See
-              Details <svg class="ms-2" width="15" height="15"
-                  viewBox="0 0 18 15" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path
-                      d="M17.293 8.20711C17.6836 7.81658 17.6836 7.18342 17.293 6.79289L10.9291 0.428933C10.5386 0.0384087 9.90539 0.0384086 9.51487 0.428933C9.12435 0.819457 9.12435 1.45262 9.51487 1.84315L15.1717 7.5L9.51487 13.1569C9.12435 13.5474 9.12435 14.1805 9.51487 14.5711C9.90539 14.9616 10.5386 14.9616 10.9291 14.5711L17.293 8.20711ZM0.585937 8.5L16.5859 8.5L16.5859 6.5L0.585938 6.5L0.585937 8.5Z"
-                      fill="white" />
-              </svg></a>
-      </div>
-  </div>
-</div>
