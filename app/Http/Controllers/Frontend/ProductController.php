@@ -108,7 +108,6 @@ class ProductController extends Controller
 
             $product = Product::findOrFail($id);
 
-            if ($product->type != 'digital') {
                 if (!empty($cart) && array_key_exists($id, $cart)) {
                     if ($product->stock < $cart[$id]['qty'] + $qty) {
                         return response()->json(['error' => 'Out of Stock']);
@@ -118,7 +117,6 @@ class ProductController extends Controller
                         return response()->json(['error' => 'Out of Stock']);
                     }
                 }
-            }
 
             if (!$product) {
                 abort(404);
