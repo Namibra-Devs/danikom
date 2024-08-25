@@ -36,7 +36,6 @@ body {
 
 .nav-link:hover {
   color: var(--Active-colour) !important;
-  outline: 2px solid var(--button-color) !important;
   border-radius: .5rem;
 }
 

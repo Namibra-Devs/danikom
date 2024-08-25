@@ -239,16 +239,16 @@ if (!app()->runningInConsole()) {
 
 
       if ($type == 'products') {
-        $action = 'Front\ProductController@product';
+        $action = 'App\Http\Controllers\Frontend\ProductController@product';
         $routeName = 'frontend.product';
       } elseif ($type == 'cart') {
-        $action = 'Front\ProductController@cart';
+        $action = 'App\Http\Controllers\Frontend\ProductController@cart';
         $routeName = 'frontend.cart';
       } elseif ($type == 'product_checkout') {
-        $action = 'Front\ProductController@checkout';
+        $action = 'App\Http\Controllers\Frontend\ProductController@checkout';
         $routeName = 'frontend.checkout';
       } elseif ($type == 'blogs') {
-        $action = 'Front\FrontendController@blogs';
+        $action = 'App\Http\Controllers\Frontend\FrontendController@blogs';
         $routeName = 'frontend.blogs';
       } elseif ($type == 'login') {
         $action = 'User\LoginController@showLoginForm';

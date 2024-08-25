@@ -24,34 +24,42 @@
                                     <h4 class="fw-bold fs-5 px-2 pt-2">Products Available</h4>
                                 </div>
                                 <nav class="nav flex-column nav-pills" id="pills-tab" role="tablist">
-                                    <a class="available-products nav-link text-dark my-lg-2 active" id="pills-ivory-tab"
-                                        data-bs-toggle="pill" data-bs-target="#pills-ivory" type="button" role="tab"
-                                        aria-controls="pills-ivory" aria-selected="true">Unrefined Shea Butter
+                                    @foreach ($products as $product)
+                                    <a class="available-products nav-link text-dark my-lg-2 @if ($product->id == 1)
+                                        active
+                                        
+                                    @endif" id="product-{{ $product->id }}-tab"
+                                    data-bs-toggle="pill" data-bs-target="#product-1" type="button" role="tab"
+                                    aria-controls="product-{{ $product->id }}" aria-selected="true"></a>
+                                    @endforeach
+                                    {{-- <a class="available-products nav-link text-dark my-lg-2 active" id="product-1-tab"
+                                        data-bs-toggle="pill" data-bs-target="#product-1" type="button" role="tab"
+                                        aria-controls="product-1" aria-selected="true">Unrefined Shea Butter
                                         (Ivory)</a>
-                                        <a class="available-products nav-link text-dark my-lg-2" id="pills-yellow-tab"
-                                        data-bs-toggle="pill" data-bs-target="#pills-yellow" type="button" role="tab"
-                                        aria-controls="pills-yellow" aria-selected="false">Unrefined Shea Butter
+                                        <a class="available-products nav-link text-dark my-lg-2" id="product-4-tab"
+                                        data-bs-toggle="pill" data-bs-target="#product-4" type="button" role="tab"
+                                        aria-controls="product-4" aria-selected="false">Unrefined Shea Butter
                                         (Yellow)</a>
-                                    <a class="available-products nav-link text-dark my-lg-2" id="pills-cocoa-tab"
-                                        data-bs-toggle="pill" data-bs-target="#pills-cocoa" type="button" role="tab"
-                                        aria-controls="pills-cocoa" aria-selected="false">Natural Cocoa Butter</a>
-                                    <a class="available-products nav-link text-dark my-lg-2" id="pills-basket-tab"
-                                        data-bs-toggle="pill" data-bs-target="#pills-basket" type="button" role="tab"
-                                        aria-controls="pills-basket" aria-selected="false">Handcrafted basket</a>
-                                    <a class="available-products nav-link text-dark my-lg-2" id="pills-cashew-tab"
-                                        data-bs-toggle="pill" data-bs-target="#pills-cashew" type="button" role="tab"
-                                        aria-controls="pills-cashew" aria-selected="false">Cashew Nuts in Shells</a>
-                                    <a class="available-products nav-link text-dark my-lg-2" id="pills-bodicare-tab"
-                                        data-bs-toggle="pill" data-bs-target="#pills-bodicare" type="button" role="tab"
-                                        aria-controls="pills-bodicare" aria-selected="false">Bodicare African Black
-                                        Soap</a>
+                                    <a class="available-products nav-link text-dark my-lg-2" id="product-2-tab"
+                                        data-bs-toggle="pill" data-bs-target="#product-2" type="button" role="tab"
+                                        aria-controls="product-2" aria-selected="false">Natural Cocoa Butter</a>
+                                    <a class="available-products nav-link text-dark my-lg-2" id="product-3-tab"
+                                        data-bs-toggle="pill" data-bs-target="#product-3" type="button" role="tab"
+                                        aria-controls="product-3" aria-selected="false">Handcrafted basket</a>
+                                    <a class="available-products nav-link text-dark my-lg-2" id="product-5-tab"
+                                        data-bs-toggle="pill" data-bs-target="#product-5" type="button" role="tab"
+                                        aria-controls="product-5" aria-selected="false">Cashew Nuts in Shells</a>
+                                    <a class="available-products nav-link text-dark my-lg-2" id="product-6-tab"
+                                        data-bs-toggle="pill" data-bs-target="#product-6" type="button" role="tab"
+                                        aria-controls="product-6" aria-selected="false">Bodicare African Black
+                                        Soap</a> --}}
                                 </nav>
                             </div>
                         </div>
                         <div class="col-lg-8 col-11 ms-lg-2">
                             <div class="tab-content mt-lg-0" id="pills-tabContent">
-                                <div class="tab-pane fade show active" id="pills-ivory" role="tabpanel"
-                                    aria-labelledby="pills-ivory-tab">
+                                <div class="tab-pane fade show active" id="product-1" role="tabpanel"
+                                    aria-labelledby="product-1-tab">
 
                                         <div class="row justify-content-center align-items-center">
                                             <div class="col-lg-4 col-md-6 col-11 ms-lg-4">
@@ -274,8 +282,8 @@
                                 </div>
 
                                 <!-- Cocoa tab -->
-                                <div class="tab-pane fade show" id="pills-cocoa" role="tabpanel"
-                                    aria-labelledby="pills-cocoa-tab">
+                                <div class="tab-pane fade show" id="product-2" role="tabpanel"
+                                    aria-labelledby="product-2-tab">
 
                                         <div class="row justify-content-center align-items-center">
                                             <div class="col-lg-4 col-md-6 col-11 ms-lg-4">
@@ -502,8 +510,8 @@
                                 </div>
 
                                 <!-- Yellow tab -->
-                                <div class="tab-pane fade show" id="pills-yellow" role="tabpanel"
-                                    aria-labelledby="pills-yellow-tab">
+                                <div class="tab-pane fade show" id="product-4" role="tabpanel"
+                                    aria-labelledby="product-4-tab">
 
                                         <div class="row justify-content-center align-items-center">
                                             <div class="col-lg-4 col-md-6 col-11 ms-lg-4">
@@ -730,8 +738,8 @@
                                 </div>
 
                                 <!-- Basket tab -->
-                                <div class="tab-pane fade show" id="pills-basket" role="tabpanel"
-                                    aria-labelledby="pills-basket-tab">
+                                <div class="tab-pane fade show" id="product-3" role="tabpanel"
+                                    aria-labelledby="product-3-tab">
 
                                         <div class="row justify-content-center align-items-center">
                                             <div class="col-lg-4 col-md-6 col-11 ms-lg-4">
@@ -969,8 +977,8 @@
                                 </div>
 
                                 <!-- Cashew tab -->
-                                <div class="tab-pane fade show" id="pills-cashew" role="tabpanel"
-                                    aria-labelledby="pills-cashew-tab">
+                                <div class="tab-pane fade show" id="product-5" role="tabpanel"
+                                    aria-labelledby="product-5-tab">
 
                                         <div class="row justify-content-center align-items-center">
                                             <div class="col-lg-4 col-md-6 col-11 ms-lg-4">
@@ -1193,8 +1201,8 @@
                                 </div>
 
                                 <!-- Bodicare tab -->
-                                <div class="tab-pane fade show" id="pills-bodicare" role="tabpanel"
-                                    aria-labelledby="pills-bodicare-tab">
+                                <div class="tab-pane fade show" id="product-6" role="tabpanel"
+                                    aria-labelledby="product-6-tab">
 
                                         <div class="row justify-content-center align-items-center">
                                             <div class="col-lg-4 col-md-6 col-11 ms-lg-4">
