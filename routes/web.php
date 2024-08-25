@@ -186,7 +186,7 @@ Route::get('/add-to-cart/{id}', 'App\Http\Controllers\Frontend\ProductController
 Route::post('/cart/update', 'App\Http\Controllers\Frontend\ProductController@updatecart')->name('cart.update');
 Route::get('/cart/item/remove/{id}', 'App\Http\Controllers\Frontend\ProductController@cartitemremove')->name('cart.item.remove');
 Route::get('/checkout', 'App\Http\Controllers\Frontend\ProductController@checkout')->name('frontend.checkout');
-Route::get('/checkout/{slug}', 'App\Http\Controllers\Frontend\ProductController@Prdouctcheckout')->name('frontend.product.checkout');
+Route::get('/checkout/{slug}', 'App\Http\Controllers\Frontend\ProductController@Productcheckout')->name('frontend.product.checkout');
 Route::post('/coupon', 'App\Http\Controllers\Frontend\ProductController@coupon')->name('frontend.coupon');
 
 
@@ -201,14 +201,14 @@ Route::group([], function () {
   Route::post('/forgot', 'User\ForgotController@forgot')->name('user-forgot-submit');
 });
 
-Route::group(['middleware' => ['web', 'setlang']], function () {
-  Route::get('/login', 'User\LoginController@showLoginForm')->name('user.login');
-  Route::post('/login', 'User\LoginController@login')->name('user.login.submit');
-  Route::get('/register', 'User\RegisterController@registerPage')->name('user-register');
-  Route::post('/register/submit', 'User\RegisterController@register')->name('user-register-submit');
-  Route::get('/register/verify/{token}', 'User\RegisterController@token')->name('user-register-token');
-  Route::get('/forgot', 'User\ForgotController@showforgotform')->name('user-forgot');
-  Route::post('/forgot', 'User\ForgotController@forgot')->name('user-forgot-submit');
+Route::group([], function () {
+  Route::get('/login', 'App\Http\Controllers\User\LoginController@showLoginForm')->name('user.login');
+  Route::post('/login', 'App\Http\Controllers\User\LoginController@login')->name('user.login.submit');
+  Route::get('/register', 'App\Http\Controllers\User\RegisterController@registerPage')->name('user-register');
+  Route::post('/register/submit', 'App\Http\Controllers\User\RegisterController@register')->name('user-register-submit');
+  Route::get('/register/verify/{token}', 'App\Http\Controllers\User\RegisterController@token')->name('user-register-token');
+  Route::get('/forgot', 'App\Http\Controllers\User\ForgotController@showforgotform')->name('user-forgot');
+  Route::post('/forgot', 'App\Http\Controllers\User\ForgotController@forgot')->name('user-forgot-submit');
 });
 
 

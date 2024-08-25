@@ -89,76 +89,11 @@
                                 <form class="d-inline-block ml-2" method="GET"
                                     action="{{ route('frontend.product.checkout', $product->slug) }}">
                                     <input type="hidden" value="" name="qty" id="order_click_with_qty">
-                                    {{-- <div class="row flex-start mx-0 product-sizes">
-                              <div class="product-description-label text-body mt-2 pr-2">Sizes
-                                  :
-                              </div>
-                              <div>
-                                  <div class="list-inline checkbox-alphanumeric checkbox-alphanumeric--style-1 mb-2 mx-1 flex-start row"
-                                      style="padding-left: 0;">
-                                      <div>
-                                          <li class="for-mobile-capacity">
-                                              <input type="radio" id="choice_1-M" name="choice_1" value="M" checked="">
-                                              <label style="font-size: 12px;" for="choice_1-M">M</label>
-                                          </li>
-                                      </div>
-                                      <div>
-                                          <li class="for-mobile-capacity">
-                                              <input type="radio" id="choice_1-L" name="choice_1" value="L">
-                                              <label style="font-size: 12px;" for="choice_1-L">L</label>
-                                          </li>
-                                      </div>
-                                      <div>
-                                          <li class="for-mobile-capacity">
-                                              <input type="radio" id="choice_1-XL" name="choice_1" value="XL">
-                                              <label style="font-size: 12px;" for="choice_1-XL">XL</label>
-                                          </li>
-                                      </div>
-                                      <div>
-                                          <li class="for-mobile-capacity">
-                                              <input type="radio" id="choice_1-2XL" name="choice_1" value="2XL">
-                                              <label style="font-size: 12px;" for="choice_1-2XL">2XL</label>
-                                          </li>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div> --}}
                                     <a class="main-btn cart-btn cart-link d-inline-block"
                                         data-href="{{ route('add.cart', $product->id) }}">{{ __('Add To Cart') }}</a>
                                     <button type="submit" class="main-btn checkout-btn">{{ __('Order Now') }}</button>
                                 </form>
                             </div>
-
-                            {{-- <div class="product-social-icon social-link a2a_kit a2a_kit_size_32">
-                      <ul class="social-share">
-                          <li>
-                              <a class="facebook a2a_button_facebook" href="">
-                                <i class="fab fa-facebook-f"></i>
-                              </a>
-                            </li>
-                              <li>
-                                  <a class="twitter a2a_button_twitter" href="">
-                                    <i class="fab fa-twitter"></i>
-                                  </a>
-                              </li>
-                              <li>
-                                  <a class="linkedin a2a_button_linkedin" href="">
-                                    <i class="fab fa-linkedin-in"></i>
-                                  </a>
-                              </li>
-                              <li>
-                                  <a class="pinterest a2a_button_pinterest" href="">
-                                    <i class="fab fa-pinterest"></i>
-                                  </a>
-                              </li>
-                              <li>
-
-                              <a class="a2a_dd plus" href="https://www.addtoany.com/share">
-                                  <i class="fas fa-plus"></i>
-                                </a>
-                              </li>
-                      </ul>
-                  </div> --}}
                             <script async src="https://static.addtoany.com/menu/page.js"></script>
                             <div class="product-details-tags">
                                 <ul>

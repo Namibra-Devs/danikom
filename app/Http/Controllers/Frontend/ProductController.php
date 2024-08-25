@@ -301,7 +301,7 @@ class ProductController extends Controller
     }
 
 
-    public function Prdouctcheckout(Request $request, $slug)
+    public function Productcheckout(Request $request, $slug)
     {
         $product = Product::where('slug', $slug)->firstOrFail();
 
