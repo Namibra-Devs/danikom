@@ -495,7 +495,7 @@ a.billing:hover {
   width: 20rem;
 }
 
-input[type="text"], input[type="email"], input[type="tel"], select {
+input[type="text"], input[type="email"], input[type="tel"], input[type="password"], select {
   border-radius: 1rem !important;
   box-shadow: none !important;
   border-width: .1rem;
