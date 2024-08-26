@@ -190,16 +190,7 @@ Route::get('/checkout/{slug}', 'App\Http\Controllers\Frontend\ProductController@
 Route::post('/coupon', 'App\Http\Controllers\Frontend\ProductController@coupon')->name('frontend.coupon');
 
 
-// User Login and Register routes
-Route::group([], function () {
-  Route::get('/login', 'User\LoginController@login')->name('user.login.submit');
 
-  Route::get('/register', 'User\RegisterController@registerPage')->name('user-register');
-  Route::post('/register/submit', 'User\RegisterController@register')->name('user-register-submit');
-  Route::get('/register/verify/{token}', 'User\RegisterController@token')->name('user-register-token');
-  Route::get('/forgot', 'User\ForgotController@showforgotform')->name('user-forgot');
-  Route::post('/forgot', 'User\ForgotController@forgot')->name('user-forgot-submit');
-});
 
 Route::group([], function () {
   Route::get('/login', 'App\Http\Controllers\User\LoginController@showLoginForm')->name('user.login');
@@ -251,16 +242,16 @@ if (!app()->runningInConsole()) {
         $action = 'App\Http\Controllers\Frontend\FrontendController@blogs';
         $routeName = 'frontend.blogs';
       } elseif ($type == 'login') {
-        $action = 'User\LoginController@showLoginForm';
+        $action = 'App\Http\Controllers\User\LoginController@showLoginForm';
         $routeName = 'user.login';
       } elseif ($type == 'register') {
-        $action = 'User\RegisterController@registerPage';
+        $action = 'App\Http\Controllers\User\RegisterController@registerPage';
         $routeName = 'user-register';
       } elseif ($type == 'forget_password') {
-        $action = 'User\ForgotController@showforgotform';
+        $action = 'App\Http\Controllers\User\ForgotController@showforgotform';
         $routeName = 'user-forgot';
       } elseif ($type == 'admin_login') {
-        $action = 'App\Http\Controllers\Admin\LoginController@login';
+        $action = 'App\Http\Controllers\App\Http\Controllers\Admin\LoginController@login';
         $routeName = 'admin.login';
         Route::get("$permalink", "$action")->name("$routeName")->middleware('guest:admin');
         continue;
