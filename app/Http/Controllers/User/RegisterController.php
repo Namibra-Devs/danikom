@@ -20,7 +20,7 @@ class RegisterController extends Controller
     public function registerPage()
     {
 
-        return view('frontend.register');
+        return view('frontend.pages.register');
 
     }
 
@@ -28,6 +28,8 @@ class RegisterController extends Controller
     {
 
         $rules = [
+            'fname' => 'required',
+            'lname' => 'required',
             'email'   => 'required|email|unique:users',
             'username' => 'required|unique:users',
             'password' => 'required|confirmed'
@@ -50,7 +52,7 @@ class RegisterController extends Controller
             'toName' => $user->username,
             'customer_username' => $user->username,
             'verification_link' => "<a href='" . url('register/verify/' . $token) . "'>" . url('register/verify/' . $token) . "</a>",
-            'website_title' => 'Shanti Jewelry',
+            'website_title' => 'Danikom',
             'templateType' => 'email_verification',
             'type' => 'emailVerification'
         ];

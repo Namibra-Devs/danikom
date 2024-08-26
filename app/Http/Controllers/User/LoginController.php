@@ -49,10 +49,10 @@ class LoginController extends Controller
 
 
 
-        // $rules = [
-        //     'email'   => 'required|email',
-        //     'password' => 'required'
-        // ];
+        $rules = [
+            'email'   => 'required|email',
+            'password' => 'required'
+        ];
 
         // if ($bs->is_recaptcha == 1) {
         //     $rules['g-recaptcha-response'] = 'required|captcha';
@@ -61,7 +61,8 @@ class LoginController extends Controller
         //     'g-recaptcha-response.required' => 'Please verify that you are not a robot.',
         //     'g-recaptcha-response.captcha' => 'Captcha error! try again later or contact site admin.',
         // ];
-        // $request->validate($rules, $messages);
+
+        $request->validate($rules);
         //--- Validation Section Ends
 
         // Attempt to log the user in
