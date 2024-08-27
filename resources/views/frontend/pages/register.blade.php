@@ -7,6 +7,14 @@
             <form action="{{ route('user-register-submit') }}" method="POST" class="container singup-form">
                 @csrf
                 <div class="singup-header">
+                    @if (Session::has('sendmail'))
+                        <div class="alert alert-success mb-4">
+                            <p style="line-height: 24px;">{{ Session::get('sendmail') }}</p>
+                        </div>
+                    @endif
+                    @if ($errors->any())
+                        <p class="text-danger mb-0 mt-2">{{ $errors->first() }}</p>
+                    @endif
                     <h4>Sign Up</h4>
                     <p>Fill your information below or register with your
                         social account.</p>
@@ -51,25 +59,25 @@
                         <div class="mb-3">
                             <label for="password" class="form-label">Password<span
                                     class="required-field fw-bold text-danger">*</span></label>
-                                <input type="password" class="form-control" name="password" placeholder="**********"
-                                    aria-label="password" aria-describedby="addon-wrapping"
-                                    value="{{ Request::old('password') }}" required>
-                                @if ($errors->has('password'))
-                                    <p class="text-danger mb-0 mt-2">{{ $errors->first('password') }}</p>
-                                @endif
+                            <input type="password" class="form-control" name="password" placeholder="**********"
+                                aria-label="password" aria-describedby="addon-wrapping"
+                                value="{{ Request::old('password') }}" required>
+                            @if ($errors->has('password'))
+                                <p class="text-danger mb-0 mt-2">{{ $errors->first('password') }}</p>
+                            @endif
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="mb-3">
                             <label for="confirm_password" class="form-label">Confirm Password<span
                                     class="required-field fw-bold text-danger">*</span></label>
-                                <input type="password" class="form-control" name="password_confirmation"
-                                    placeholder="**********" aria-label="confirmpassword" aria-describedby="addon-wrapping"
-                                    value="{{ Request::old('password_confirmation') }}" required>
+                            <input type="password" class="form-control" name="password_confirmation"
+                                placeholder="**********" aria-label="confirmpassword" aria-describedby="addon-wrapping"
+                                value="{{ Request::old('password_confirmation') }}" required>
 
-                                    @if ($errors->has('password_confirmation'))
-                                    <p class="text-danger mb-0 mt-2">{{ $errors->first('password_confirmation') }}</p>
-                                @endif
+                            @if ($errors->has('password_confirmation'))
+                                <p class="text-danger mb-0 mt-2">{{ $errors->first('password_confirmation') }}</p>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -106,7 +114,7 @@
                     </div>
 
 
-                    
+
                 </div>
 
             </form>
