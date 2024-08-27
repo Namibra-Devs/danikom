@@ -5,14 +5,9 @@ namespace App\Http\Controllers\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Helpers\KreativMailer;
-use App\User;
+use App\Models\User;
 use Auth;
 use Session;
-use App\Language;
-use Config;
-use App\BasicSetting as BS;
-use App\BasicExtended as BE;
-use App\BasicExtra;
 
 class RegisterController extends Controller
 {
@@ -28,8 +23,8 @@ class RegisterController extends Controller
     {
 
         $rules = [
-            'fname' => 'required',
-            'lname' => 'required',
+            'firstname' => 'required',
+            'lastname' => 'required',
             'email'   => 'required|email|unique:users',
             'username' => 'required|unique:users',
             'password' => 'required|confirmed'

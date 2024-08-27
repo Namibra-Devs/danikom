@@ -251,7 +251,7 @@ if (!app()->runningInConsole()) {
         $action = 'App\Http\Controllers\User\ForgotController@showforgotform';
         $routeName = 'user-forgot';
       } elseif ($type == 'admin_login') {
-        $action = 'App\Http\Controllers\App\Http\Controllers\Admin\LoginController@login';
+        $action = 'App\Http\Controllers\Admin\LoginController@login';
         $routeName = 'admin.login';
         Route::get("$permalink", "$action")->name("$routeName")->middleware('guest:admin');
         continue;
