@@ -37,6 +37,7 @@ class RegisterController extends Controller
             $user = new User;
             $input = $request->all();
             $input['status'] = 1;
+            $input['username'] = $request['firstname'];
             $input['password'] = bcrypt($request['password']);
             $token = md5(time() . $request->name . $request->email);
             $input['verification_link'] = $token;

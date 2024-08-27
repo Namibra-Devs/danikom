@@ -57,15 +57,6 @@ class RegisterUserController extends Controller
         $user = User::findOrFail($request->user_id);
 
 
-        if ($user->event_details()->count() > 0) {
-            $bookings = $user->event_details()->get();
-            foreach ($bookings as $key => $booking) {
-                @unlink('assets/frontend/receipt/' . $booking->receipt);
-                @unlink('assets/frontend/invoices/' . $booking->invoice);
-                $booking->delete();
-            }
-        }
-
         if ($user->order_items()->count() > 0) {
             $user->order_items()->delete();
         }
@@ -93,14 +84,6 @@ class RegisterUserController extends Controller
         foreach ($ids as $id) {
             $user = User::findOrFail($id);
 
-            if ($user->event_details()->count() > 0) {
-                $bookings = $user->event_details()->get();
-                foreach ($bookings as $key => $booking) {
-                    @unlink('assets/frontend/receipt/' . $booking->receipt);
-                    @unlink('assets/frontend/invoices/' . $booking->invoice);
-                    $booking->delete();
-                }
-            }
 
             if ($user->order_items()->count() > 0) {
                 $user->order_items()->delete();
