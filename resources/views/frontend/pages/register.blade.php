@@ -139,7 +139,7 @@
 
             </div> --}}
             <div class="d-flex my-3 justify-content-center align-items-center">
-                <p class="p-0 m-0">Already have an Account?</p> <a href="" class="signin-link ms-2">Sign
+                <p class="p-0 m-0">Already have an Account?</p> <a href="{{ route('user.login') }}" class="signin-link ms-2">Sign
                     In</a>
 
             </div>

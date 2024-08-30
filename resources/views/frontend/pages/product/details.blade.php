@@ -289,7 +289,7 @@
                                                 <h5 class="card-title">{{ convertUtf8($product->title) }}</h5>
                                                 <p class="card-text">{{ convertUtf8($product->summary) }}</p>
                                                 <div class="d-flex justify-content-center align-items-center">
-                                                    <a href="{{ route('front.product.details', $product->slug) }}"
+                                                    <a href="{{ route('frontend.product.details', $product->slug) }}"
                                                         class="btn rounded-pill details details-products text-white">See
                                                         Details <svg class="ms-2" width="15" height="15"
                                                             viewBox="0 0 18 15" fill="none"

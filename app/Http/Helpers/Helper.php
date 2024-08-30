@@ -36,3 +36,18 @@ if (!function_exists('cartLength')) {
         return round($length, 2);
     }
 }
+
+if (!function_exists('cartTotal')) {
+    function cartTotal()
+    {
+        $total = 0;
+        if (session()->has('cart') && !empty(session()->get('cart'))) {
+            $cart = session()->get('cart');
+            foreach ($cart as $key => $cartItem) {
+                $total += (float)$cartItem['price'] * (float)$cartItem['qty'];
+            }
+        }
+
+        return round($total, 2);
+    }
+}

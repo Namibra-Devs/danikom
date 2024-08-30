@@ -275,7 +275,7 @@ class ProductController extends Controller
 
         if (!Auth::check()) {
                 if ($request->type != 'guest') {
-                    Session::put('link', route('front.checkout'));
+                    Session::put('link', route('frontend.checkout'));
                     return redirect(route('user.login', ['redirected' => 'checkout']));
                 }
         }
@@ -347,7 +347,7 @@ class ProductController extends Controller
                 Session::put('link', url()->current());
                 return redirect(route('user.login'));
             }
-            return redirect(route('front.checkout'));
+            return redirect(route('frontend.checkout'));
         }
 
 
@@ -366,7 +366,7 @@ class ProductController extends Controller
                 Session::put('link', url()->current());
                 return redirect(route('user.login'));
             }
-            return redirect(route('front.checkout'));
+            return redirect(route('frontend.checkout'));
         }
 
         if ($product->type != 'digital' && $product->stock <  $qty) {
@@ -391,7 +391,7 @@ class ProductController extends Controller
             Session::put('link', url()->current());
             return redirect(route('user.login'));
         }
-        return redirect(route('front.checkout'));
+        return redirect(route('frontend.checkout'));
     }
 
     public function coupon(Request $request)

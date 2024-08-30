@@ -148,23 +148,23 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin', 'checkstatus']
 // User Routes
 Route::group(['prefix' => 'user', 'middleware' => ['auth', 'userstatus']], function () {
   // Summernote image upload
-  Route::post('/summernote/upload', 'User\SummernoteController@upload')->name('user.summernote.upload');
+  Route::post('/summernote/upload', 'App\Http\Controllers\User\SummernoteController@upload')->name('user.summernote.upload');
 
-  Route::get('/dashboard', 'User\UserController@index')->name('user-dashboard');
-  Route::get('/reset', 'User\UserController@resetform')->name('user-reset');
-  Route::post('/reset', 'User\UserController@reset')->name('user-reset-submit');
-  Route::get('/profile', 'User\UserController@profile')->name('user-profile');
-  Route::post('/profile', 'User\UserController@profileupdate')->name('user-profile-update');
-  Route::get('/shipping/details', 'User\UserController@shippingdetails')->name('shpping-details');
-  Route::post('/shipping/details/update', 'User\UserController@shippingupdate')->name('user-shipping-update');
-  Route::get('/logout', 'User\LoginController@logout')->name('user-logout');
-  Route::get('/billing/details', 'User\UserController@billingdetails')->name('billing-details');
-  Route::post('/billing/details/update', 'User\UserController@billingupdate')->name('billing-update');
-  Route::get('/orders', 'User\OrderController@index')->name('user-orders');
-  Route::get('/order/{id}', 'User\OrderController@orderdetails')->name('user-orders-details');
-  Route::get('/events', 'User\EventController@index')->name('user-events');
-  Route::get('/event/{id}', 'User\EventController@eventdetails')->name('user-event-details');
-  Route::post('/zip-file/upload', 'User\TicketController@zip_upload')->name('zip.upload');
+  Route::get('/dashboard', 'App\Http\Controllers\User\UserController@index')->name('user-dashboard');
+  Route::get('/reset', 'App\Http\Controllers\User\UserController@resetform')->name('user-reset');
+  Route::post('/reset', 'App\Http\Controllers\User\UserController@reset')->name('user-reset-submit');
+  Route::get('/profile', 'App\Http\Controllers\User\UserController@profile')->name('user-profile');
+  Route::post('/profile', 'App\Http\Controllers\User\UserController@profileupdate')->name('user-profile-update');
+  Route::get('/shipping/details', 'App\Http\Controllers\User\UserController@shippingdetails')->name('shpping-details');
+  Route::post('/shipping/details/update', 'App\Http\Controllers\User\UserController@shippingupdate')->name('user-shipping-update');
+  Route::get('/logout', 'App\Http\Controllers\User\LoginController@logout')->name('user-logout');
+  Route::get('/billing/details', 'App\Http\Controllers\User\UserController@billingdetails')->name('billing-details');
+  Route::post('/billing/details/update', 'App\Http\Controllers\User\UserController@billingupdate')->name('billing-update');
+  Route::get('/orders', 'App\Http\Controllers\User\OrderController@index')->name('user-orders');
+  Route::get('/order/{id}', 'App\Http\Controllers\User\OrderController@orderdetails')->name('user-orders-details');
+  Route::get('/events', 'App\Http\Controllers\User\EventController@index')->name('user-events');
+  Route::get('/event/{id}', 'App\Http\Controllers\User\EventController@eventdetails')->name('user-event-details');
+  Route::post('/zip-file/upload', 'App\Http\Controllers\User\TicketController@zip_upload')->name('zip.upload');
 });
 
 

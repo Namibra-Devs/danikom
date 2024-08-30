@@ -7,6 +7,11 @@
             <form action="{{ route('user.login') }}" class="container singup-form" method="POST">
               @csrf
 
+              @if ($errors->any())
+              <p class="text-danger mb-0 mt-2">{{ $errors->first() }}</p>
+          @endif
+
+              
                 <div class="singup-header">
                     <h4>Sign In</h4>
                     <p>Fill your information below or register with your

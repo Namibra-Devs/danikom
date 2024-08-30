@@ -8,9 +8,7 @@ use Illuminate\Validation\Rule;
 use Auth;
 use Illuminate\Support\Facades\Hash;
 use App\BasicExtra;
-use App\Language;
-use App\ProductOrder;
-use App\Subscription;
+use App\Models\ProductOrder;
 use Session;
 
 class UserController extends Controller
@@ -26,20 +24,6 @@ class UserController extends Controller
         $data['orders'] = ProductOrder::where('user_id', Auth::user()->id)->orderby('id', 'desc')->limit(10)->get();
 
         return view('user.dashboard', $data);
-    }
-
-
-    public function packages() {
-        if (session()->has('lang')) {
-            $currentLang = Language::where('code', session()->get('lang'))->first();
-        } else {
-            $currentLang = Language::where('is_default', 1)->first();
-        }
-
-        $data['packages'] = $currentLang->packages;
-        $data['activeSub'] = Subscription::where('user_id', Auth::user()->id)->where('status', 1);
-
-        return view('user.packages', $data);
     }
 
 
