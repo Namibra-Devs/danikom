@@ -148,7 +148,7 @@
                                             <tbody>
                                                 @foreach ($data->orderitems as $key => $order)
                                                 @php
-                                                    $product = App\Product::findOrFail($order->product_id);
+                                                    $product = App\Models\Product::findOrFail($order->product_id);
                                                     $ser = 0;
                                                 @endphp
                                                 

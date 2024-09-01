@@ -164,7 +164,6 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth', 'userstatus']], funct
   Route::get('/order/{id}', 'App\Http\Controllers\User\OrderController@orderdetails')->name('user-orders-details');
   Route::get('/events', 'App\Http\Controllers\User\EventController@index')->name('user-events');
   Route::get('/event/{id}', 'App\Http\Controllers\User\EventController@eventdetails')->name('user-event-details');
-  Route::post('/zip-file/upload', 'App\Http\Controllers\User\TicketController@zip_upload')->name('zip.upload');
 });
 
 

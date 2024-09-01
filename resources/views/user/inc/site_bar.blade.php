@@ -11,12 +11,6 @@
                     @elseif(request()->is('user/order/*')) active @endif"
                     href="{{ route('user-orders') }}">{{ __('Product Orders') }} </a></li>
 
-                <li>
-                    <a class="@if (request()->path() == 'user/events') active
-                    @elseif(request()->is('user/event/*')) active @endif"
-                        href="{{ route('user-events') }}">{{ __('My Tickets') }}</a>
-                </li>
-
             <li>
                 <a class=" @if (request()->path() == 'user/profile') active @endif"
                     href="{{ route('user-profile') }}">{{ __('Edit Profile') }}</a>

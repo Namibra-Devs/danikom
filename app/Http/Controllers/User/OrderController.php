@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\OrderItem;
 use App\Models\Product;
-use App\ProductOrder;
+use App\Models\ProductOrder;
 use Auth;
 use Illuminate\Support\Facades\Session;
 

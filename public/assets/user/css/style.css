@@ -684,7 +684,6 @@ a.language-btn {
     text-align: left;
     -webkit-transition: .5s;
     transition: .5s;
-    color: #544946;
 }
 
 a.language-btn:hover {
@@ -1044,7 +1043,7 @@ ul.language-dropdown li:last-child a {
 }
 
 .hero-bg {
-    background-image: url('../img/hero-bg.jpg');
+    background-image: url('../img/aboutheader.png');
     background-size: cover;
 }
 
@@ -1261,7 +1260,7 @@ a.hero-boxed-btn:hover::after {
 .intro-bg {
     height: 100%;
     background-size: cover;
-    background-image: url('../img/what_we_do.jpg');
+    background-image: url('../img/aboutheader.png');
 }
 
 
@@ -2305,15 +2304,15 @@ ul.footer-links li a:hover {
 }
 
 .hero-bg-1 {
-    background-image: url('../img/hero-bg.jpg');
+    background-image: url('../img/aboutheader.png');
 }
 
 .hero-bg-2 {
-    background-image: url('../img/hero-bg-2.jpg');
+    background-image: url('../img/aboutheader.png');
 }
 
 .hero-bg-3 {
-    background-image: url('../img/hero-bg-3.jpg');
+    background-image: url('../img/aboutheader.png');
 }
 
 @-webkit-keyframes fadeIn {
