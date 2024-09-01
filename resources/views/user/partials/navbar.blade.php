@@ -3,17 +3,6 @@
     <div class="container-fluid">
 
         <div class="d-flex justify-content-between align-items-center container" id="navbarSupportedContent">
-            <div class="m-auto">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link text-uppercase" aria-current="page" href="{{ route('frontend.product') }}">COLLECTIONS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-uppercase" href="">CONTACT US</a>
-                    </li>
-                </ul>
-            </div>
-
             <div class="logo m-auto text-center mt-0">
                 <a class="navbar-brand" href="/"><img src="{{ asset('assets/frontend/images/logo.svg') }}" alt=""
                         class="img-fluid"></a>
