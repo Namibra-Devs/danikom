@@ -11,7 +11,7 @@ use App\Models\ShippingCharge;
 use Auth;
 use App\Models\Pcategory;
 use Session;
-use App\PaymentGateway;
+use App\Models\PaymentGateway;
 use Carbon\Carbon;
 
 class ProductController extends Controller

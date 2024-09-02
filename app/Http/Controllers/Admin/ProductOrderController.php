@@ -10,7 +10,7 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\PorductOrderExport;
-use App\PaymentGateway;
+use App\Models\PaymentGateway;
 use App\User;
 use Carbon\Carbon;
 use Session;
