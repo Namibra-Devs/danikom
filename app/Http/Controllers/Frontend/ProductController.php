@@ -92,7 +92,7 @@ class ProductController extends Controller
             $cart = null;
         }
 
-        return view('frontend.product.cart', compact('cart'));
+        return view('frontend.pages.product.cart', compact('cart'));
     }
 
     public function addToCart($id)
@@ -297,7 +297,7 @@ class ProductController extends Controller
         $data['paystack'] = $data['paystackData']->convertAutoData();
         $data['discount'] = session()->has('coupon') && !empty(session()->get('coupon')) ? session()->get('coupon') : 0;
 
-        return view('frontend.product.checkout', $data);
+        return view('frontend.pages.product.checkout', $data);
     }
 
 

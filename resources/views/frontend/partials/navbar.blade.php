@@ -142,7 +142,7 @@
                         </a>
                     </li>
                     <li class="nav-item" id="cartIconWrapper">
-                        <a href="#" class="btn px-4 rounded-5">
+                        <a href="{{ route('frontend.cart') }}" class="btn px-4 rounded-5">
                             <span class="position-relative">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
