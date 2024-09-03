@@ -34,7 +34,6 @@
                         <div class="col-lg-12">
                             <div class="user-profile-details">
                                 <div class="order-details">
-                                    @if (!onlyDigitalItems($data))
                                         <div class="progress-area-step">
                                             <ul class="progress-steps">
                                                 <li class="{{$data->order_status == 'pending' ? 'active' : ''}}">
@@ -55,7 +54,6 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                    @endif
                                     <div class="title">
                                         <h4>{{__('Product Order Details')}}</h4>
                                     </div>

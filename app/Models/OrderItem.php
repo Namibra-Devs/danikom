@@ -20,7 +20,6 @@ class OrderItem extends Model
         "description",
         "price",
         "previous_price",
-        "product_size"
 
     ];
 

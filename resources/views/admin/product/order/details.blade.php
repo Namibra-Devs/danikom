@@ -300,7 +300,6 @@
                       <td>
                          <b>{{__('Quantity')}}:</b> <span>{{$item->qty}}</span><br>
                       </td>
-                      <td>{{$item->product_size}}</td>
                       <td>{{$item->price}}</td>
                       <td>{{$item->price * $item->qty}}</td>
                    </tr>

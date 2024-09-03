@@ -96,7 +96,7 @@ class ProductOrderController extends Controller
                 $mail->Port       = '587';
 
                  //Recipients
-                 $mail->setFrom('jobid@ubids.edu.gh', 'Shanti Jewelry');
+                 $mail->setFrom('jobid@ubids.edu.gh', 'Danikom Trading');
                  $mail->addAddress($user->email, $user->fname);
 
                  // Content

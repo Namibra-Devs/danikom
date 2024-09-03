@@ -34,6 +34,7 @@ return new class extends Migration
 
             $table->decimal('total', 11, 2)->nullable();
             $table->string('method');
+            $table->string('gateway_type', 100)->nullable();
             $table->string('currency_code');
             $table->string('order_number');
             $table->decimal('shipping_charge', 11, 2)->nullable();
