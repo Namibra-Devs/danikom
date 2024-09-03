@@ -50,4 +50,6 @@ if (!function_exists('cartTotal')) {
 
         return round($total, 2);
     }
+    
 }
+

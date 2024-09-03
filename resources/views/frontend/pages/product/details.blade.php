@@ -180,7 +180,7 @@
                                             </div>
                                         @endif
                                         @if (Auth::user())
-                                            @if (App\OrderItem::where('user_id', Auth::user()->id)->where('product_id', $product->id)->exists())
+                                            @if (App\Models\OrderItem::where('user_id', Auth::user()->id)->where('product_id', $product->id)->exists())
                                                 <div class="shop-review-form">
                                                     @error('error')
                                                         <p class="text-danger my-2">{{ Session::get('error') }}</p>
