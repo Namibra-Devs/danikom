@@ -312,53 +312,6 @@
             <div class="bottom">
                 <div class="container">
                     <div class="row">
-                        @if (!onlyDigitalItemsInCart() && count($shippings) > 0)
-                            <div class="col-12 mb-5">
-                                <div class="table">
-                                    <div class="shop-title-box">
-                                        <h3>{{ __('Shipping Methods') }}</h3>
-                                    </div>
-                                    <table class="cart-table shipping-method">
-                                        <thead class="cart-header">
-                                            <tr>
-                                                <th>#</th>
-                                                <th>{{ __('Method') }}</th>
-                                                <th class="price">{{ __('Cost') }}</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($shippings as $key => $charge)
-                                                <tr>
-                                                    <td>
-                                                        <input type="radio" {{ $key == 0 ? 'checked' : '' }}
-                                                            name="shipping_charge" {{ $cart == null ? 'disabled' : '' }}
-                                                            data="{{ $charge->charge }}" class="shipping-charge"
-                                                            value="{{ $charge->id }}">
-                                                    </td>
-                                                    <td>
-                                                        <p class="mb-2">
-                                                            <strong>{{ convertUtf8($charge->title) }}</strong>
-                                                        </p>
-                                                        <p><small>{{ convertUtf8($charge->text) }}</small></p>
-                                                    </td>
-                                                    <td>
-
-                                                        <span>{{ $charge->charge }}</span>
-
-                                                    </td>
-                                                </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        @else
-                            <div class="col-12">
-                                <input style="visibility: hidden;" type="radio" checked name="shipping_charge"
-                                    {{ $cart == null ? 'disabled' : '' }} data="0" class="shipping-charge"
-                                    value="0">
-                            </div>
-                        @endif
                         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                             <div class="table">
                                 <div class="shop-title-box">

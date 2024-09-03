@@ -53,3 +53,13 @@ if (!function_exists('cartTotal')) {
     
 }
 
+if (!function_exists('cartSubTotal')) {
+    function cartSubTotal()
+    {
+        $coupon = session()->has('coupon') && !empty(session()->get('coupon')) ? session()->get('coupon') : 0;
+        $cartTotal = cartTotal();
+        $subTotal = $cartTotal - $coupon;
+
+        return round($subTotal, 2);
+    }
+}

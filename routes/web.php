@@ -188,6 +188,7 @@ Route::get('/checkout', 'App\Http\Controllers\Frontend\ProductController@checkou
 Route::get('/checkout/{slug}', 'App\Http\Controllers\Frontend\ProductController@Productcheckout')->name('frontend.product.checkout');
 Route::post('/coupon', 'App\Http\Controllers\Frontend\ProductController@coupon')->name('frontend.coupon');
 
+Route::post('/product/paystack/submit', 'Payment\product\PaystackController@store')->name('product.paystack.submit');
 
 
 

@@ -932,7 +932,6 @@
 .price-range-box form input{
     width: 140px;
     border: 0;
-    color: $heading-color;
 
 }
 .price-range-box form input:placeholder{
@@ -1451,7 +1450,7 @@
 ***/
 
 .cart-area {
-    padding-top: 122px;
+    padding-top: 12rem;
     padding-bottom: 130px;
 }
 

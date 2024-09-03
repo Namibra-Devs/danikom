@@ -293,8 +293,8 @@ class ProductController extends Controller
             $data['cart'] = null;
         }
         $data['shippings'] = ShippingCharge::get();
-        $data['paystackData'] = PaymentGateway::whereKeyword('paystack')->first();
-        $data['paystack'] = $data['paystackData']->convertAutoData();
+        // $data['paystackData'] = PaymentGateway::whereKeyword('paystack')->first();
+        // $data['paystack'] = $data['paystackData']->convertAutoData();
         $data['discount'] = session()->has('coupon') && !empty(session()->get('coupon')) ? session()->get('coupon') : 0;
 
         return view('frontend.pages.product.checkout', $data);
