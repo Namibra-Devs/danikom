@@ -1065,7 +1065,7 @@
 .checkout-area {
     position: relative;
     display: block;
-    padding-top: 130px;
+    padding-top: 12rem;
 }
 
 .checkout-area .shop-title-box h3 {
@@ -1229,7 +1229,6 @@
     position: relative;
     display: block;
     background: #fdfcfb;
-    padding-top: 126px;
     padding-bottom: 130px;
     margin-top: 115px;
 }

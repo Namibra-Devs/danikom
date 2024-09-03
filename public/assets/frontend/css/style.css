@@ -10,6 +10,14 @@ body {
   overflow-x: hidden !important;
 }
 
+li {
+  list-style: none !important;
+}
+
+a {
+  text-decoration: none !important;
+}
+
 .notification {
   background-color: var(--Active-colour);
   color: white;

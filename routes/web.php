@@ -190,7 +190,7 @@ Route::post('/coupon', 'App\Http\Controllers\Frontend\ProductController@coupon')
 
 Route::post('/product/paystack/submit', 'Payment\product\PaystackController@store')->name('product.paystack.submit');
 
-
+Route::post('/product/placeorder', 'App\Http\Controllers\Frontend\ProductController@placeorder')->name('product.placeorder');
 
 Route::group([], function () {
   Route::get('/login', 'App\Http\Controllers\User\LoginController@showLoginForm')->name('user.login');

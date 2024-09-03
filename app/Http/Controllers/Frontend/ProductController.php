@@ -108,15 +108,15 @@ class ProductController extends Controller
 
             $product = Product::findOrFail($id);
 
-                if (!empty($cart) && array_key_exists($id, $cart)) {
-                    if ($product->stock < $cart[$id]['qty'] + $qty) {
-                        return response()->json(['error' => 'Out of Stock']);
-                    }
-                } else {
-                    if ($product->stock < $qty) {
-                        return response()->json(['error' => 'Out of Stock']);
-                    }
+            if (!empty($cart) && array_key_exists($id, $cart)) {
+                if ($product->stock < $cart[$id]['qty'] + $qty) {
+                    return response()->json(['error' => 'Out of Stock']);
                 }
+            } else {
+                if ($product->stock < $qty) {
+                    return response()->json(['error' => 'Out of Stock']);
+                }
+            }
 
             if (!$product) {
                 abort(404);
@@ -226,9 +226,9 @@ class ProductController extends Controller
             $cart = Session::get('cart');
             foreach ($request->product_id as $key => $id) {
                 $product = Product::findOrFail($id);
-                    if ($product->stock < $request->qty[$key]) {
-                        return response()->json(['error' => $product->title . ' stock not available']);
-                    }
+                if ($product->stock < $request->qty[$key]) {
+                    return response()->json(['error' => $product->title . ' stock not available']);
+                }
                 if (isset($cart[$id])) {
                     $cart[$id]['qty'] =  $request->qty[$key];
                     Session::put('cart', $cart);
@@ -274,10 +274,10 @@ class ProductController extends Controller
     {
 
         if (!Auth::check()) {
-                if ($request->type != 'guest') {
-                    Session::put('link', route('frontend.checkout'));
-                    return redirect(route('user.login', ['redirected' => 'checkout']));
-                }
+            if ($request->type != 'guest') {
+                Session::put('link', route('frontend.checkout'));
+                return redirect(route('user.login', ['redirected' => 'checkout']));
+            }
         }
 
 
@@ -292,7 +292,7 @@ class ProductController extends Controller
         } else {
             $data['cart'] = null;
         }
-        $data['shippings'] = ShippingCharge::get();
+        // $data['shippings'] = ShippingCharge::get();
         // $data['paystackData'] = PaymentGateway::whereKeyword('paystack')->first();
         // $data['paystack'] = $data['paystackData']->convertAutoData();
         $data['discount'] = session()->has('coupon') && !empty(session()->get('coupon')) ? session()->get('coupon') : 0;
@@ -432,5 +432,36 @@ class ProductController extends Controller
                 return response()->json(['status' => 'error', 'message' => "Coupon is not valid"]);
             }
         }
+    }
+
+    public function payreturn()
+    {
+        return view('frontend.product.success');
+    }
+
+    public function placeorder(Request $request)
+    {
+        if (!Session::has('cart')) {
+            return view('errors.404');
+        }
+
+        $success_url = action('Frontend\ProductController@payreturn');
+
+        if ($this->orderValidation($request)) {
+            return $this->orderValidation($request);
+        }
+
+
+        $txnId = 'txn_' . \Str::random(8) . time();
+        $chargeId = 'ch_' . \Str::random(9) . time();
+        $order = $this->saveOrder($request, $txnId, $chargeId, "Pending");
+        $order_id = $order->id;
+
+        $this->saveOrderedItems($order_id);
+
+
+        $this->sendMails($order);
+
+        return redirect($success_url);
     }
 }

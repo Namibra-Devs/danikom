@@ -11,7 +11,7 @@
 
     <!--====== CHECKOUT PART START ======-->
     <section class="checkout-area">
-        <form action="{{ route('product.paystack.submit') }}" method="POST" id="payment" enctype="multipart/form-data"
+        <form action="{{ route('product.placeorder') }}" method="POST" id="payment" enctype="multipart/form-data"
             class="product_form">
             @csrf
             @if (Session::has('stock_error'))
@@ -39,7 +39,7 @@
                                                 $bcountry = old('billing_country');
                                             }
                                         @endphp
-                                        <input type="text" name="billing_country" value="{{ $bcountry }}">
+                                        <input type="text" class="form-control" name="billing_country" value="{{ $bcountry }}">
                                     </div>
                                     @error('billing_country')
                                         <p class="text-danger mt-2">{{ convertUtf8($message) }}</p>
@@ -58,7 +58,7 @@
                                                 $bfname = old('billing_fname');
                                             }
                                         @endphp
-                                        <input type="text" name="billing_fname" value="{{ $bfname }}">
+                                        <input class="form-control" type="text" name="billing_fname" value="{{ $bfname }}">
                                     </div>
                                     @error('billing_fname')
                                         <p class="text-danger mt-2">{{ convertUtf8($message) }}</p>
@@ -77,7 +77,7 @@
                                                 $blname = old('billing_lname');
                                             }
                                         @endphp
-                                        <input type="text" name="billing_lname" value="{{ $blname }}">
+                                        <input class="form-control" type="text" name="billing_lname" value="{{ $blname }}">
                                     </div>
                                     @error('billing_lname')
                                         <p class="text-danger mt-2">{{ convertUtf8($message) }}</p>
@@ -96,7 +96,7 @@
                                                 $baddress = old('billing_address');
                                             }
                                         @endphp
-                                        <input type="text" name="billing_address" value="{{ $baddress }}">
+                                        <input class="form-control" type="text" name="billing_address" value="{{ $baddress }}">
                                     </div>
                                     @error('billing_address')
                                         <p class="text-danger mt-2">{{ convertUtf8($message) }}</p>
@@ -116,7 +116,7 @@
                                                 $bcity = old('billing_city');
                                             }
                                         @endphp
-                                        <input type="text" name="billing_city" value="{{ $bcity }}">
+                                        <input class="form-control" type="text" name="billing_city" value="{{ $bcity }}">
                                     </div>
                                     @error('billing_city')
                                         <p class="text-danger mt-2">{{ convertUtf8($message) }}</p>
@@ -135,7 +135,7 @@
                                                 $bmail = old('billing_email');
                                             }
                                         @endphp
-                                        <input type="text" name="billing_email" value="{{ $bmail }}">
+                                        <input class="form-control" type="text" name="billing_email" value="{{ $bmail }}">
                                     </div>
                                     @error('billing_email')
                                         <p class="text-danger mt-2">{{ convertUtf8($message) }}</p>
@@ -154,7 +154,7 @@
                                                 $bnumber = old('billing_number');
                                             }
                                         @endphp
-                                        <input type="text" name="billing_number" value="{{ $bnumber }}">
+                                        <input class="form-control" type="text" name="billing_number" value="{{ $bnumber }}">
                                     </div>
                                     @error('billing_number')
                                         <p class="text-danger mt-2">{{ convertUtf8($message) }}</p>
@@ -182,7 +182,7 @@
                                                 $scountry = old('shpping_country');
                                             }
                                         @endphp
-                                        <input type="text" name="shpping_country" value="{{ $scountry }}">
+                                        <input class="form-control" type="text" name="shpping_country" value="{{ $scountry }}">
                                     </div>
                                     @error('shpping_country')
                                         <p class="text-danger mt-2">{{ convertUtf8($message) }}</p>
@@ -201,7 +201,7 @@
                                                 $sfname = old('shpping_fname');
                                             }
                                         @endphp
-                                        <input type="text" name="shpping_fname" value="{{ $sfname }}">
+                                        <input class="form-control" type="text" name="shpping_fname" value="{{ $sfname }}">
                                     </div>
                                     @error('shpping_fname')
                                         <p class="text-danger mt-2">{{ convertUtf8($message) }}</p>
@@ -220,7 +220,7 @@
                                                 $slname = old('shpping_lname');
                                             }
                                         @endphp
-                                        <input type="text" name="shpping_lname" value="{{ $slname }}">
+                                        <input class="form-control" type="text" name="shpping_lname" value="{{ $slname }}">
                                     </div>
                                     @error('shpping_lname')
                                         <p class="text-danger mt-2">{{ convertUtf8($message) }}</p>
@@ -239,7 +239,7 @@
                                                 $saddress = old('shpping_address');
                                             }
                                         @endphp
-                                        <input type="text" name="shpping_address" value="{{ $saddress }}">
+                                        <input class="form-control" type="text" name="shpping_address" value="{{ $saddress }}">
                                     </div>
                                     @error('shpping_address')
                                         <p class="text-danger mt-2">{{ convertUtf8($message) }}</p>
@@ -259,7 +259,7 @@
                                                 $scity = old('shpping_city');
                                             }
                                         @endphp
-                                        <input type="text" name="shpping_city" value="{{ $scity }}">
+                                        <input class="form-control" type="text" name="shpping_city" value="{{ $scity }}">
                                     </div>
                                     @error('shpping_city')
                                         <p class="text-danger mt-2">{{ convertUtf8($message) }}</p>
@@ -278,7 +278,7 @@
                                                 $smail = old('shpping_email');
                                             }
                                         @endphp
-                                        <input type="text" name="shpping_email" value="{{ $smail }}">
+                                        <input class="form-control" type="text" name="shpping_email" value="{{ $smail }}">
                                     </div>
                                     @error('shpping_email')
                                         <p class="text-danger mt-2">{{ convertUtf8($message) }}</p>
@@ -297,7 +297,7 @@
                                                 $snumber = old('shpping_number');
                                             }
                                         @endphp
-                                        <input type="text" name="shpping_number" value="{{ $snumber }}">
+                                        <input class="form-control" type="text" name="shpping_number" value="{{ $snumber }}">
                                     </div>
                                     @error('shpping_number')
                                         <p class="text-danger mt-2">{{ convertUtf8($message) }}</p>
@@ -401,7 +401,7 @@
 
 
                                         {{-- @if (!onlyDigitalItemsInCart() && sizeof($shippings) > 0) --}}
-                                        @php
+                                        {{-- @php
                                             $scharge = round($shippings[0]->charge, 2);
                                         @endphp
                                         <li class="clearfix">
@@ -409,7 +409,7 @@
                                                 <span class="text-danger">(<i class="fas fa-plus"></i>)</span></span>
                                             <span class="col"><span data="{{ $scharge }}"
                                                     class="shipping">{{ $scharge }}</span></span>
-                                        </li>
+                                        </li> --}}
                                         {{-- @else
                                             @php
                                                 $scharge = 0;
@@ -437,10 +437,10 @@
                                 </div>
 
                                 <div class="payment-options">
-                                    <h4 class="mb-4">{{ __('Pay Via') }}</h4>
+                                    {{-- <h4 class="mb-4">{{ __('Pay Via') }}</h4> --}}
 
 
-                                    @includeIf('frontend.product.payment-gateways')
+                                    {{-- @includeIf('frontend.product.payment-gateways') --}}
 
 
                                     <div class="placeorder-button text-left">
@@ -472,7 +472,7 @@
         // apply coupon functionality starts
         function applyCoupon() {
             $.post(
-                "{{ route('front.coupon') }}", {
+                "{{ route('frontend.coupon') }}", {
                     coupon: $("input[name='coupon']").val(),
                     _token: document.querySelector('meta[name=csrf-token]').getAttribute('content')
                 },
@@ -570,34 +570,6 @@
             showDetails($(this).data('tabid'));
         });
 
-        // after paystack form is submitted
-        $(document).on('submit', '#paystack', function() {
-            var val = $('#sub').val();
-            if (val == 0) {
-                var total = $(".grandTotal").text();
-                var curr = "GHS";
-                total = Math.round(total);
-                var handler = PaystackPop.setup({
-                    key: "{{ $paystack['key'] }}",
-                    email: "{{ $paystack['email'] }}",
-                    amount: total * 100,
-                    currency: curr,
-                    ref: '' + Math.floor((Math.random() * 1000000000) + 1),
-                    callback: function(response) {
-                        $('#ref_id').val(response.reference);
-                        $('#sub').val('1');
-                        $('#paystack button[type="submit"]').click();
-                    },
-                    onClose: function() {
-                        window.location.reload();
-                    }
-                });
-                handler.openIframe();
-                return false;
 
-            } else {
-                return true;
-            }
-        });
     </script>
 @endsection
