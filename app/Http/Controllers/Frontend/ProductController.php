@@ -610,7 +610,7 @@ class ProductController extends Controller
 
         $this->sendMails($order);
 
-        return redirect(view('frontend.product.success'));
+        return view('frontend.product.success');
     }
 
     
