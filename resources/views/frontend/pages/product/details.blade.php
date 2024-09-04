@@ -86,8 +86,9 @@
 
                             <div class="actions">
 
-                                <form class="d-inline-block ml-2" method="GET"
+                                <form class="d-inline-block ml-2" method="POST"
                                     action="{{ route('frontend.product.checkout', $product->slug) }}">
+                                    @csrf
                                     <input type="hidden" value="" name="qty" id="order_click_with_qty">
                                     <a class="main-btn cart-btn cart-link d-inline-block"
                                         data-href="{{ route('add.cart', $product->id) }}">{{ __('Add To Cart') }}</a>
