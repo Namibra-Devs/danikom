@@ -25,7 +25,7 @@
 
             <div class="about-us d-flex justify-content-center align-items-center p-lg-5 p-2">
                 <p>
-                    Danikom Trading is a credible export brand strategically located in Tamale, the northern region of
+                    Danikom Ghana Ltd. is a credible export brand strategically located in Tamale, the northern region of
                     Ghana which produces Unrefined Shea Butter, Black Soap, and other range of natural cosmetic raw
                     materials for the Ghanaian and export markets.
                     <br><br>

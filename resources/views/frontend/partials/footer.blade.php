@@ -4,10 +4,10 @@
       <div class="col-lg-3">
         <div class="footer-logo">
           <h5 class="fs-6">
-            <img src="/public/src/img/danikomlogo.svg" alt="Danikom Logo"> Danikom Trading
+            <img src="/public/src/img/danikomlogo.svg" alt="Danikom Logo"> Danikom Ghana Ltd.
           </h5>
         </div>
-        <p class="mt-3">Danikom Trading is a credible export brand strategically
+        <p class="mt-3">Danikom Ghana Ltd. is a credible export brand strategically
           located in Tamale, the northern region of Ghana which
           produces Unrefined Shea Butter, Black Soap, and other
           range of natural cosmetic raw materials for the Ghanaian
@@ -99,10 +99,10 @@
       <div class="col-lg-3">
         <div class="footer-logo">
           <h5 class="fs-6">
-            <img src="/public/src/img/danikomlogo.svg" alt="Danikom Logo"> Danikom Trading
+            <img src="/public/src/img/danikomlogo.svg" alt="Danikom Logo"> Danikom Ghana Ltd.
           </h5>
         </div>
-        <p class="mt-3">Danikom Trading is a credible export brand strategically
+        <p class="mt-3">Danikom Ghana Ltd. is a credible export brand strategically
           located in Tamale, the northern region of Ghana which
           produces Unrefined Shea Butter, Black Soap, and other
           range of natural cosmetic raw materials for the Ghanaian
@@ -166,7 +166,7 @@
     </div>
     <div class="copyright pt-3 mt-3">
       <p class="container mt-0 fs-6">
-        Copyright © Danikom Trading 2024. All Rights Reserved
+        Copyright © Danikom Ghana Ltd. 2024. All Rights Reserved
       </p>
     </div>
   </footer>

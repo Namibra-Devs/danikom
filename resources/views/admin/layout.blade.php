@@ -21,7 +21,7 @@
     <title>Danikom</title>
     <link
     rel="icon"
-    href="{{asset('assets/frontend/images/danikomlogo.svg')}}"
+    href="{{asset('assets/frontend/images/danikomlogo-nobg.png')}}"
     >
     @includeif('admin.partials.styles')
     

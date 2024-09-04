@@ -4,14 +4,14 @@
     <meta charset="utf-8">
   	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
     <title>Danikom</title>
-  	<link rel="icon" href="{{asset('assets/frontend/images/danikomlogo.svg')}}">
+  	<link rel="icon" href="{{asset('assets/frontend/images/danikomlogo-nobg.png')}}">
     <link rel="stylesheet" href="{{asset('assets/admin/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/admin/css/login.css')}}">
   </head>
   <body>
     <div class="login-page">
       <div class="text-center mb-4">
-        <img class="login-logo" src="{{asset('assets/frontend/images/danikomlogo.svg')}}" alt="">
+        <img class="login-logo" src="{{asset('assets/frontend/images/danikomlogo-nobg.png')}}" alt="">
       </div>
       <div class="form">
         @if (session()->has('alert'))

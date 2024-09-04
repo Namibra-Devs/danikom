@@ -26,7 +26,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
-  <title>Danikom Trading</title>
+  <title>Danikom Ghana Ltd.</title>
 </head>
 
 <body>

@@ -477,4 +477,5 @@ class ProductController extends Controller
         Session::flash('success', 'Payment Status updated!');
         return back();
     }
+
 }

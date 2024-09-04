@@ -54,7 +54,7 @@
             <div class="me-lg-5 pe-lg-5">
                 <a href="{{ route('frontend.index') }}" class="text-decoration-none text-dark logo">
                     <img src="{{ asset('assets/frontend/images/danikomlogo.svg') }}" alt="Danikom Logo"
-                        class="me-1" />Danikom Trading
+                        class="me-1" />Danikom Ghana Ltd.
                 </a>
             </div>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"

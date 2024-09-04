@@ -30,8 +30,8 @@ class CouponController extends Controller
 
         $validator = Validator::make($request->all(), $rules);
         if ($validator->fails()) {
-            $errmsgs = $validator->getMessageBag()->add('error', 'true');
-            return response()->json($validator->errors());
+            Session::flash('error', $validator->errors()->first());
+            return "error";
         }
 
         $input = $request->except('_token');

@@ -62,7 +62,7 @@ class KreativMailer {
         try {
 
             //Recipients
-            $mail->setFrom('testemail@namibra.io', 'Danikom Trading');
+            $mail->setFrom('testemail@namibra.io', 'Danikom Ghana Ltd.');
             $mail->addAddress($data['toMail'], $data['toName']);
 
             // Attachments

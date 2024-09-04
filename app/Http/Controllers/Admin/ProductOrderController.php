@@ -12,6 +12,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\PorductOrderExport;
 use App\Models\PaymentGateway;
 use App\Models\User;
+use Validator;
 use Carbon\Carbon;
 use Session;
 
@@ -96,7 +97,7 @@ class ProductOrderController extends Controller
                 $mail->Port       = '465';
 
                  //Recipients
-                 $mail->setFrom('testemail@namibra.io', 'Danikom Trading');
+                 $mail->setFrom('testemail@namibra.io', 'Danikom Ghana Ltd.');
                  $mail->addAddress($user->email, $user->fname);
 
                  // Content
@@ -118,6 +119,48 @@ class ProductOrderController extends Controller
         $order = ProductOrder::findOrFail($id);
         return view('admin.product.order.details',compact('order'));
     }
+
+    public function viewOrderUpdate($id) {
+        $order = ProductOrder::findOrFail($id);
+        return view('admin.product.order.update', compact('order'));
+    }
+
+    public function orderUpdate(Request $request) {
+        // Validation rules
+        $rules = [
+            'order_id' => 'required|exists:product_orders,id', // Ensure the order exists
+            'shipping_charge' => 'required|numeric',
+            'total' => 'required|numeric',
+            'shipping_method' => 'required|string'
+        ];
+    
+        // Validator
+        $validator = Validator::make($request->all(), $rules);
+        if ($validator->fails()) {
+            Session::flash('error', $validator->errors()->first());
+            return "error";
+        }
+    
+        // Retrieve the order using the provided order_id
+        $order = ProductOrder::find($request->order_id);
+    
+        if (!$order) {
+            Session::flash('error', 'Order not found.');
+            return "error";
+        }
+    
+        // Update the order details
+        $order->shipping_method = $request->shipping_method;
+        $order->shipping_charge = round($request->shipping_charge, 2);
+        $order->total = $request->total;
+        
+        // Save the updated order back to the database
+        $order->save();
+    
+        Session::flash('success', 'Order updated successfully!');
+        return "success";
+    }
+    
 
 
     public function bulkOrderDelete(Request $request)

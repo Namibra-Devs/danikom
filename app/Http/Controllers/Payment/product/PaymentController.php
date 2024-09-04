@@ -189,7 +189,7 @@ class PaymentController extends Controller
             'customer_name' => $order->billing_fname,
             'order_number' => $order->order_number,
             'order_link' => !empty($order->user_id) ? "<strong>Order Details:</strong> <a href='" . route('user-orders-details',$order->id) . "'>" . route('user-orders-details',$order->id) . "</a>" : "",
-            'website_title' => 'Danikom Trading',
+            'website_title' => 'Danikom Ghana Ltd.',
             'templateType' => 'product_order',
             'type' => 'productOrder'
         ];
