@@ -88,15 +88,15 @@ class ProductOrderController extends Controller
          $mail = new PHPMailer(true);
              try {
                 $mail->isSMTP();
-                $mail->Host       = 'smtp.gmail.com';
+                $mail->Host       = 'smtp.namibra.io';
                 $mail->SMTPAuth   = true;
-                $mail->Username   = 'jobid@ubids.edu.gh';
-                $mail->Password   = 'b7ye6z9h1';
-                $mail->SMTPSecure = 'TLS';
-                $mail->Port       = '587';
+                $mail->Username   = 'testemail@namibra.io';
+                $mail->Password   = 'testemail@123$+';
+                $mail->SMTPSecure = 'ssl';
+                $mail->Port       = '465';
 
                  //Recipients
-                 $mail->setFrom('jobid@ubids.edu.gh', 'Danikom Trading');
+                 $mail->setFrom('testemail@namibra.io', 'Danikom Trading');
                  $mail->addAddress($user->email, $user->fname);
 
                  // Content
