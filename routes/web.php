@@ -202,6 +202,8 @@ Route::group([], function () {
   Route::post('/forgot', 'App\Http\Controllers\User\ForgotController@forgot')->name('user-forgot-submit');
 });
 
+  // review
+  Route::post('product/review/submit', 'App\Http\Controllers\Frontend\ReviewController@reviewsubmit')->name('product.review.submit');
 
 
 if (!app()->runningInConsole()) {

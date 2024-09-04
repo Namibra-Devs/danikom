@@ -11,7 +11,7 @@ use PHPMailer\PHPMailer\Exception;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\PorductOrderExport;
 use App\Models\PaymentGateway;
-use App\User;
+use App\Models\User;
 use Carbon\Carbon;
 use Session;
 
