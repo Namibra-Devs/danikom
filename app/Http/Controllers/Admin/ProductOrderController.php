@@ -12,9 +12,11 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\PorductOrderExport;
 use App\Models\PaymentGateway;
 use App\Models\User;
+use App\Http\Helpers\KreativMailer;
 use Validator;
 use Carbon\Carbon;
 use Session;
+use PDF;
 
 class ProductOrderController extends Controller
 {
@@ -138,7 +140,7 @@ class ProductOrderController extends Controller
         $validator = Validator::make($request->all(), $rules);
         if ($validator->fails()) {
             Session::flash('error', $validator->errors()->first());
-            return "error";
+            return redirect()->back();
         }
     
         // Retrieve the order using the provided order_id
@@ -146,7 +148,7 @@ class ProductOrderController extends Controller
     
         if (!$order) {
             Session::flash('error', 'Order not found.');
-            return "error";
+            return redirect()->back()->with('success', 'Order updated successfully!');
         }
     
         // Update the order details
@@ -156,9 +158,46 @@ class ProductOrderController extends Controller
         
         // Save the updated order back to the database
         $order->save();
+
+        $this->sendMails($order);
     
         Session::flash('success', 'Order updated successfully!');
         return "success";
+    }
+
+    public function sendMails($order) {
+
+        $fileName = \Str::random(4) . time() . '.pdf';
+        $path = 'assets/frontend/invoices/product/' . $fileName;
+        $data['order']  = $order;
+        $pdf = PDF::loadView('pdf.product', $data)->save($path);
+
+
+        ProductOrder::where('id', $order->id)->update([
+            'invoice_number' => $fileName
+        ]);
+
+        // Send Mail to Buyer
+        $mailer = new KreativMailer;
+        $data = [
+            'toMail' => $order->billing_email,
+            'toName' => $order->billing_fname,
+            'attachment' => $fileName,
+            'customer_name' => $order->billing_fname,
+            'order_number' => $order->order_number,
+            'order_link' => !empty($order->user_id) ? "<strong>Order Details:</strong> <a href='" . route('user-orders-details',$order->id) . "'>" . route('user-orders-details',$order->id) . "</a>" : "",
+            'website_title' => 'Danikom Ghana Ltd.',
+            'templateType' => 'order_update',
+            'type' => 'productOrder'
+        ];
+
+        $mailer->mailFromAdmin($data);
+
+
+        Session::flash('success', 'Updated invoice sent to client successfully!');
+        return "success";
+
+
     }
     
 

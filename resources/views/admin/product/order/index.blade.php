@@ -184,7 +184,7 @@
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                   <a class="dropdown-item" href="{{route('admin.product.details', $order->id)}}" target="_blank">Details</a>
-                                  <a class="dropdown-item" href="{{route('admin.product.order.update', $order->id)}}" target="_blank">Edit Invoice</a>
+                                  <a class="dropdown-item" href="{{route('admin.product.update', $order->id)}}" target="_blank">Edit Invoice</a>
                                   <a class="dropdown-item" href="{{asset('assets/frontend/invoices/product/'.$order->invoice_number)}}" target="_blank">Invoice</a>
                                     <form class="deleteform d-block" action="{{route('admin.product.order.delete')}}" method="post">
                                         @csrf

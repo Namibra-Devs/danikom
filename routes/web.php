@@ -144,7 +144,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin', 'checkstatus']
     // Product Order end
 
     // Product Order Invoice Update
-    Route::post('/product/order/{id}/update', 'App\Http\Controllers\Admin\ProductOrderController@orderUpdate')->name('admin.product.order.update.submit');
+    Route::post('/product/order/update/{id}', 'App\Http\Controllers\Admin\ProductOrderController@orderUpdate')->name('admin.product.order.update.submit');
     Route::get('/product/order/{id}/update', 'App\Http\Controllers\Admin\ProductOrderController@viewOrderUpdate')->name('admin.product.order.update');
   });
 });

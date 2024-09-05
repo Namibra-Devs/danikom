@@ -8085,7 +8085,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="logo text-center" style="margin-bottom: 20px; padding-top: 30px;">
-                        <img src="{{ asset('assets/frontend/images/logo.svg') }}" alt="">
+                        <img src="{{asset('assets/frontend/images/danikomlogo-nobg.png')}}" alt="Danikom Ghana Ltd">
                     </div>
 
                     <div class="confirmation-message bg-primary" style="padding: 5px 0px;margin-bottom: 40px;">
@@ -8122,6 +8122,12 @@
                                 </span>
                             </p>
                             <p>
+                                <strong>Shipping Charge:</strong>
+                                <span></span>
+                                {{ $order->shipping_charge }}
+                                </span>
+                            </p>
+                            <p>
                                 <strong>Subtotal:</strong>
                                 <span></span>
                                 {{ $order->cart_total - $order->discount }}
@@ -8142,7 +8148,7 @@
                                 {{ $order->method }}
                             </p>
                         </div>
-                        {{-- <div class="pull-left" style="width: 33.33%">
+                        <div class="pull-left" style="width: 33.33%">
                             <p>
                                 <strong>Name:</strong>
                                 {{ $order->shpping_fname }} {{ $order->shpping_lname }}
@@ -8167,7 +8173,7 @@
                                 <strong>Country:</strong>
                                 {{ $order->shpping_country }}
                             </p>
-                        </div> --}}
+                        </div>
                         <div class="pull-left" style="width: 33.33%">
                             <div>
                                 <h4><strong>Billing Details</strong></h4>
